@@ -1,19 +1,12 @@
 #pragma once
-#include "lib/cimg/CImg.h"
-#include "fin/io/file.h"
+#include "itexture.h"
 
 namespace fin::graphics {
-  class ImageTexture {
-    public:
-    ImageTexture( const io::File& file ) {
-      cimg_library::CImg<unsigned char> img( file.get_path().c_str() );
+  class ImageTexture : public ITexture {
+  public:
+    ImageTexture(unsigned int id, int width, int height) : ITexture(id, width, height) {}
 
-      //img
-    }
+  private:
 
-    void set_data()
-    {
-      
-    }
   };
 }

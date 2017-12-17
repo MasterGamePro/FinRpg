@@ -24,7 +24,7 @@ class DebugScene : public fin::app::IScene {
     fin::app::Stage* stage = new fin::app::Stage();
     camera->set_stage( stage );
 
-    stage->add_child( new Player(camera) );
+    stage->add_child( new Player(camera, app->get_graphics()->ts()) );
   }
 };
 

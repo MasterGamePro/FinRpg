@@ -42,6 +42,7 @@ namespace fin::app {
         long diff = stopwatch->get_current_ms();
         if ( diff >= 1000 ) {
           fps = frame;
+          get_main_window()->set_title(algorithm::string_format("%d", fps));
           frame = 0;
           stopwatch->reset();
         }
@@ -51,6 +52,7 @@ namespace fin::app {
           fps = frame;
           frame = 0;
           time::Time::sleep_ms( 1000 - diff );
+          get_main_window()->set_title(algorithm::string_format("%d", fps));
         }
       }
     }

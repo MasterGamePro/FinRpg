@@ -1,13 +1,22 @@
 #pragma once
-#include <string>
+#include "../itextures.h"
 
 namespace fin::graphics {
   class ITexture {
-    public:
+  public:
+    ITexture(unsigned int id, int width, int height) {
+      this->id = id;
+      this->width = width;
+      this->height = height;
+    }
 
-    virtual int getWidth() = 0;
-    virtual int getHeight() = 0;
+    unsigned int get_id() { return id; }
+    int get_width() { return width; }
+    int get_height() { return height; }
 
-    private:
+  private:
+    unsigned int id;
+    int width;
+    int height;
   };
 }

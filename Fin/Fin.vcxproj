@@ -190,9 +190,11 @@
     <ClInclude Include="src\fin\debug\memory.h" />
     <ClInclude Include="src\fin\graphics\camera\camera.h" />
     <ClInclude Include="src\fin\graphics\impl\gl\screengl.h" />
+    <ClInclude Include="src\fin\graphics\impl\gl\texturesgl.h" />
     <ClInclude Include="src\fin\graphics\impl\gl\transformgl.h" />
     <ClInclude Include="src\fin\graphics\irendertext.h" />
     <ClInclude Include="src\fin\graphics\iscreen.h" />
+    <ClInclude Include="src\fin\graphics\itextures.h" />
     <ClInclude Include="src\fin\graphics\itransform.h" />
     <ClInclude Include="src\fin\app\iwindow.h" />
     <ClInclude Include="src\fin\data\collections\icollection.h" />
@@ -209,7 +211,6 @@
     <ClInclude Include="src\fin\graphics\rendervectortext.h" />
     <ClInclude Include="src\fin\graphics\texture\imagetexture.h" />
     <ClInclude Include="src\fin\graphics\texture\itexture.h" />
-    <ClInclude Include="src\fin\graphics\texture\rendertexture.h" />
     <ClInclude Include="src\fin\graphics\view.h" />
     <ClInclude Include="src\fin\input\idirectionalinput.h" />
     <ClInclude Include="src\fin\input\directionalinputstats.h" />
