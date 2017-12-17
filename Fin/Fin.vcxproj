@@ -184,8 +184,11 @@
     <ClInclude Include="src\fin\data\collections\set\iset.h" />
     <ClInclude Include="src\fin\data\collections\set\hashset.h" />
     <ClInclude Include="src\fin\app\impl\glfw\windowglfw.h" />
+    <ClInclude Include="src\fin\data\collections\stack\istack.h" />
+    <ClInclude Include="src\fin\data\collections\stack\stlstack.h" />
     <ClInclude Include="src\fin\debug\exception.h" />
-    <ClInclude Include="src\fin\graphics\camera.h" />
+    <ClInclude Include="src\fin\debug\memory.h" />
+    <ClInclude Include="src\fin\graphics\camera\camera.h" />
     <ClInclude Include="src\fin\graphics\impl\gl\screengl.h" />
     <ClInclude Include="src\fin\graphics\impl\gl\transformgl.h" />
     <ClInclude Include="src\fin\graphics\irendertext.h" />
@@ -194,7 +197,7 @@
     <ClInclude Include="src\fin\app\iwindow.h" />
     <ClInclude Include="src\fin\data\collections\icollection.h" />
     <ClInclude Include="src\fin\data\collections\list\ilist.h" />
-    <ClInclude Include="src\fin\data\collections\list\vector.h" />
+    <ClInclude Include="src\fin\data\collections\list\stlvector.h" />
     <ClInclude Include="src\fin\data\iiterable.h" />
     <ClInclude Include="src\fin\graphics\igraphics.h" />
     <ClInclude Include="src\fin\graphics\impl\gl\graphicsgl.h" />
@@ -207,7 +210,6 @@
     <ClInclude Include="src\fin\graphics\texture\imagetexture.h" />
     <ClInclude Include="src\fin\graphics\texture\itexture.h" />
     <ClInclude Include="src\fin\graphics\texture\rendertexture.h" />
-    <ClInclude Include="src\fin\graphics\texture\textureutil.h" />
     <ClInclude Include="src\fin\graphics\view.h" />
     <ClInclude Include="src\fin\input\idirectionalinput.h" />
     <ClInclude Include="src\fin\input\directionalinputstats.h" />
@@ -230,12 +232,18 @@
     <ClInclude Include="src\fin\debug\ilog.h" />
     <ClInclude Include="src\fin\debug\log.h" />
     <ClInclude Include="src\fin\debug\standardlog.h" />
+    <ClInclude Include="src\fin\io\file.h" />
     <ClInclude Include="src\fin\math\binary.h" />
+    <ClInclude Include="src\fin\math\geometry\inormal3d.h" />
+    <ClInclude Include="src\fin\math\geometry\normal3d.h" />
+    <ClInclude Include="src\fin\math\geometry\point2d.h" />
+    <ClInclude Include="src\fin\math\geometry\point3d.h" />
     <ClInclude Include="src\fin\math\interpolate.h" />
     <ClInclude Include="src\fin\math\random.h" />
     <ClInclude Include="src\fin\math\shapes\irectangle.h" />
     <ClInclude Include="src\fin\math\shapes\treerectangle.h" />
     <ClInclude Include="src\fin\math\trig.h" />
+    <ClInclude Include="src\fin\time\deltatime.h" />
     <ClInclude Include="src\fin\time\stopwatch.h" />
     <ClInclude Include="src\fin\time\time.h" />
     <ClInclude Include="src\fin\ui\ilist.h" />
@@ -246,11 +254,13 @@
     <ClCompile Include="src\fin\app\actor\iactor.cpp" />
     <ClCompile Include="src\fin\app\iapp.cpp" />
     <ClCompile Include="src\fin\app\iwindow.cpp" />
-    <ClCompile Include="src\fin\graphics\camera.cpp" />
+    <ClCompile Include="src\fin\graphics\camera\camera.cpp" />
     <ClCompile Include="src\fin\graphics\view.cpp" />
     <ClCompile Include="src\fin\input\iinput.cpp" />
     <ClCompile Include="src\fin\input\keypressableinput.cpp" />
     <ClCompile Include="src\fin\debug\log.cpp" />
+    <ClCompile Include="src\fin\math\geometry\normal3d.cpp" />
+    <ClCompile Include="src\fin\math\geometry\point3d.cpp" />
     <ClCompile Include="src\fin\math\trig.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

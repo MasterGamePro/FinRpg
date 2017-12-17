@@ -1,6 +1,6 @@
 #pragma once
 #include "fin/math/shapes/irectangle.h"
-#include "fin/data/collections/list/vector.h"
+#include "fin/data/collections/stack/stlstack.h"
 #include "fin/math/shapes/treerectangle.h"
 #include "fin/debug/log.h"
 
@@ -15,31 +15,30 @@ namespace fin::graphics {
                         rectangle->get_width(), rectangle->get_height() );
 
       if ( viewportStack.size() > 0 ) {
-        copy->attach_to( viewportStack.back() );
+        copy->attach_to( viewportStack.peek() );
       }
 
-      viewportStack.pushBack( copy );
+      viewportStack.push( copy );
       update_viewport( copy );
     }
 
     void end_viewport() {
-      math::TreeRectangle* back = viewportStack.back();
+      math::TreeRectangle* back = viewportStack.peek();
       back->detach();
       delete back;
 
-      viewportStack.popBack();
-
+      viewportStack.pop();
       if ( viewportStack.size() > 0 ) {
-        update_viewport( viewportStack.back() );
+        update_viewport( viewportStack.peek() );
       }
     }
 
-    math::TreeRectangle* get_clip_rectangle() { return viewportStack.back(); }
+    math::TreeRectangle* get_clip_rectangle() { return viewportStack.peek(); }
 
     protected:
     virtual void update_viewport( math::TreeRectangle* rectangle ) = 0;
 
     private:
-    data::Vector<math::TreeRectangle*> viewportStack;
+    data::StlStack<math::TreeRectangle*> viewportStack;
   };
 }

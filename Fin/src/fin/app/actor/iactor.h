@@ -21,10 +21,8 @@ namespace fin::app {
       toplevelInstances.iterate( [input] ( IActor* actor, int i ) { actor->tick_audio(); } );
     }
 
-    IActor() {
-      toplevelInstances.add( this );
-    }
-    virtual ~IActor() {}
+    IActor();
+    virtual ~IActor();
 
     void add_child( IActor* child ) {
       if ( toplevelInstances.remove( child ) ) {
@@ -62,20 +60,36 @@ namespace fin::app {
         child->tick_audio();
       } );
     }
-    void tick_render( graphics::IGraphics* g ) {
+    void tick_render_ortho( graphics::IGraphics* g ) {
       graphics::ITransform* t = g->t();
 
       t->set_target_matrix( graphics::MATRIX_MODELVIEW );
       t->push_matrix();
 
-      on_tick_render( g );
+      on_tick_render_ortho( g );
 
       children.iterate( [g] ( IActor* child, int i ) {
-        child->tick_render( g );
+        child->tick_render_ortho( g );
       } );
 
       t->pop_matrix();
     }
+
+    void tick_render_perspective(graphics::IGraphics* g) {
+      graphics::ITransform* t = g->t();
+
+      t->set_target_matrix(graphics::MATRIX_MODELVIEW);
+      t->push_matrix();
+
+      on_tick_render_perspective(g);
+
+      children.iterate([g](IActor* child, int i) {
+        child->tick_render_perspective(g);
+      });
+
+      t->pop_matrix();
+    }
+
 
     protected:
     virtual void on_tick_control( input::IInput* input ) = 0;
@@ -83,9 +97,10 @@ namespace fin::app {
     virtual void on_tick_collision() = 0;
     virtual void on_tick_animation() = 0;
     virtual void on_tick_audio() = 0;
-    virtual void on_tick_render( graphics::IGraphics* graphics ) = 0;
+    virtual void on_tick_render_ortho( graphics::IGraphics* graphics ) = 0;
+    virtual void on_tick_render_perspective(graphics::IGraphics* graphics) = 0;
 
-    private:
+  private:
     static data::HashSet<IActor*> toplevelInstances;
     data::HashSet<IActor*> children;
   };

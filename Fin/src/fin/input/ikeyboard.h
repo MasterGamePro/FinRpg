@@ -3,7 +3,7 @@
 #include <map>
 #include "pressabledefs.h"
 #include "ikeyconverter.h"
-#include "fin/data/collections/list/vector.h"
+#include "fin/data/collections/list/stlvector.h"
 
 namespace fin::input {
   class IKeyboard {
@@ -27,7 +27,7 @@ namespace fin::input {
       update.keycode = key_converter->get_keycode( tkeycode );
       update.pressableState = pressableState;
 
-      beforeKeyUpdates.pushFront( update );
+      beforeKeyUpdates.push_front( update );
     }
 
     PressableState get_key_state( Keycode keycode ) const {
@@ -47,27 +47,27 @@ namespace fin::input {
 
     // Copy stored inputs into map.
     virtual void before_tick() {
-      while ( !beforeKeyUpdates.isEmpty() ) {
+      while ( !beforeKeyUpdates.is_empty() ) {
         keyUpdate update = beforeKeyUpdates.front();
-        beforeKeyUpdates.popFront();
+        beforeKeyUpdates.pop_front();
 
         pressableStateMap[update.keycode] = update.pressableState;
 
         if ( update.pressableState == PRESSABLESTATE_RELEASED ) {
           update.pressableState = PRESSABLESTATE_UP;
-          afterKeyUpdates.pushFront( update );
+          afterKeyUpdates.push_front( update );
         } else if ( update.pressableState == PRESSABLESTATE_PRESSED ) {
           update.pressableState = PRESSABLESTATE_DOWN;
-          afterKeyUpdates.pushFront( update );
+          afterKeyUpdates.push_front( update );
         }
       }
     }
 
     // Convert recently added press/releases into down/ups.
     virtual void after_tick() {
-      while ( !afterKeyUpdates.isEmpty() ) {
+      while ( !afterKeyUpdates.is_empty() ) {
         keyUpdate update = afterKeyUpdates.front();
-        afterKeyUpdates.popFront();
+        afterKeyUpdates.pop_front();
 
         pressableStateMap[update.keycode] = update.pressableState;
       }
@@ -76,6 +76,6 @@ namespace fin::input {
     private:
     IKeyConverter* key_converter;
     std::map<Keycode, PressableState> pressableStateMap;
-    data::Vector<keyUpdate> beforeKeyUpdates, afterKeyUpdates;
+    data::StlVector<keyUpdate> beforeKeyUpdates, afterKeyUpdates;
   };
 }

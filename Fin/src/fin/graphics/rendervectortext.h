@@ -25,6 +25,84 @@ namespace fin::graphics {
       // Italics
 
       switch ( c ) {
+        case '0':
+          r2d->drawLine( lx, tcy, lcx, ty, lw );
+          r2d->drawLine( lcx, ty, rcx, ty, lw );
+          r2d->drawLine( rcx, ty, rx, tcy, lw );
+          r2d->drawLine( lx, tcy, lx, bcy, lw );
+          r2d->drawLine( lx, bcy, lcx, by, lw );
+          r2d->drawLine( lcx, by, rcx, by, lw );
+          r2d->drawLine( rcx, by, rx, bcy, lw );
+          r2d->drawLine( rx, bcy, rx, tcy, lw );
+          r2d->drawLine( lx, bcy, rx, tcy, lw );
+          break;
+
+        case '1':
+          r2d->drawLine( mx, by, mx, ty, lw );
+          r2d->drawLine( lcx, tcy, mx, ty, lw );
+          break;
+
+        case '2':
+          r2d->drawLine( lx, ty, rx, ty, lw );
+          r2d->drawLine( rx, my, rx, ty, lw );
+          r2d->drawLine( lx, my, rx, my, lw );
+          r2d->drawLine( lx, by, lx, my, lw );
+          r2d->drawLine( lx, by, rx, by, lw );
+          break;
+
+        case '3':
+          r2d->drawLine( lx, ty, rx, ty, lw );
+          r2d->drawLine( lx, my, rx, my, lw );
+          r2d->drawLine( lx, by, rx, by, lw );
+          r2d->drawLine( rx, by, rx, ty, lw );
+          break;
+
+        case '4':
+          r2d->drawLine( lx, my, lx, ty, lw );
+          r2d->drawLine( lx, my, rx, my, lw );
+          r2d->drawLine( rx, by, rx, ty, lw );
+          break;
+
+        case '5':
+          r2d->drawLine( lx, ty, rx, ty, lw );
+          r2d->drawLine( lx, my, lx, ty, lw );
+          r2d->drawLine( lx, my, rx, my, lw );
+          r2d->drawLine( rx, by, rx, my, lw );
+          r2d->drawLine( lx, by, rx, by, lw );
+          break;
+
+        case '6':
+          r2d->drawLine( lx, by, lx, ty, lw );
+          r2d->drawLine( lx, my, rx, my, lw );
+          r2d->drawLine( rx, by, rx, my, lw );
+          r2d->drawLine( lx, by, rx, by, lw );
+          break;
+
+        case '7':
+          r2d->drawLine( lx, ty, rx, ty, lw );
+          r2d->drawLine( rx, by, rx, ty, lw );
+          break;
+
+        case '8':
+          r2d->drawLine( lx, ty, rx, ty, lw );
+          r2d->drawLine( lx, by, lx, ty, lw );
+          r2d->drawLine( lx, my, rx, my, lw );
+          r2d->drawLine( rx, by, rx, ty, lw );
+          r2d->drawLine( lx, by, rx, by, lw );
+          break;
+
+        case '9':
+          r2d->drawLine( lx, ty, rx, ty, lw );
+          r2d->drawLine( lx, my, lx, ty, lw );
+          r2d->drawLine( lx, my, rx, my, lw );
+          r2d->drawLine( rx, by, rx, ty, lw );
+          break;
+
+        case ':':
+          r2d->drawLine( lx, bcy, lx, by, lw );
+          r2d->drawLine( lx, mtcy, lx, my, lw );
+          break;
+
         case '.':
           r2d->drawLine( lx, bcy, lx, by, lw );
           break;

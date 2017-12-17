@@ -69,7 +69,6 @@ namespace fin::graphics {
     virtual void strokeCircle( double x, double y, double r ) { drawCircle( x, y, r, false ); }
     virtual void fillCircle( double x, double y, double r ) { drawCircle( x, y, r, true ); }
 
-
     private:
     IPrimitives* p;
   };

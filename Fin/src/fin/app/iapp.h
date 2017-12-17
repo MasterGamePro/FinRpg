@@ -12,6 +12,7 @@ namespace fin::app {
     public:
 
     IApp();
+    ~IApp();
 
     virtual input::IInput* get_input() const = 0;
     virtual audio::IAudio* get_audio() const = 0;

@@ -204,17 +204,8 @@ namespace fin::algorithm {
      */
     template<typename ... Args>
     void vomit( std::string methodName, std::string errorMessageFormatString, Args&& ... args ) const {
-      std::string message = "Parser.";
-      message += methodName;
-      message += ": At row ";
-      message += rowIndex;
-      message += ", column ";
-      message += columnIndex;
-      message += "; ";
-      message += error;
-
       throw debug::Exception( "Parser", methodName, 
-                              "At (" + std::to_string(rowIndex)+ ", " + std::to_string(column"): \n" + errorMessageFormatString, std::forward<Args>(args) ... );
+                              "At (" + std::to_string(rowIndex)+ ", " + std::to_string(columnIndex) + "): \n" + errorMessageFormatString, std::forward<Args>(args) ... );
     }
 
     private:

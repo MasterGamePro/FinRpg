@@ -12,7 +12,8 @@ namespace fin::graphics {
   enum TextAnimationType {
     TEXTANIMATION_NONE,
     TEXTANIMATION_WAVE,
-    TEXTANIMATION_SHAKE
+    TEXTANIMATION_SHAKE,
+    TEXTANIMATION_JIGGLE
   };
 
   class IRenderText {
@@ -50,6 +51,11 @@ namespace fin::graphics {
             dy = y + cH / 8 * math::Random::randomd( -1, 1 );
             break;
 
+          case TEXTANIMATION_JIGGLE:
+            dx = x;
+            dy = y +cH / 16 * sin( math::Trig::TAU*tf + i*.5 );
+            break;
+
           case TEXTANIMATION_NONE:
           default:
             dx = x;
@@ -63,7 +69,7 @@ namespace fin::graphics {
     }
 
     protected:
-    TextAnimationType textAnimationType = TEXTANIMATION_SHAKE;
+    TextAnimationType textAnimationType = TEXTANIMATION_JIGGLE; // TEXTANIMATION_SHAKE;
     Render2d* r2d;
   };
 }

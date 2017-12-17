@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 
-#include "fin/data/collections/list/vector.h"
+#include "fin/data/collections/list/stlvector.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -10,21 +10,21 @@ namespace fin::data {
   public:
 
   TEST_METHOD( TestVector_IsEmpty ) {
-    Vector<int> list;
+    StlVector<int> list;
 
-    Assert::IsTrue( list.isEmpty() );
+    Assert::IsTrue( list.is_empty() );
 
-    list.pushBack( 0 );
+    list.push_back( 0 );
 
-    Assert::IsFalse( list.isEmpty() );
+    Assert::IsFalse( list.is_empty() );
   }
 
   TEST_METHOD( TestVector_At ) {
-    Vector<int> list;
+    StlVector<int> list;
 
-    list.pushBack( 0 );
-    list.pushBack( 1 );
-    list.pushBack( 2 );
+    list.push_back( 0 );
+    list.push_back( 1 );
+    list.push_back( 2 );
 
     Assert::AreEqual( 0, list.at( 0 ) );
     Assert::AreEqual( 1, list.at( 1 ) );
@@ -32,11 +32,11 @@ namespace fin::data {
   }
 
   TEST_METHOD( TestVector_Brackets ) {
-    Vector<int> list;
+    StlVector<int> list;
 
-    list.pushBack( 0 );
-    list.pushBack( 1 );
-    list.pushBack( 2 );
+    list.push_back( 0 );
+    list.push_back( 1 );
+    list.push_back( 2 );
 
     Assert::AreEqual( 0, list[0] );
     Assert::AreEqual( 1, list[1] );
@@ -44,11 +44,11 @@ namespace fin::data {
   }
 
   TEST_METHOD( TestVector_FrontBack ) {
-    Vector<int> list;
+    StlVector<int> list;
 
-    list.pushBack( 0 );
-    list.pushBack( 1 );
-    list.pushBack( 2 );
+    list.push_back( 0 );
+    list.push_back( 1 );
+    list.push_back( 2 );
 
     Assert::AreEqual( 0, list.front() );
     Assert::AreEqual( 2, list.back() );

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <map>
-#include "fin/data/collections/list/vector.h"
+#include "fin/data/collections/list/stlvector.h"
 #include "../components/icomponent.h"
 #include "iactor.h"
 #include "fin/graphics/igraphics.h"
@@ -12,11 +12,11 @@ namespace fin::app {
     public:
 
     ComponentActor() {
-      componentListMap[COMPONENT_CONTROL] = new data::Vector<IComponent*>();
-      componentListMap[COMPONENT_PHYSICS] = new data::Vector<IComponent*>();
-      componentListMap[COMPONENT_COLLISION] = new data::Vector<IComponent*>();
-      componentListMap[COMPONENT_ANIMATION] = new data::Vector<IComponent*>();
-      componentListMap[COMPONENT_AUDIO] = new data::Vector<IComponent*>();
+      componentListMap[COMPONENT_CONTROL] = new data::StlVector<IComponent*>();
+      componentListMap[COMPONENT_PHYSICS] = new data::StlVector<IComponent*>();
+      componentListMap[COMPONENT_COLLISION] = new data::StlVector<IComponent*>();
+      componentListMap[COMPONENT_ANIMATION] = new data::StlVector<IComponent*>();
+      componentListMap[COMPONENT_AUDIO] = new data::StlVector<IComponent*>();
     }
 
     void tickControl() override final { tickComponents( COMPONENT_CONTROL ); }
@@ -38,6 +38,6 @@ namespace fin::app {
 
     private:
     std::map<ComponentType, data::IList<IComponent*>*> componentListMap;
-    data::Vector<IRenderComponent*> renderComponents;
+    data::StlVector<IRenderComponent*> renderComponents;
   };
 }

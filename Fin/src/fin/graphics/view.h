@@ -1,6 +1,6 @@
 #pragma once
 
-#include "camera.h"
+#include "camera/camera.h"
 
 namespace fin {
   namespace graphics {

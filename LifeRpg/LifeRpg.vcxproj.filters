@@ -28,7 +28,7 @@
     <ClInclude Include="src\characters\player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\characters\character.h">
+    <ClInclude Include="src\characters\icharacter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

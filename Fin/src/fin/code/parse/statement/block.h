@@ -3,7 +3,7 @@
 #include "fin/code/parse/value/ivariable.h"
 #include "fin/code/parse/value/iconstant.h"
 #include "fin/code/parse/statement/istatement.h"
-#include "fin/data/collections/list/vector.h"
+#include "fin/data/collections/list/stlvector.h"
 
 namespace fin::code {
   class Block : public IStatement {
@@ -28,7 +28,7 @@ namespace fin::code {
 
     private:
     Block* parent;
-    data::Vector<IStatement> statements;
+    data::StlVector<IStatement> statements;
     data::HashSet<IVariable> blockConstants;
     data::HashSet<IVariable> blockVariables;
   };
