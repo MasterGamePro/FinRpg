@@ -31,8 +31,8 @@ namespace fin::math {
       return *this;
     }
 
-    Normal3d& operator-(const Point3d& other) const;
-    Point3d& operator+(const Normal3d& other) const;
+    Normal3d operator-(const Point3d& other) const;
+    Point3d operator+(const Normal3d& other) const;
 
   private:
     double x_, y_, z_;

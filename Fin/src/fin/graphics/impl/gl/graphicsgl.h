@@ -15,7 +15,10 @@ namespace fin::graphics {
       glEnable(GL_DEPTH_TEST);
       glDepthFunc(GL_LEQUAL);
       glEnable(GL_ALPHA_TEST);
-      glAlphaFunc(GL_GREATER, 0.1);
+      glAlphaFunc(GL_GREATER, 0);
+      glEnable(GL_BLEND);
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+      glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     }
     void deinit() override final {}
   };

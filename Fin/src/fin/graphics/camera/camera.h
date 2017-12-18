@@ -22,7 +22,7 @@ namespace fin::graphics {
     void set_field_of_view(double fieldOfView) { this->fieldOfView = fieldOfView; }
     math::Point3d& get_from_point() { return fromPoint; }
     math::Point3d& get_to_point() { return toPoint; }
-    math::Normal3d& get_normal() { return toPoint - fromPoint; }
+    math::Normal3d get_normal() const { return toPoint - fromPoint; }
 
   private:
     ProjectionType projectionType = PROJECTION_PERSPECTIVE;

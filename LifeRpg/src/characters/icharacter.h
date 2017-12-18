@@ -26,6 +26,8 @@ public:
       fin::debug::Log::println(path);
       walkingTextures.push_back(ts->load_texture(fin::io::File(path)));
     }
+
+    shadowTexture = ts->load_texture(fin::io::File("resources/images/shadow.png"));
   }
 
   ~ICharacter() {
@@ -42,17 +44,18 @@ protected:
   }
 
   void on_tick_animation() override {
-    double camDirection = 90;
+    double camDirection = -90;
 
     double angleError = 20;
-    double angleDiff = fin::math::Trig::angle_diff(camDirection, dir);
+    double angleDiff = fin::math::Trig::angle_diffd(camDirection, dir);
+
     double absAngleDiff = fabs(angleDiff);
     if (absAngleDiff > angleError && absAngleDiff < 180 - angleError) {
       targetFlipDirection = 90 + (angleDiff > 0 ? 1 : -1) * 90;
     }
 
     double flipSpeed = fin::time::DeltaTime::adjust_velocity(20);
-    double angleDist = fin::math::Trig::angle_dist(flipDirection, targetFlipDirection);
+    double angleDist = fin::math::Trig::angle_distd(flipDirection, targetFlipDirection);
 
     if (fabs(angleDist) <= flipSpeed) {
       flipDirection = targetFlipDirection;
@@ -69,16 +72,27 @@ protected:
   void on_tick_render_ortho(fin::graphics::IGraphics* g) override {}
 
   void on_tick_render_perspective(fin::graphics::IGraphics* g) override final {
+    g->r3d()->draw_floor(-500, -500, 500, 500, -1);
+
     fin::graphics::ITransform* t = g->t();
     t->identity();
     t->translate(x, y, z);
     t->rotate_z(flipDirection);
 
     g->p()->color3d(1, 1, 1);
-    g->r3d()->draw_floor(-8, -8, 8, 8, 0);
 
-    index += .1;
-    fin::graphics::ImageTexture* img = walkingTextures[(int) index % 4];
+    g->ts()->bind(shadowTexture);
+    g->r3d()->draw_floor(-5, -5, 5, 5, 0);
+
+    fin::graphics::ImageTexture* img;
+
+    if (isMoving) {
+      index += .15;
+      img = walkingTextures[(int)index % 4];
+    }
+    else {
+      img = standingTextures[0];
+    }
 
     int xd = -2;
 
@@ -88,6 +102,7 @@ protected:
   }
 
 protected:
+  bool isMoving = false;
   double x = 0, y = 0, z = 0, s = 16;
   double vX = 0, vY = 0;
   double dir = 0;
@@ -97,4 +112,5 @@ private:
   double flipDirection = 0, targetFlipDirection = 0;
   fin::data::StlVector<fin::graphics::ImageTexture*> standingTextures;
   fin::data::StlVector<fin::graphics::ImageTexture*> walkingTextures;
+  fin::graphics::ImageTexture* shadowTexture;
 };

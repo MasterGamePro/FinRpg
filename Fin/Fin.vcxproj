@@ -233,7 +233,9 @@
     <ClInclude Include="src\fin\debug\ilog.h" />
     <ClInclude Include="src\fin\debug\log.h" />
     <ClInclude Include="src\fin\debug\standardlog.h" />
+    <ClInclude Include="src\fin\io\directory.h" />
     <ClInclude Include="src\fin\io\file.h" />
+    <ClInclude Include="src\fin\io\ifilesystemelement.h" />
     <ClInclude Include="src\fin\math\binary.h" />
     <ClInclude Include="src\fin\math\geometry\inormal3d.h" />
     <ClInclude Include="src\fin\math\geometry\normal3d.h" />
@@ -260,6 +262,7 @@
     <ClCompile Include="src\fin\input\iinput.cpp" />
     <ClCompile Include="src\fin\input\keypressableinput.cpp" />
     <ClCompile Include="src\fin\debug\log.cpp" />
+    <ClCompile Include="src\fin\io\ifilesystemelement.cpp" />
     <ClCompile Include="src\fin\math\geometry\normal3d.cpp" />
     <ClCompile Include="src\fin\math\geometry\point3d.cpp" />
     <ClCompile Include="src\fin\math\trig.cpp" />

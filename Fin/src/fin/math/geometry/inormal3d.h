@@ -15,8 +15,8 @@ namespace fin::math {
       return sqrt(x*x + y * y + z * z);
     }
 
-    double xy_dirr() { return atan2(y(), x()); }
-    double xy_dird() { return xy_dirr() * Trig::RAD_2_DEG; }
+    double xy_dirr() const { return atan2(y(), x()); }
+    double xy_dird() const { return xy_dirr() * Trig::RAD_2_DEG; }
 
     void get_data(double dst[]) const {
       dst[0] = x();

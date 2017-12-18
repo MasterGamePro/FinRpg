@@ -1,20 +1,13 @@
 #pragma once
-#include <string>
+
+#include "ifilesystemelement.h"
 
 namespace fin::io {
-  class File {
+  class File : public IFilesystemElement {
   public:
-    File(std::string path) {
-      this->path = path;
-    }
+    File(const std::string path) : IFilesystemElement(path) {}
 
-    std::string get_path() const { return path; }
-    bool exists() const {
-      struct stat buffer;
-      return (stat(path.c_str(), &buffer) == 0);
-    }
-
-  private:
-    std::string path;
+    bool operator==(const File& other) const { return path == other.path; }
+    bool operator<(const File& other) const { return path < other.path; }
   };
 }
