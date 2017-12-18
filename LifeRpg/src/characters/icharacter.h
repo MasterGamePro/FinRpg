@@ -35,6 +35,18 @@ public:
   }
 
 protected:
+  void move(double amount, double dir) {
+    if (amount > 0) {
+      this->dir = dir;
+      isMoving = true;
+      x += fin::math::Trig::cosd(dir) * amount;
+      y += fin::math::Trig::sind(dir) * amount;
+    }
+    else {
+      isMoving = false;
+    }
+  }
+
   void on_tick_physics() override final {
 
   }

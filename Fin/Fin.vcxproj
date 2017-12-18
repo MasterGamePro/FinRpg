@@ -150,6 +150,7 @@
     <ClInclude Include="src\fin\app\actor\hud\impl\statusratio.h" />
     <ClInclude Include="src\fin\app\actor\iactor.h" />
     <ClInclude Include="src\fin\app\actor\hud\ifractionalstatus.h" />
+    <ClInclude Include="src\fin\app\components\animation\ianimationcomponent.h" />
     <ClInclude Include="src\fin\app\iapp.h" />
     <ClInclude Include="src\fin\app\appfactory.h" />
     <ClInclude Include="src\fin\app\components\audio\iaudiocomponent.h" />
@@ -235,6 +236,8 @@
     <ClInclude Include="src\fin\debug\standardlog.h" />
     <ClInclude Include="src\fin\io\directory.h" />
     <ClInclude Include="src\fin\io\file.h" />
+    <ClInclude Include="src\fin\io\filereader.h" />
+    <ClInclude Include="src\fin\io\filewriter.h" />
     <ClInclude Include="src\fin\io\ifilesystemelement.h" />
     <ClInclude Include="src\fin\math\binary.h" />
     <ClInclude Include="src\fin\math\geometry\inormal3d.h" />

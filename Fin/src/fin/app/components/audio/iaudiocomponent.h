@@ -5,7 +5,7 @@
 namespace fin::app {
   class IAudioComponent : public IComponent {
     public:
-    ComponentType getType() final {
+    ComponentType get_type() final {
       return COMPONENT_AUDIO;
     };
 

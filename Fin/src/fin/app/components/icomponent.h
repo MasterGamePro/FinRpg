@@ -13,7 +13,7 @@ namespace fin::app {
   class IComponent {
     public:
 
-    virtual ComponentType getType() = 0;
+    virtual ComponentType get_type() = 0;
     private:
   };
 }

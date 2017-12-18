@@ -147,7 +147,7 @@ namespace fin::algorithm {
       position += otherLen;
     }
 
-    void chomp_regex( const std::string& regex ) {
+    std::string chomp_regex( const std::string& regex ) {
       std::string::const_iterator start, end;
       start = str.begin() + position;
       end = str.end();
@@ -161,10 +161,11 @@ namespace fin::algorithm {
                                 flags
       ) ) {
         position += matches[0].length();
-        return;
+        return matches[0];
       }
 
       vomit( "chomp_regex", "Failed to match \"" + regex + "\"." );
+      return nullptr;
     }
 
     /**
@@ -204,8 +205,8 @@ namespace fin::algorithm {
      */
     template<typename ... Args>
     void vomit( std::string methodName, std::string errorMessageFormatString, Args&& ... args ) const {
-      throw debug::Exception( "Parser", methodName, 
-                              "At (" + std::to_string(rowIndex)+ ", " + std::to_string(columnIndex) + "): \n" + errorMessageFormatString, std::forward<Args>(args) ... );
+      throw debug::Exception( "Parser", methodName,
+                              "At (" + std::to_string( rowIndex ) + ", " + std::to_string( columnIndex ) + "): \n" + errorMessageFormatString, std::forward<Args>( args ) ... );
     }
 
     private:

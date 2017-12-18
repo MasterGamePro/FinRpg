@@ -15,18 +15,7 @@ public:
     const auto pdi = il->getPrimaryDirectionalInput();
     const auto amt = pdi->getHeldAmount();
 
-    fin::debug::Log::println("camdir: %lf", camera->get_normal().xy_dird());
-
-    if (amt > 0) {
-      dir = camera->get_normal().xy_dird() - 90 + pdi->getHeldDirection();
-      isMoving = true;
-    }
-    else {
-      isMoving = false;
-    }
-
-    x += fin::math::Trig::cosd(dir) * amt;
-    y += fin::math::Trig::sind(dir) * amt;
+    move(amt, camera->get_normal().xy_dird() - 90 + pdi->getHeldDirection());
   }
 
   void on_tick_animation() override final {
