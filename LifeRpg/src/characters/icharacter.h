@@ -56,6 +56,7 @@ protected:
   }
 
   void on_tick_animation() override {
+    // TODO: Rotate based on the trajectory of the angular velocity.
     double camDirection = -90;
 
     double angleError = 20;

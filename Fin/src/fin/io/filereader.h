@@ -1,9 +1,11 @@
 #pragma once
 #pragma once
+
 #include "file.h"
+#include "fin/stream/iinputstream.h"
 
 namespace fin::io {
-  class FileReader {
+  class FileReader : stream::IInputStream {
     public:
     FileReader( File file ) : file( file ) {}
 

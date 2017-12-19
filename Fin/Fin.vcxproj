@@ -156,7 +156,7 @@
     <ClInclude Include="src\fin\app\components\audio\iaudiocomponent.h" />
     <ClInclude Include="src\fin\app\components\collision\collisioncomponent.h" />
     <ClInclude Include="src\fin\app\components\control\controlcomponent.h" />
-    <ClInclude Include="src\fin\app\components\data\positiondata2d.h" />
+    <ClInclude Include="src\fin\app\components\data\positiondata3d.h" />
     <ClInclude Include="src\fin\app\components\icomponent.h" />
     <ClInclude Include="src\fin\app\components\physics\physicscomponent.h" />
     <ClInclude Include="src\fin\app\components\render\irendercomponent.h" />
@@ -241,6 +241,7 @@
     <ClInclude Include="src\fin\io\ifilesystemelement.h" />
     <ClInclude Include="src\fin\math\binary.h" />
     <ClInclude Include="src\fin\math\geometry\inormal3d.h" />
+    <ClInclude Include="src\fin\math\geometry\matrix3d.h" />
     <ClInclude Include="src\fin\math\geometry\normal3d.h" />
     <ClInclude Include="src\fin\math\geometry\point2d.h" />
     <ClInclude Include="src\fin\math\geometry\point3d.h" />
@@ -249,10 +250,13 @@
     <ClInclude Include="src\fin\math\shapes\irectangle.h" />
     <ClInclude Include="src\fin\math\shapes\treerectangle.h" />
     <ClInclude Include="src\fin\math\trig.h" />
+    <ClInclude Include="src\fin\stream\iinputstream.h" />
+    <ClInclude Include="src\fin\stream\ioutputstream.h" />
     <ClInclude Include="src\fin\time\deltatime.h" />
     <ClInclude Include="src\fin\time\stopwatch.h" />
     <ClInclude Include="src\fin\time\time.h" />
     <ClInclude Include="src\fin\ui\ilist.h" />
+    <ClInclude Include="src\fin\web\downloadstream.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
