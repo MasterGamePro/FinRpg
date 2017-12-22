@@ -166,6 +166,8 @@
     <ClInclude Include="src\fin\app\iscene.h" />
     <ClInclude Include="src\fin\app\stage.h" />
     <ClInclude Include="src\fin\audio\iaudio.h" />
+    <ClInclude Include="src\fin\audio\ibuffer.h" />
+    <ClInclude Include="src\fin\audio\isource.h" />
     <ClInclude Include="src\fin\code\compile\iregister.h" />
     <ClInclude Include="src\fin\code\parse\statement\block.h" />
     <ClInclude Include="src\fin\code\parse\statement\definevariablestatement.h" />
@@ -187,6 +189,9 @@
     <ClInclude Include="src\fin\app\impl\glfw\windowglfw.h" />
     <ClInclude Include="src\fin\data\collections\stack\istack.h" />
     <ClInclude Include="src\fin\data\collections\stack\stlstack.h" />
+    <ClInclude Include="src\fin\graphics\color.h" />
+    <ClInclude Include="src\fin\math\geometry\face3d.h" />
+    <ClInclude Include="src\fin\math\geometry\primitive3d.h" />
     <ClInclude Include="src\fin\debug\exception.h" />
     <ClInclude Include="src\fin\debug\memory.h" />
     <ClInclude Include="src\fin\graphics\camera\camera.h" />
@@ -245,6 +250,7 @@
     <ClInclude Include="src\fin\math\geometry\normal3d.h" />
     <ClInclude Include="src\fin\math\geometry\point2d.h" />
     <ClInclude Include="src\fin\math\geometry\point3d.h" />
+    <ClInclude Include="src\fin\math\geometry\vertex3d.h" />
     <ClInclude Include="src\fin\math\interpolate.h" />
     <ClInclude Include="src\fin\math\random.h" />
     <ClInclude Include="src\fin\math\shapes\irectangle.h" />

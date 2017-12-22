@@ -15,3 +15,17 @@
 #define STATIC_CLASS(CLASS_NAME) \
   REQUIRE_POINTER(CLASS_NAME) \
   PREVENT_POINTER(CLASS_NAME)
+
+#define ADD_TO_TOTAL_MEMORY_BASE(CLASS_NAME) \
+  fin::debug::totalBytes += sizeof( CLASS_NAME )
+
+#define ADD_TO_TOTAL_MEMORY_CHILD(CLASS_NAME, SUPER_CLASS_NAME) \
+  fin::debug::totalBytes -= sizeof( SUPER_CLASS_NAME ); \
+  fin::debug::totalBytes += sizeof( CLASS_NAME )
+
+#define REMOVE_FROM_TOTAL_MEMORY_BASE(CLASS_NAME) \
+  fin::debug::totalBytes -= sizeof( CLASS_NAME )
+
+#define REMOVE_FROM_TOTAL_MEMORY_CHILD(CLASS_NAME, SUPER_CLASS_NAME) \
+  fin::debug::totalBytes += sizeof( SUPER_CLASS_NAME ); \
+  fin::debug::totalBytes -= sizeof( CLASS_NAME )

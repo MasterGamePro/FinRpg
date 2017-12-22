@@ -18,7 +18,7 @@ namespace fin::input {
       this->downPressableInput = downPressableInput;
     }
 
-    double getPressedAmount() override final {
+    double get_pressed_amount() override final {
       const bool isHeld =
         math::Binary:: xor (leftPressableInput->checkState(PRESSABLESTATE_PRESSED),
           rightPressableInput->checkState(PRESSABLESTATE_PRESSED))

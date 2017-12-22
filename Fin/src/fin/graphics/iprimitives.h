@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include "fin/math/geometry/point3d.h"
 
 namespace fin::graphics {
   enum PrimitiveType {
@@ -26,6 +27,7 @@ namespace fin::graphics {
     virtual void uv2d( double u, double v ) = 0;
     virtual void vertex2d( double x, double y ) = 0;
     virtual void vertex3d( double x, double y, double z ) = 0;
+    void vertex3d( const math::Point3d& pt ) { vertex3d( pt.x(), pt.y(), pt.z() ); }
 
     virtual void set_point_radius( double radius ) = 0;
     virtual void set_line_width( double width ) = 0;

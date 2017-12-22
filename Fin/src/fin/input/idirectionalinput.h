@@ -3,7 +3,7 @@
 namespace fin::input {
   class IDirectionalInput {
     public:
-    virtual double getPressedAmount() = 0;
+    virtual double get_pressed_amount() = 0;
     virtual double getPressedDirection() = 0;
 
     virtual double getHeldAmount() = 0;
