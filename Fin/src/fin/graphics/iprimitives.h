@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include "fin/math/geometry/point3d.h"
+#include "color.h"
 
 namespace fin::graphics {
   enum PrimitiveType {
@@ -19,6 +20,7 @@ namespace fin::graphics {
     public:
     virtual void begin( PrimitiveType type ) = 0;
 
+    virtual void color( Color color ) { color4b( color.r_b(), color.g_b(), color.b_b(), color.a_b() ); }
     virtual void color3b( uint8_t r, uint8_t g, uint8_t b ) = 0;
     virtual void color3d( double r, double g, double b ) = 0;
     virtual void color4b( uint8_t r, uint8_t g, uint8_t b, uint8_t a ) = 0;

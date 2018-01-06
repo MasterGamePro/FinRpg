@@ -1,31 +1,32 @@
 #pragma once
+#include <cstdint>
 #include "fin/math/trig.h"
 #include <algorithm>
 
 namespace fin::graphics {
   class Color {
     public:
-    static Color from_rgba( int rgba ) {
+    static Color from_rgba( const uint32_t rgba ) {
       Color c;
       c.rgba = rgba;
       return c;
     }
-    static Color from_rgb_d( double r, double g, double b ) { return from_rgba_d( r, g, b, 1 ); }
-    static Color from_rgba_d( double r, double g, double b, double a ) { return from_rgba_i( ( int ) ( 255 * r ), ( int ) ( 255 * g ), ( int ) ( 255 * b ), 255 ); }
-    static Color from_rgb_i( int r, int g, int b ) { return from_rgba_i( r, g, b, 255 ); }
-    static Color from_rgba_i( int r, int g, int b, int a ) { return from_rgba( r & 0xFF << 24 + g & 0xFF << 16 + b & 0xFF << 8 + a & 0xFF ); }
+    static Color from_rgb_d( const double r, const double g, const double b ) { return from_rgba_d( r, g, b, 1 ); }
+    static Color from_rgba_d( const double r, const double g, const double b, const double a ) { return from_rgba_b( ( uint8_t ) ( 255 * r ), ( uint8_t ) ( 255 * g ), ( uint8_t ) ( 255 * b ), 255 ); }
+    static Color from_rgb_b( const uint8_t r, const uint8_t g, const uint8_t b ) { return from_rgba_b( r, g, b, 255 ); }
+    static Color from_rgba_b( const uint8_t r, const uint8_t g, const uint8_t b, const uint8_t a ) { return from_rgba( r & 0xFF << 24 + g & 0xFF << 16 + b & 0xFF << 8 + a & 0xFF ); }
 
-    double r_d() const { return r_i() / 255.; }
-    int r_i() const { return rgba >> 24 & 0xff; }
-    double g_d() const { return g_i() / 255.; }
-    int g_i() const { return rgba >> 16 & 0xff; }
-    double b_d() const { return b_i() / 255.; }
-    int b_i() const { return rgba >> 8 & 0xff; }
-    double a_d() const { return a_i() / 255.; }
-    int a_i() const { return rgba & 0xff; }
+    double r_d() const { return r_b() / 255.; }
+    uint8_t r_b() const { return rgba >> 24 & 0xff; }
+    double g_d() const { return g_b() / 255.; }
+    uint8_t g_b() const { return rgba >> 16 & 0xff; }
+    double b_d() const { return b_b() / 255.; }
+    uint8_t b_b() const { return rgba >> 8 & 0xff; }
+    double a_d() const { return a_b() / 255.; }
+    uint8_t a_b() const { return rgba & 0xff; }
 
-    double h_r() { return h_d() * math::Trig::DEG_2_RAD; }
-    double h_d() {
+    double h_r() const { return h_d() * math::Trig::DEG_2_RAD; }
+    double h_d() const {
       double r = r_d(), g = g_d(), b = b_d();
       double ma = std::max( r, std::max( g, b ) ), mi = std::min( r, std::min( g, b ) );
       double d = ma - mi;
@@ -44,8 +45,8 @@ namespace fin::graphics {
       }
       return h * 60;
     }
-    int s_i() { return s_d() * 255; }
-    double s_d() {
+    uint8_t s_b() const { return s_d() * 255; }
+    double s_d() const {
       double r = r_d(),
         g = g_d(),
         b = b_d();
@@ -53,10 +54,10 @@ namespace fin::graphics {
         mi = std::min( r, std::min( g, b ) );
       return ma == 0 ? 0 : ( ma - mi ) / ma;
     }
-    int v_i() const { return ( int ) ( .21*r_i() + .71*g_i() + .08*b_i() ); }
-    double v_d() const { return v_i() / 255.; }
+    uint8_t v_b() const { return ( uint8_t ) ( .21*r_b() + .71*g_b() + .08*b_b() ); }
+    double v_d() const { return v_b() / 255.; }
 
     private:
-    int rgba;
+    uint32_t rgba;
   };
 }
