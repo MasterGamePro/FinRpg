@@ -28,7 +28,6 @@ namespace fin::graphics {
 
     virtual void drawRectangle( double x, double y, double w, double h, bool isFilled ) {
       p->begin( isFilled ? PRIMITIVE_QUADS : PRIMITIVE_LINE_LOOP );
-
       p->uv2d( 0, 0 );
       p->vertex2d( x, y );
       p->uv2d( 1, 0 );
@@ -37,7 +36,6 @@ namespace fin::graphics {
       p->vertex2d( x + w, y + h );
       p->uv2d( 0, 1 );
       p->vertex2d( x, y + h );
-
       p->end();
     }
     virtual void strokeRectangle( double x, double y, double w, double h ) { drawRectangle( x, y, w, h, false ); }
@@ -45,12 +43,10 @@ namespace fin::graphics {
 
     virtual void drawPolygon( double x, double y, double r, int numPts, bool isFilled ) {
       p->begin( isFilled ? PRIMITIVE_TRIANGLE_FAN : PRIMITIVE_LINE_LOOP );
-
       if ( isFilled ) {
         p->uv2d( .5, .5 );
         p->vertex2d( x, y );
       }
-
       const int toCount = ( isFilled ) ? numPts + 1 : numPts;
       for ( int i = 0; i < toCount; i++ ) {
         double dir = ( ( 1.*i ) / numPts ) * 2 * 3.14159;
@@ -59,7 +55,6 @@ namespace fin::graphics {
         p->uv2d( .5 + .5*xF, .5 + .5*yF );
         p->vertex2d( x + r*xF, y + r*yF );
       }
-
       p->end();
     }
     virtual void strokePolygon( double x, double y, double r, int numPts ) { drawPolygon( x, y, r, numPts, false ); }

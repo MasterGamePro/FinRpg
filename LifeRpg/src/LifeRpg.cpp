@@ -6,29 +6,9 @@
 #include "fin/app/iapp.h"
 #include "fin/app/impl/glfw/appglfw.h"
 #include "fin/app/iwindow.h"
-#include "fin/graphics/camera/camera.h"
-#include "fin/graphics/view.h"
-#include "fin/app/iscene.h"
 #include "fin/debug/log.h"
-#include "characters/icharacter.h"
-#include "characters/npc.h"
-#include "characters/player.h"
-
-class DebugScene : public fin::app::IScene {
-  void on_start(fin::app::IApp* app) {
-    fin::app::IWindow* window = app->get_main_window();
-    fin::graphics::View* view = window->get_view();
-
-    fin::graphics::Camera* camera = new fin::graphics::Camera();
-    view->set_camera(camera);
-
-    fin::app::Stage* stage = new fin::app::Stage();
-    camera->set_stage(stage);
-
-    stage->add_child(new Player(camera, app->get_graphics()->ts()));
-    stage->add_child(new Npc("player", app->get_graphics()->ts()));
-  }
-};
+#include "scenes/debugvillagescene.h"
+#include "scenes/debugmenuscene.h"
 
 int main() {
   try {
@@ -37,7 +17,8 @@ int main() {
     fin::debug::Log::println("OK!");
 
     fin::debug::Log::print("Launching app... ");
-    app->launch(new DebugScene());
+    //app->launch(new DebugVillageScene());
+    app->launch( new DebugMenuScene() );
     fin::debug::Log::println("OK!");
 
     fin::debug::Log::print("Freeing app data... ");

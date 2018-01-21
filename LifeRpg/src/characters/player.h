@@ -6,7 +6,12 @@
 class Player : public ICharacter {
 public:
   Player(fin::graphics::Camera* camera, fin::graphics::ITextures* ts) : ICharacter("player", ts) {
+    ADD_TO_TOTAL_MEMORY_CHILD( Player, ICharacter );
     this->camera = camera;
+  }
+
+  ~Player() {
+    REMOVE_FROM_TOTAL_MEMORY_CHILD( Player, ICharacter );
   }
 
   void on_tick_control(fin::input::IInput* i) override final {

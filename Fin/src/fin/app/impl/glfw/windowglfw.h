@@ -27,7 +27,12 @@ namespace fin::app {
       this->title = title;
       glfwSetWindowTitle( window, title.c_str() );
     };
-    void set_size( int width, int height ) override final { glfwSetWindowSize( window, this->width = width, this->height = height ); }
+    void set_size( int width, int height ) override final {
+      this->width = width;
+      this->height = height;
+      view->get_rectangle()->set_size( width, height );
+      glfwSetWindowSize( window, width, height );
+    }
     void set_position( int x, int y ) override final { glfwSetWindowPos( window, x, y ); }
 
     void show() override final { glfwShowWindow( window ); }
@@ -84,7 +89,7 @@ namespace fin::app {
       for ( int x = 0; x < width; x++ ) {
         for ( int y = 0; y < height; y++ ) {
           for ( int c = 0; c < channelCount; c++ ) {
-            ptr[c*width*height + y*width + x] = pixels[channelCount * ( height - 1 - y )*width + channelCount * x + c];
+            ptr[c*width*height + y * width + x] = pixels[channelCount * ( height - 1 - y )*width + channelCount * x + c];
           }
         }
       }
@@ -118,18 +123,20 @@ namespace fin::app {
 
       // TODO: Link to keyboard.
       glfwSetWindowUserPointer( window, this );
-      glfwSetKeyCallback( window, [] ( GLFWwindow* window, int key, int scancode, int action, int mods ) {
+      glfwSetKeyCallback( window, []( GLFWwindow* window, int key, int scancode, int action, int mods ) {
         input::IKeyboard* keyboard = IApp::instance()->get_input()->getKeyboard();
-        IWindow* w = (IWindow*) glfwGetWindowUserPointer( window );
+        IWindow* w = ( IWindow* ) glfwGetWindowUserPointer( window );
 
         if ( action == GLFW_PRESS ) {
           if ( key == GLFW_KEY_ESCAPE ) {
             w->toggle_fullscreen();
-          } else if ( key == GLFW_KEY_F1 ) {
+          }
+          else if ( key == GLFW_KEY_F1 ) {
             w->save_screenshot( "img", IMAGE_JPG );
           }
           keyboard->handle( key, PRESSABLESTATE_PRESSED );
-        } else if ( action == GLFW_RELEASE ) {
+        }
+        else if ( action == GLFW_RELEASE ) {
           keyboard->handle( key, PRESSABLESTATE_RELEASED );
         }
       } );

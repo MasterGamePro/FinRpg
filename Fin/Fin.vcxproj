@@ -261,7 +261,13 @@
     <ClInclude Include="src\fin\time\deltatime.h" />
     <ClInclude Include="src\fin\time\stopwatch.h" />
     <ClInclude Include="src\fin\time\time.h" />
+    <ClInclude Include="src\fin\ui\iactionbutton.h" />
+    <ClInclude Include="src\fin\ui\idropdown.h" />
     <ClInclude Include="src\fin\ui\ilist.h" />
+    <ClInclude Include="src\fin\ui\imultiselect.h" />
+    <ClInclude Include="src\fin\ui\itogglebutton.h" />
+    <ClInclude Include="src\fin\ui\iui.h" />
+    <ClInclude Include="src\fin\ui\iuielement.h" />
     <ClInclude Include="src\fin\web\downloadstream.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
