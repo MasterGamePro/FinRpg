@@ -17,6 +17,7 @@ class OptionsMenu : public fin::app::IActor {
   protected:
   void on_tick_control( fin::input::IInput* i ) override final {
     fin::input::IDirectionalInput* d = i->getInputLayout()->getPrimaryDirectionalInput();
+    fin::input::IPressableInput* a = i->getInputLayout()->getActionPressableInput();
     if ( d->get_pressed_amount() > 0 ) {
       double dir = d->getPressedDirection();
       double x = fin::math::Trig::cosd( dir ), y = fin::math::Trig::sind( dir );
@@ -44,6 +45,12 @@ class OptionsMenu : public fin::app::IActor {
         else if ( y > 0 && option > 0 ) {
           option--;
         }
+      }
+    }
+    else if ( a->checkState( PRESSABLESTATE_PRESSED ) ) {
+      if ( option == 1 ) {
+        isFullscreen = !isFullscreen;
+        window->toggle_fullscreen();
       }
     }
   }
@@ -89,8 +96,8 @@ class OptionsMenu : public fin::app::IActor {
       }
       g->p()->color3d( v, v, v );
       r2d->drawCircle( x + lineHeight / 2, y + lineHeight / 2, pointRad, true );
+      double rx = x + lineHeight;
       if ( i == 0 ) {
-        double rx = x + lineHeight;
         for ( int r = 0; r < 2; r++ ) {
           int* resolution = resolutions[r];
           double vv = v * ( r == selectedResolution ? 1 : .8 );
@@ -100,6 +107,10 @@ class OptionsMenu : public fin::app::IActor {
           rx += s.length() * 8;
         }
       }
+      else if ( i == 1 ) {
+        r2d->drawRectangle( rx, y, lineHeight, lineHeight, isFullscreen );
+        g->rt()->draw_string( "Fullscreen", rx + lineHeight, y );
+      }
       y += lineHeight;
     }
   }
@@ -108,5 +119,6 @@ class OptionsMenu : public fin::app::IActor {
   fin::app::IWindow* window;
   int option = 0, optionCount = 5;
   int selectedResolution = 1;
+  bool isFullscreen = false;
   int resolutions[2][2] = { {320, 240}, {640, 480} };
 };

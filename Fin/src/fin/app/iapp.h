@@ -28,7 +28,7 @@ namespace fin::app {
       auto stopwatch = new time::Stopwatch();
       input::IKeyboard* keyboard = get_input()->getKeyboard();
 
-      while ( true ) {
+      while ( !get_main_window()->is_closed() ) {
         poll_inputs();
 
         keyboard->before_tick();

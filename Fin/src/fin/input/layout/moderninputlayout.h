@@ -8,7 +8,7 @@ namespace fin::input {
   class ModernInputLayout {
 
     public:
-    IDirectionalInput* getPrimaryDirectionalInput() { return primaryDirectionalInput; }
+    IDirectionalInput * getPrimaryDirectionalInput() { return primaryDirectionalInput; }
     IDirectionalInput* getSecondaryDirectionalInput() { return secondaryDirectionalInput; }
 
     IPressableInput* getActionPressableInput() { return actionPressableInput; }
@@ -16,14 +16,14 @@ namespace fin::input {
 
     private:
     IDirectionalInput
-      *primaryDirectionalInput = new PressableInputDirectionalInput(
+      * primaryDirectionalInput = new PressableInputDirectionalInput(
         new KeyPressableInput( KEYCODE_A ),
         new KeyPressableInput( KEYCODE_D ),
         new KeyPressableInput( KEYCODE_W ),
         new KeyPressableInput( KEYCODE_S ) ),
       *secondaryDirectionalInput;
     IPressableInput
-      *actionPressableInput,
-      *cancelPressableInput;
+      *actionPressableInput = new KeyPressableInput( KEYCODE_U ),
+      *cancelPressableInput = new KeyPressableInput( KEYCODE_H );
   };
 }

@@ -26,7 +26,10 @@ namespace fin {
 
       virtual void show() = 0;
       virtual void hide() = 0;
+
+      virtual bool is_closed() = 0;
       virtual void close() = 0;
+
       virtual void toggle_fullscreen() = 0;
 
       virtual graphics::View* get_view() = 0;

@@ -22,6 +22,13 @@ namespace fin::app {
       view = new graphics::View();
       create_glfw_window( false );
     }
+    ~WindowGlfw() {
+      delete view;
+      if ( window != nullptr ) {
+        glfwDestroyWindow( window );
+      }
+
+    }
 
     void set_title( std::string title ) override final {
       this->title = title;
@@ -31,25 +38,28 @@ namespace fin::app {
       this->width = width;
       this->height = height;
       view->get_rectangle()->set_size( width, height );
-      glfwSetWindowSize( window, width, height );
+      if ( !isFullscreen ) {
+        glfwSetWindowSize( window, width, height );
+      }
+      else {
+        create_glfw_window( isFullscreen );
+      }
     }
     void set_position( int x, int y ) override final { glfwSetWindowPos( window, x, y ); }
 
     void show() override final { glfwShowWindow( window ); }
     void hide() override final { glfwHideWindow( window ); }
+
+    bool is_closed() override final { return glfwWindowShouldClose( window ); }
     void close() override final { glfwSetWindowShouldClose( window, true ); }
     void toggle_fullscreen() override final { create_glfw_window( !isFullscreen ); }
 
     void render( graphics::IGraphics* g, IApp* app ) override final {
-      //!glfwWindowShouldClose( window ) );
       glfwMakeContextCurrent( window );
 
       IWindow::render( g, app );
 
       glfwSwapBuffers( window );
-      //glfwDestroyWindow( window );
-
-      //glfwSetWindowShouldClose( window, true );
     }
 
     GLFWwindow* getGlfwWindow() { return window; }
@@ -129,7 +139,7 @@ namespace fin::app {
 
         if ( action == GLFW_PRESS ) {
           if ( key == GLFW_KEY_ESCAPE ) {
-            w->toggle_fullscreen();
+            w->close();
           }
           else if ( key == GLFW_KEY_F1 ) {
             w->save_screenshot( "img", IMAGE_JPG );
