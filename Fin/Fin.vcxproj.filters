@@ -402,6 +402,21 @@
     <ClInclude Include="src\fin\ui\idropdown.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\fin\audio\impl\openal\audioal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\audio\ilistener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\audio\impl\openal\listeneral.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\audio\impl\openal\sourceal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\audio\iaudioloader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -166,7 +166,12 @@
     <ClInclude Include="src\fin\app\iscene.h" />
     <ClInclude Include="src\fin\app\stage.h" />
     <ClInclude Include="src\fin\audio\iaudio.h" />
+    <ClInclude Include="src\fin\audio\iaudioloader.h" />
     <ClInclude Include="src\fin\audio\ibuffer.h" />
+    <ClInclude Include="src\fin\audio\ilistener.h" />
+    <ClInclude Include="src\fin\audio\impl\openal\audioal.h" />
+    <ClInclude Include="src\fin\audio\impl\openal\listeneral.h" />
+    <ClInclude Include="src\fin\audio\impl\openal\sourceal.h" />
     <ClInclude Include="src\fin\audio\isource.h" />
     <ClInclude Include="src\fin\code\compile\iregister.h" />
     <ClInclude Include="src\fin\code\parse\statement\block.h" />

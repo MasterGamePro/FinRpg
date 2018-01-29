@@ -1,12 +1,10 @@
 #pragma once
 
 namespace fin::audio {
-  class ISource {
+  class IListener {
     public:
-    virtual void set_pitch( const double pitch ) = 0;
-    virtual void set_gain( const double gain ) = 0;
     virtual void set_position( const double x, const double y, const double z ) = 0;
     virtual void set_velocity( const double x, const double y, const double z ) = 0;
-    virtual void toggle_repeat( const bool doRepeat ) = 0;
+    virtual void set_orientation( const double nx, const double ny, const double nz, const double upX, const double upY, const double upZ ) = 0;
   };
 }

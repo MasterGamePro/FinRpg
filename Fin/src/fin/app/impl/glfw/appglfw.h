@@ -24,8 +24,7 @@ namespace fin::app {
 
     void init() override final {
       if ( !glfwInit() ) {
-        printf( "Failed to init glfw.\n" );
-        return;
+        throw std::exception( "Failed to init glfw.\n" );
       }
 
       window = new WindowGlfw();

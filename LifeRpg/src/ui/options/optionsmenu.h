@@ -79,7 +79,6 @@ class OptionsMenu : public fin::app::IActor {
     g->p()->color3d( .2, 0, .2 );
     g->r2d()->fillRectangle( 320, 0, 320, 240 );
 
-
     double padding = 30;
     double lineHeight = 20;
     double x = padding, y = padding;
