@@ -1,7 +1,6 @@
 #pragma once
 
-#include <lib/openal/AL/al.h>
-#include <lib/openal/AL/alc.h>
+#include <AL/alc.h>
 #include "../../iaudio.h"
 #include <exception>
 

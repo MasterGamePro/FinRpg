@@ -3,7 +3,7 @@
 #define cimg_use_bmp
 #define cimg_use_jpeg
 #define cimg_use_png
-#include "lib/cimg/CImg.h"
+#include "CImg.h"
 #include "fin/io/file.h"
 #include "texture/imagetexture.h"
 #include <map>

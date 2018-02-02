@@ -1,5 +1,5 @@
 #pragma once
-#include <lib/openal/AL/al.h>
+#include <AL/al.h>
 #include "fin/audio/isource.h"
 
 namespace fin::audio {

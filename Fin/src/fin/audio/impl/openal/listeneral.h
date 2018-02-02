@@ -1,6 +1,6 @@
 #pragma once
+#include <AL/al.h>
 #include "fin/audio/ilistener.h"
-#include <lib/openal/AL/al.h>
 
 namespace fin::audio {
   class ListenerAl : public IListener {

@@ -1,7 +1,7 @@
 #pragma once
 
+#include <GLFW/glfw3.h>
 #include "fin/input/ikeyconverter.h"
-#include "../../../../../../packages/nupengl.core.0.1.0.1/build/native/include/GLFW/glfw3.h"
 
 namespace fin::input {
   class KeyConverterGlfw : public IKeyConverter {

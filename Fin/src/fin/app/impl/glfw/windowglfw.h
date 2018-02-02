@@ -11,7 +11,7 @@
 #define cimg_use_jpeg
 #define cimg_use_png
 #define cimg_use_bmp
-#include "lib/cimg/CImg.h"
+#include "CImg.h"
 
 namespace fin::app {
   std::function< void() > tickCallback;
