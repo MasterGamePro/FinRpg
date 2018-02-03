@@ -6,14 +6,14 @@
 namespace fin::graphics {
   class PrimitivesGl : public IPrimitives {
     public:
-    void begin( PrimitiveType type ) override final {
-      int glType = -1;
+    void begin(PrimitiveType type) override final {
+      auto glType = -1;
 
-      switch ( type ) {
+      switch (type) {
         case PRIMITIVE_POINTS:	glType = GL_POINTS;		break;
 
         case PRIMITIVE_LINES:		glType = GL_LINES;		break;
-        case PRIMITIVE_LINE_LOOP: glType: GL_LINE_LOOP; break;
+        case PRIMITIVE_LINE_LOOP: glType = GL_LINE_LOOP; break;
 
         case PRIMITIVE_TRIANGLES: glType = GL_TRIANGLES;	break;
         case PRIMITIVE_TRIANGLE_FAN: glType = GL_TRIANGLE_FAN; break;
@@ -22,23 +22,27 @@ namespace fin::graphics {
         case PRIMITIVE_QUADS:		glType = GL_QUADS;		break;
       }
 
-      if ( glType != -1 ) {
-        glBegin( glType );
+      if (glType != -1) {
+        glBegin(glType);
       }
     }
 
-    void color3b( uint8_t r, uint8_t g, uint8_t b ) override final { glColor3ub( r, g, b ); }
-    void color3d( double r, double g, double b ) override final { glColor3d( r, g, b ); }
-    void color4b( uint8_t r, uint8_t g, uint8_t b, uint8_t a ) override final { glColor4ub( r, g, b, a ); }
-    void color4d( double r, double g, double b, double a ) override final { glColor4d( r, g, b, a ); }
+    void color3b(const uint8_t r, const uint8_t g, const uint8_t b) override final { glColor3ub(r, g, b); }
+    void color3d(const double r, const double g, const double b) override final { glColor3d(r, g, b); }
+    void color4b(const uint8_t r, const uint8_t g, const uint8_t b, const uint8_t a) override final { glColor4ub(r, g, b, a); }
+    void color4d(const double r, const double g, const double b, const double a) override final { glColor4d(r, g, b, a); }
 
-    void uv2d( double u, double v ) override final { glTexCoord2d( u, v ); }
+    void uv2d(const double u, const double v) override final { glTexCoord2d(u, v); }
 
-    void vertex2d( double x, double y ) override final { glVertex2d( x, y ); }
-    void vertex3d( double x, double y, double z ) override final { glVertex3d( x, y, z ); }
+    void vertex2d(const double x, const double y) override final { glVertex2d(x, y); }
+    void vertex3d(const double x, const double y, const double z) override final { glVertex3d(x, y, z); }
 
-    void set_point_radius( double radius ) override final { glPointSize( radius ); }
-    void set_line_width( double width ) override final { glLineWidth( width ); }
+    void set_point_radius(const double radius) override final {
+      glPointSize(static_cast<GLfloat>(radius));
+    }
+    void set_line_width(const double width) override final {
+      glLineWidth(static_cast<GLfloat>(width));
+    }
 
     void end() override final { glEnd(); }
   };

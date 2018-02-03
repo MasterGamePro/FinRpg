@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#define BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE
 #include <boost/regex.hpp>
 #include "fin/debug/exception.h"
 
@@ -73,9 +74,7 @@ namespace fin::algorithm {
     }
 
     bool nibble_regex( const std::string& regex ) {
-      std::string::const_iterator start, end;
-      start = str.begin() + position;
-      end = str.end();
+      const std::string::const_iterator start = str.begin() + position, end = str.end();
       boost::match_results<std::string::const_iterator> matches;
       boost::match_flag_type flags = boost::match_default | boost::match_continuous;
 
@@ -148,9 +147,7 @@ namespace fin::algorithm {
     }
 
     std::string chomp_regex( const std::string& regex ) {
-      std::string::const_iterator start, end;
-      start = str.begin() + position;
-      end = str.end();
+      const std::string::const_iterator start = str.begin() + position, end = str.end();
       boost::match_results<std::string::const_iterator> matches;
       boost::match_flag_type flags = boost::match_default | boost::match_continuous;
 

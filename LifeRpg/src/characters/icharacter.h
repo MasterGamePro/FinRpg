@@ -15,7 +15,7 @@ class ICharacter : public fin::app::IActor {
     ADD_TO_TOTAL_MEMORY_CHILD( ICharacter, fin::app::IActor );
 
     char buffer[FILENAME_MAX];
-    getcwd( buffer, FILENAME_MAX );
+    _getcwd( buffer, FILENAME_MAX );
 
     std::string folderPath = "resources/characters/" + name + "/";
     standingTextures.push_back( ts->load_texture( fin::io::File( folderPath + "standing-0.png" ) ) );

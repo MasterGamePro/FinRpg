@@ -8,6 +8,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LifeRpg", "LifeRpg\LifeRpg.vcxproj", "{C57D6F57-B50D-48B1-AD71-3A1EB0ABF123}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FinTests", "FinTests\FinTests.vcxproj", "{FC12249A-40F3-4960-B74A-0154209148C7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{380DD5FB-7C48-4940-8E95-339DC8BA1F08} = {380DD5FB-7C48-4940-8E95-339DC8BA1F08}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

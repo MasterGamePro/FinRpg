@@ -26,7 +26,7 @@ namespace fin::app {
       int frame = 0;
 
       auto stopwatch = new time::Stopwatch();
-      input::IKeyboard* keyboard = get_input()->getKeyboard();
+      auto* keyboard = get_input()->getKeyboard();
 
       while ( !get_main_window()->is_closed() ) {
         poll_inputs();
@@ -39,35 +39,35 @@ namespace fin::app {
 
         frame++;
 
-        long diff = stopwatch->get_current_ms();
+        const uint64_t diff = stopwatch->get_current_ms();
         if ( diff >= 1000 ) {
-          fps = frame;
-          get_main_window()->set_title(algorithm::string_format("%d", fps));
+          fps_ = frame;
+          get_main_window()->set_title(algorithm::string_format("%d", fps_));
           frame = 0;
           stopwatch->reset();
         }
 
-        bool doFrameCap = false;
-        if ( doFrameCap && frame >= 60 ) {
-          fps = frame;
+        const auto do_frame_cap = false;
+        if ( do_frame_cap && frame >= 60 ) {
+          fps_ = frame;
           frame = 0;
           time::Time::sleep_ms( 1000 - diff );
-          get_main_window()->set_title(algorithm::string_format("%d", fps));
+          get_main_window()->set_title(algorithm::string_format("%d", fps_));
         }
       }
     }
 
     void go_to_scene( IScene* scene ) {
-      if ( this->scene != nullptr ) {
-        delete this->scene;
+      if ( this->scene_ != nullptr ) {
+        delete this->scene_;
       }
-      if ( this->scene != scene ) {
-        this->scene = scene;
+      if ( this->scene_ != scene ) {
+        this->scene_ = scene;
         scene->on_start( this );
       }
     }
 
-    static IApp* instance() { return _instance; }
+    static IApp* instance() { return instance_; }
 
     virtual IWindow* get_main_window() = 0;
 
@@ -80,9 +80,9 @@ namespace fin::app {
     void tick();
     void render();
 
-    int fps;
+    int fps_;
 
-    IScene* scene;
-    static IApp* _instance;
+    IScene* scene_;
+    static IApp* instance_;
   };
 }

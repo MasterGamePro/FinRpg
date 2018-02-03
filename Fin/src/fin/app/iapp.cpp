@@ -4,11 +4,11 @@
 #include "fin/debug/memory.h"
 
 namespace fin::app {
-  IApp* IApp::_instance = nullptr;
+  IApp* IApp::instance_ = nullptr;
 
   IApp::IApp() {
     debug::totalBytes += sizeof( IApp );
-    _instance = this;
+    instance_ = this;
   }
 
   IApp::~IApp() {
