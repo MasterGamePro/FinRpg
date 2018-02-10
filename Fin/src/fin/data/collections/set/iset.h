@@ -6,7 +6,6 @@ namespace fin::data {
   template <typename T>
   class ISet : public ICollection<T> {
     public:
-
     virtual ~ISet() {}
 
     virtual bool add( const T& t ) = 0;

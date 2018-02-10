@@ -4,14 +4,9 @@
 #include "fin/input/iinput.h"
 
 class Player : public ICharacter {
-public:
+  public:
   Player(fin::graphics::Camera* camera, fin::graphics::ITextures* ts) : ICharacter("player", ts) {
-    ADD_TO_TOTAL_MEMORY_CHILD( Player, ICharacter );
     this->camera = camera;
-  }
-
-  ~Player() {
-    REMOVE_FROM_TOTAL_MEMORY_CHILD( Player, ICharacter );
   }
 
   void on_tick_control(fin::input::IInput* i) override final {
@@ -43,9 +38,8 @@ public:
   void on_tick_render_ortho(fin::graphics::IGraphics* g) override final {
     g->p()->color3d(1, 1, 1);
     g->rt()->draw_string("The quick, brown fox jumps over the lazy dog.", 0, 0);
-    g->rt()->draw_string(fin::algorithm::string_format("Memory: %d b", fin::debug::totalBytes), 0, 20);
   }
 
-private:
+  private:
   fin::graphics::Camera* camera;
 };

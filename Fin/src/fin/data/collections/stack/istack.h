@@ -4,7 +4,9 @@ namespace fin::data {
   template <typename T>
   class IStack {
     public:
-    virtual void push( const T& t ) = 0;
+    virtual ~IStack() {}
+
+    virtual void push(const T& t) = 0;
     virtual bool pop() = 0;
     virtual T& peek() = 0;
 

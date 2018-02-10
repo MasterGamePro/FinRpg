@@ -7,7 +7,6 @@ namespace fin::data {
   template <typename T>
   class IList : public ICollection<T> {
     public:
-
     virtual ~IList() {}
 
     virtual const T& at(const int index) const = 0;

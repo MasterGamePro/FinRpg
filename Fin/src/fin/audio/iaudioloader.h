@@ -5,8 +5,10 @@
 namespace fin::audio {
   class IAudioLoader {
     public:
-      IBuffer* load(io::File* file) {
-        
-      }
+    virtual ~IAudioLoader() {}
+
+    IBuffer* load(io::File* file) {
+
+    }
   };
 }

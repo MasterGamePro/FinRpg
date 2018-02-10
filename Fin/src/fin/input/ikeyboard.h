@@ -20,6 +20,7 @@ namespace fin::input {
     IKeyboard(IKeyConverter* key_converter) {
       this->key_converter = key_converter;
     }
+    virtual ~IKeyboard() {}
 
     void handle(const int tkeycode, const PressableState pressableState) {
       keyUpdate update;

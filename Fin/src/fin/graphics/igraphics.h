@@ -10,7 +10,7 @@
 
 namespace fin::graphics {
   class IGraphics : public app::IService {
-  public:
+    public:
     IGraphics(IPrimitives* _p, ITransform* _t, IScreen* _s, ITextures* _ts) {
       this->_p = _p;
       this->_t = _t;
@@ -20,6 +20,7 @@ namespace fin::graphics {
       _r3d = new Render3d(_p);
       _rt = new RenderVectorText(_r2d);
     }
+    virtual ~IGraphics() {}
 
     IPrimitives* p() const { return _p; }
     ITransform* t() const { return _t; }
@@ -30,7 +31,7 @@ namespace fin::graphics {
     Render3d* r3d() const { return _r3d; }
     IRenderText* rt() const { return _rt; }
 
-  private:
+    private:
     IPrimitives * _p;
     ITransform* _t;
     IScreen * _s;

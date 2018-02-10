@@ -6,6 +6,7 @@ namespace fin::input {
   class IInput {
     public:
     IInput() { _instance = this; }
+    virtual ~IInput() {}
 
     virtual IKeyboard* getKeyboard() = 0;
     ModernInputLayout* getInputLayout() const { return layout; }

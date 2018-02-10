@@ -4,6 +4,6 @@
 
 namespace fin::stream {
   class IOutputStream {
-
+    virtual ~IOutputStream() {}
   };
 }

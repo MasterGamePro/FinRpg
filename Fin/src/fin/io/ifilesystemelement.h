@@ -7,10 +7,11 @@ namespace fin::io {
   class Directory;
 
   class IFilesystemElement {
-  public:
+    public:
     IFilesystemElement(const std::string path) {
       this->path = boost::filesystem::path(path);
     }
+    virtual ~IFilesystemElement() {}
 
     std::string get_path() const { return path.string(); }
 
@@ -19,7 +20,7 @@ namespace fin::io {
     bool exists() const { return boost::filesystem::exists(path); }
     int size() const { return path.size(); }
 
-  protected:
+    protected:
     boost::filesystem::path path;
   };
 }

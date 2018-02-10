@@ -1,13 +1,10 @@
 #pragma once
-#include <stdio.h>
-#include <direct.h>
 #include "fin/algorithm/string/format.h"
 #include "fin/app/iapp.h"
 #include "fin/app/actor/iactor.h"
-#include "fin/debug/memory.h"
 #include "fin/input/iinput.h"
 #include "fin/math/trig.h"
-#include "fin/time/deltatime.h"
+#include "scenes/debugvillagescene.h"
 
 // TODO: Create a common interface for options.
 class OptionsMenu : public fin::app::IActor {
@@ -19,8 +16,8 @@ class OptionsMenu : public fin::app::IActor {
 
   protected:
   void on_tick_control(fin::input::IInput* i) override final {
-    fin::input::IDirectionalInput* d = i->getInputLayout()->getPrimaryDirectionalInput();
-    fin::input::IPressableInput* a = i->getInputLayout()->getActionPressableInput();
+    const auto d = i->getInputLayout()->getPrimaryDirectionalInput();
+    const auto a = i->getInputLayout()->getActionPressableInput();
     if (d->get_pressed_amount() > 0) {
       double dir = d->getPressedDirection();
       double x = fin::math::Trig::cosd(dir), y = fin::math::Trig::sind(dir);
@@ -55,6 +52,9 @@ class OptionsMenu : public fin::app::IActor {
         isFullscreen = !isFullscreen;
         window->toggle_fullscreen();
       }
+      else if(option == 2) {
+        this->app->go_to_scene(new DebugVillageScene());
+      }
     }
   }
 
@@ -71,7 +71,7 @@ class OptionsMenu : public fin::app::IActor {
 
   void on_tick_render_perspective(fin::graphics::IGraphics* g) override final {}
   void on_tick_render_ortho(fin::graphics::IGraphics* g) override {
-    fin::graphics::Render2d* r2d = g->r2d();
+    auto r2d = g->r2d();
 
     g->p()->color3d(0, 0, .2);
     g->r2d()->fillRectangle(0, 0, 320, 240);
@@ -114,7 +114,7 @@ class OptionsMenu : public fin::app::IActor {
         g->rt()->draw_string("Fullscreen", rx + lineHeight, y);
       }
       else if (i == 2) {
-        g->rt()->draw_string("Go to test scene.", rx + lineHeight, y);
+        g->rt()->draw_string("Go to test scene.", rx, y);
       }
       y += lineHeight;
     }

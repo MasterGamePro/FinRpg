@@ -20,9 +20,11 @@ namespace fin {
 
     class IWindow {
       public:
-      virtual void set_title( std::string title ) = 0;
-      virtual void set_size( int width, int height ) = 0;
-      virtual void set_position( int x, int y ) = 0;
+      virtual ~IWindow() {}
+
+      virtual void set_title(std::string title) = 0;
+      virtual void set_size(int width, int height) = 0;
+      virtual void set_position(int x, int y) = 0;
 
       virtual void show() = 0;
       virtual void hide() = 0;
@@ -34,9 +36,9 @@ namespace fin {
 
       virtual graphics::View* get_view() = 0;
 
-      virtual void render( graphics::IGraphics* g, IApp* app );
+      virtual void render(graphics::IGraphics* g, IApp* app);
 
-      virtual void save_screenshot( std::string name, ImageType imageType ) = 0;
+      virtual void save_screenshot(std::string name, ImageType imageType) = 0;
     };
   }
 }

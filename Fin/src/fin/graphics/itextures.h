@@ -10,7 +10,9 @@
 
 namespace fin::graphics {
   class ITextures {
-  public:
+    public:
+    virtual ~ITextures() {}
+
     ImageTexture * load_texture(const io::File& file) {
       std::map<io::File, ImageTexture *>::iterator it = cached_textures.find(file);
       if (it != cached_textures.end()) {
@@ -29,7 +31,7 @@ namespace fin::graphics {
 
     virtual void bind(ITexture* texture) = 0;
 
-  private:
+    private:
     virtual ImageTexture* create_texture_from_image(cimg_library::CImg<unsigned char> img) = 0;
 
     std::map<io::File, ImageTexture*> cached_textures;

@@ -6,6 +6,8 @@
 namespace fin::audio {
   class IAudio : public app::IService {
     public:
+    virtual ~IAudio() {}
+
     IListener* get_listener();
   };
 }

@@ -10,7 +10,9 @@ namespace fin::graphics {
   };
 
   class ITransform {
-  public:
+    public:
+    virtual ~ITransform() {}
+
     virtual void set_target_matrix(MatrixType matrixType) = 0;
 
     virtual void push_matrix() = 0;

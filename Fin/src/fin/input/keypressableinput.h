@@ -9,7 +9,7 @@ namespace fin::input {
       this->watchKey = watchKey;
     }
 
-    PressableState getState() override final;
+    PressableState getState() const override final;
 
     private:
     Keycode watchKey;

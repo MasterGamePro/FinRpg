@@ -309,9 +309,6 @@
     <ClInclude Include="src\fin\data\collections\list\stlvector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\debug\memory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\io\file.h">
       <Filter>Header Files</Filter>
     </ClInclude>

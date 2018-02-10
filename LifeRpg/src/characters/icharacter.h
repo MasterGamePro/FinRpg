@@ -3,7 +3,6 @@
 #include <direct.h>
 #include "fin/algorithm/string/format.h"
 #include "fin/app/actor/iactor.h"
-#include "fin/debug/memory.h"
 #include "fin/graphics/texture/imagetexture.h"
 #include "fin/input/iinput.h"
 #include "fin/math/trig.h"
@@ -11,35 +10,29 @@
 
 class ICharacter : public fin::app::IActor {
   public:
-  ICharacter( std::string name, fin::graphics::ITextures* ts ) {
-    ADD_TO_TOTAL_MEMORY_CHILD( ICharacter, fin::app::IActor );
-
+  ICharacter(std::string name, fin::graphics::ITextures* ts) {
     char buffer[FILENAME_MAX];
-    _getcwd( buffer, FILENAME_MAX );
+    _getcwd(buffer, FILENAME_MAX);
 
     std::string folderPath = "resources/characters/" + name + "/";
-    standingTextures.push_back( ts->load_texture( fin::io::File( folderPath + "standing-0.png" ) ) );
+    standingTextures.push_back(ts->load_texture(fin::io::File(folderPath + "standing-0.png")));
 
-    for ( int i = 0; i < 4; i++ ) {
-      std::string path = fin::algorithm::string_format( "%swalking-%d.png", folderPath.c_str(), i );
-      fin::debug::Log::println( path );
-      walkingTextures.push_back( ts->load_texture( fin::io::File( path ) ) );
+    for (int i = 0; i < 4; i++) {
+      std::string path = fin::algorithm::string_format("%swalking-%d.png", folderPath.c_str(), i);
+      fin::debug::Log::println(path);
+      walkingTextures.push_back(ts->load_texture(fin::io::File(path)));
     }
 
-    shadowTexture = ts->load_texture( fin::io::File( "resources/images/shadow.png" ) );
-  }
-
-  ~ICharacter() {
-    REMOVE_FROM_TOTAL_MEMORY_CHILD( ICharacter, fin::app::IActor );
+    shadowTexture = ts->load_texture(fin::io::File("resources/images/shadow.png"));
   }
 
   protected:
-  void move( double amount, double dir ) {
-    if ( amount > 0 ) {
+  void move(double amount, double dir) {
+    if (amount > 0) {
       this->dir = dir;
       isMoving = true;
-      x += fin::math::Trig::cosd( dir ) * amount;
-      y += fin::math::Trig::sind( dir ) * amount;
+      x += fin::math::Trig::cosd(dir) * amount;
+      y += fin::math::Trig::sind(dir) * amount;
     }
     else {
       isMoving = false;
@@ -59,21 +52,21 @@ class ICharacter : public fin::app::IActor {
     double camDirection = -90;
 
     double angleError = 20;
-    double angleDiff = fin::math::Trig::angle_diffd( camDirection, dir );
+    double angleDiff = fin::math::Trig::angle_diffd(camDirection, dir);
 
-    double absAngleDiff = fabs( angleDiff );
-    if ( absAngleDiff > angleError && absAngleDiff < 180 - angleError ) {
-      targetFlipDirection = 90 + ( angleDiff > 0 ? 1 : -1 ) * 90;
+    double absAngleDiff = fabs(angleDiff);
+    if (absAngleDiff > angleError && absAngleDiff < 180 - angleError) {
+      targetFlipDirection = 90 + (angleDiff > 0 ? 1 : -1) * 90;
     }
 
-    double flipSpeed = fin::time::DeltaTime::adjust_velocity( 20 );
-    double angleDist = fin::math::Trig::angle_distd( flipDirection, targetFlipDirection );
+    double flipSpeed = fin::time::DeltaTime::adjust_velocity(20);
+    double angleDist = fin::math::Trig::angle_distd(flipDirection, targetFlipDirection);
 
-    if ( fabs( angleDist ) <= flipSpeed ) {
+    if (fabs(angleDist) <= flipSpeed) {
       flipDirection = targetFlipDirection;
     }
     else {
-      flipDirection += ( angleDist > 0 ? 1 : -1 ) * flipSpeed;
+      flipDirection += (angleDist > 0 ? 1 : -1) * flipSpeed;
     }
   }
 
@@ -81,26 +74,26 @@ class ICharacter : public fin::app::IActor {
 
   }
 
-  void on_tick_render_ortho( fin::graphics::IGraphics* g ) override {}
+  void on_tick_render_ortho(fin::graphics::IGraphics* g) override {}
 
-  void on_tick_render_perspective( fin::graphics::IGraphics* g ) override final {
-    g->r3d()->draw_floor( -500, -500, 500, 500, -1 );
+  void on_tick_render_perspective(fin::graphics::IGraphics* g) override final {
+    g->r3d()->draw_floor(-500, -500, 500, 500, -1);
 
     fin::graphics::ITransform* t = g->t();
     t->identity();
-    t->translate( x, y, z );
-    t->rotate_z( flipDirection );
+    t->translate(x, y, z);
+    t->rotate_z(flipDirection);
 
-    g->p()->color3d( 1, 1, 1 );
+    g->p()->color3d(1, 1, 1);
 
-    g->ts()->bind( shadowTexture );
-    g->r3d()->draw_floor( -5, -5, 5, 5, 0 );
+    g->ts()->bind(shadowTexture);
+    g->r3d()->draw_floor(-5, -5, 5, 5, 0);
 
     fin::graphics::ImageTexture* img;
 
-    if ( isMoving ) {
+    if (isMoving) {
       index += .15;
-      img = walkingTextures[( int ) index % 4];
+      img = walkingTextures[(int) index % 4];
     }
     else {
       img = standingTextures[0];
@@ -108,9 +101,9 @@ class ICharacter : public fin::app::IActor {
 
     int xd = -2;
 
-    g->ts()->bind( img );
-    g->r3d()->draw_wall( xd - 8, 0, 16, xd + 8, 0, 0 );
-    g->ts()->bind( nullptr );
+    g->ts()->bind(img);
+    g->r3d()->draw_wall(xd - 8, 0, 16, xd + 8, 0, 0);
+    g->ts()->bind(nullptr);
   }
 
   protected:

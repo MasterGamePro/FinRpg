@@ -7,54 +7,47 @@
 
 namespace fin::input {
   class PressableInputDirectionalInput : public IDirectionalInput {
-  public:
+    public:
     PressableInputDirectionalInput(IPressableInput* leftPressableInput,
-      IPressableInput* rightPressableInput,
-      IPressableInput* upPressableInput,
-      IPressableInput* downPressableInput) {
+                                   IPressableInput* rightPressableInput,
+                                   IPressableInput* upPressableInput,
+                                   IPressableInput* downPressableInput) {
       this->leftPressableInput = leftPressableInput;
       this->rightPressableInput = rightPressableInput;
       this->upPressableInput = upPressableInput;
       this->downPressableInput = downPressableInput;
     }
 
-    double get_pressed_amount() override final {
-      const bool isHeld =
-        math::Binary:: xor (leftPressableInput->checkState(PRESSABLESTATE_PRESSED),
-          rightPressableInput->checkState(PRESSABLESTATE_PRESSED))
-        ||
-        math::Binary:: xor (upPressableInput->checkState(PRESSABLESTATE_PRESSED),
-          downPressableInput->checkState(PRESSABLESTATE_PRESSED));
-      return (isHeld) ? 1 : 0;
+    double get_pressed_amount() const override final {
+      return calc_amount_in_state(PRESSABLESTATE_PRESSED);
     }
-    double getPressedDirection()  override final {
-      const int left = leftPressableInput->checkState(PRESSABLESTATE_PRESSED),
-        right = rightPressableInput->checkState(PRESSABLESTATE_PRESSED),
-        up = upPressableInput->checkState(PRESSABLESTATE_PRESSED),
-        down = downPressableInput->checkState(PRESSABLESTATE_PRESSED);
+    double getPressedDirection() const override final {
+      return calc_direction_in_state(PRESSABLESTATE_PRESSED);
+    }
 
+    double getHeldAmount() const override final {
+      return calc_amount_in_state(PRESSABLESTATE_DOWN);
+    }
+    double getHeldDirection() const override final {
+      return calc_direction_in_state(PRESSABLESTATE_DOWN);
+    }
+
+    private:
+    double calc_amount_in_state(const PressableState& state) const {
+      return math::Binary:: xor (leftPressableInput->checkState(state),
+                                 rightPressableInput->checkState(state)) ||
+        math::Binary:: xor (upPressableInput->checkState(state),
+                            downPressableInput->checkState(state)) ? 1 : 0;
+    }
+
+    double calc_direction_in_state(const PressableState& state) const {
+      const int left = leftPressableInput->checkState(state),
+        right = rightPressableInput->checkState(state),
+        up = upPressableInput->checkState(state),
+        down = downPressableInput->checkState(state);
       return std::atan2(up - down, right - left) * math::Trig::kRad2Deg;
     }
 
-    double getHeldAmount()  override final {
-      const bool isHeld =
-        math::Binary:: xor (leftPressableInput->checkState(PRESSABLESTATE_DOWN),
-          rightPressableInput->checkState(PRESSABLESTATE_DOWN))
-        ||
-        math::Binary:: xor (upPressableInput->checkState(PRESSABLESTATE_DOWN),
-          downPressableInput->checkState(PRESSABLESTATE_DOWN));
-      return (isHeld) ? 1 : 0;
-    }
-    double getHeldDirection() override final {
-      const int left = leftPressableInput->checkState(PRESSABLESTATE_DOWN),
-        right = rightPressableInput->checkState(PRESSABLESTATE_DOWN),
-        up = upPressableInput->checkState(PRESSABLESTATE_DOWN),
-        down = downPressableInput->checkState(PRESSABLESTATE_DOWN);
-
-      return std::atan2(up - down, right - left) * math::Trig::kRad2Deg;
-    }
-
-  private:
     IPressableInput
       * leftPressableInput,
       *rightPressableInput,
