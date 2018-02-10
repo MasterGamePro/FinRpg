@@ -41,7 +41,7 @@ namespace fin::graphics {
     double a_d() const { return a_b() / 255.; }
     uint8_t a_b() const { return rgba_ & 0xff; }
 
-    double h_r() const { return h_d() * math::Trig::DEG_2_RAD; }
+    double h_r() const { return h_d() * math::Trig::kDeg2Rad; }
     double h_d() const {
       const auto r = r_d(), g = g_d(), b = b_d(),
         ma = std::max(r, std::max(g, b)), mi = std::min(r, std::min(g, b)),

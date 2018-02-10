@@ -69,7 +69,7 @@ namespace fin::graphics {
 
     virtual void drawCircle(const double x, const double y, const double r,
                             const bool isFilled) {
-      drawPolygon(x, y, r, static_cast<int>(ceil(math::Trig::TAU * r / 5)),
+      drawPolygon(x, y, r, static_cast<int>(ceil(math::Trig::kTau * r / 5)),
                   isFilled);
     }
     virtual void strokeCircle(const double x, const double y, const double r) {

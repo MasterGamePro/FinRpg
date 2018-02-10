@@ -2,8 +2,8 @@
 #include "trig.h"
 
 namespace fin::math {
-  const double Trig::PI = 3.14159265;
-  const double Trig::TAU = 2 * PI;
-  const double Trig::RAD_2_DEG = 180 / PI;
-  const double Trig::DEG_2_RAD = 1 / RAD_2_DEG;
+  const double Trig::kPi = 3.14159265;
+  const double Trig::kTau = 2 * kPi;
+  const double Trig::kRad2Deg = 180 / kPi;
+  const double Trig::kDeg2Rad = 1 / kRad2Deg;
 }

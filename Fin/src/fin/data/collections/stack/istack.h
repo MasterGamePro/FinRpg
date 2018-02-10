@@ -9,7 +9,7 @@ namespace fin::data {
     virtual T& peek() = 0;
 
     virtual void clear() = 0;
-    virtual int size() = 0;
-    bool is_empty() { return size() == 0; }
+    virtual int size() const = 0;
+    bool is_empty() const { return size() == 0; }
   };
 }

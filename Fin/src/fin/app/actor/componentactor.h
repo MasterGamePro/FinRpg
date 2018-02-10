@@ -19,21 +19,21 @@ namespace fin::app {
       componentListMap[COMPONENT_AUDIO] = new data::StlVector<IComponent*>();
     }
 
-    void tickControl() override final { tickComponents( COMPONENT_CONTROL ); }
-    void tick_physics() override final { tickComponents( COMPONENT_PHYSICS ); }
-    void tick_collision() override final { tickComponents( COMPONENT_COLLISION ); }
-    void tickAnimation() override final { tickComponents( COMPONENT_ANIMATION ); }
-    void tickAudio() override final { tickComponents( COMPONENT_AUDIO ); }
-    void tickRender( graphics::IGraphics* g ) override final {
-      renderComponents.iterate( [g] ( IRenderComponent* component, int i ) {
-        component->render( g );
-      } );
+    void tickControl() override final { tickComponents(COMPONENT_CONTROL); }
+    void tick_physics() override final { tickComponents(COMPONENT_PHYSICS); }
+    void tick_collision() override final { tickComponents(COMPONENT_COLLISION); }
+    void tickAnimation() override final { tickComponents(COMPONENT_ANIMATION); }
+    void tickAudio() override final { tickComponents(COMPONENT_AUDIO); }
+    void tickRender(graphics::IGraphics* g) override final {
+      renderComponents.iterate([g](IRenderComponent* component, int i) {
+        component->render(g);
+      });
     }
 
-    void tickComponents( ComponentType type ) {
-      componentListMap[type]->iterate( [] ( IComponent* component, int i ) {
+    void tickComponents(const ComponentType type) {
+      componentListMap[type]->iterate([](IComponent* component, int i) {
         component->tick();
-      } );
+      });
     }
 
     private:

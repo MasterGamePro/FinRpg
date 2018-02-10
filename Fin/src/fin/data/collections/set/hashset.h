@@ -10,7 +10,7 @@ namespace fin::data {
 
     virtual ~HashSet() { clear(); }
 
-    bool contains( const T& t ) override final {
+    bool contains( const T& t ) const override final {
       return set.find( t ) != set.end();
     }
     bool add( const T& t ) override final {
@@ -25,12 +25,19 @@ namespace fin::data {
     };
 
     void clear() override final { set.clear(); }
-    int size() override final { return set.size(); }
+    int size() const override final { return set.size(); }
 
-    void iterate( const std::function< void( T t, int i ) >& lambda ) override final {
-      int i = 0;
-      for ( auto it = set.cbegin(), end = set.cend(); it != end; ++it, i++ ) {
-        lambda( *it, i );
+    void iterate( const std::function< void( T& t, int i ) >& lambda ) override final {
+      auto i = 0;
+      for ( auto t : set ) {
+        lambda( t, i++ );
+      }
+    }
+
+    void const_iterate(const std::function< void(const T& t, int i) >& lambda) const override final {
+      auto i = 0;
+      for (const auto t : set) {
+        lambda(t, i++);
       }
     }
 

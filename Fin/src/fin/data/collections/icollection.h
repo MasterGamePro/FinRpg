@@ -10,9 +10,9 @@ namespace fin::data {
     virtual ~ICollection() {}
 
     virtual void clear() = 0;
-    virtual int size() = 0;
-    bool is_empty() { return size() == 0; }
+    virtual int size() const = 0;
+    bool is_empty() const { return size() == 0; }
 
-    virtual bool contains( const T& t ) = 0;
+    virtual bool contains( const T& t ) const = 0;
   };
 }

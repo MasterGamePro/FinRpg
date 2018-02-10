@@ -7,8 +7,6 @@ namespace fin::app {
   class IRenderComponent : IComponent {
     public:
 
-    void render(graphics::IGraphics* g ) {
-
-    }
+    virtual void render(graphics::IGraphics* g) = 0;
   };
 }

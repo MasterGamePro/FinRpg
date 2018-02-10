@@ -22,8 +22,11 @@ namespace fin::graphics {
       this->r2d = r2d;
     }
 
+    // TODO: Make this private?
     virtual void draw_char( char c, double x, double y, double w, double h ) const = 0;
-    void draw_string( std::string str, double x, double y ) const {
+
+    // TODO: Switch order of x, y & string, and add format params.
+    void draw_string( const std::string& str, double x, double y ) const {
       double x0 = x, cW = 8, cH = 12, cPX = cW * .2;
       const auto tf = time::Time::mod_ms( 1000 );
 
@@ -42,8 +45,8 @@ namespace fin::graphics {
         double dx, dy;
         switch ( textAnimationType ) {
           case TEXTANIMATION_WAVE:
-            dx = x + cW / 4 * cos( math::Trig::TAU*tf + i*.5 );
-            dy = y + cH / 4 * sin( math::Trig::TAU*tf + i*.5 );
+            dx = x + cW / 4 * cos( math::Trig::kTau*tf + i*.5 );
+            dy = y + cH / 4 * sin( math::Trig::kTau*tf + i*.5 );
             break;
 
           case TEXTANIMATION_SHAKE:
@@ -53,7 +56,7 @@ namespace fin::graphics {
 
           case TEXTANIMATION_JIGGLE:
             dx = x;
-            dy = y +cH / 16 * sin( math::Trig::TAU*tf + i*.5 );
+            dy = y +cH / 16 * sin( math::Trig::kTau*tf + i*.5 );
             break;
 
           case TEXTANIMATION_NONE:

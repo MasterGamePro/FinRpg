@@ -33,7 +33,7 @@ namespace fin::input {
         up = upPressableInput->checkState(PRESSABLESTATE_PRESSED),
         down = downPressableInput->checkState(PRESSABLESTATE_PRESSED);
 
-      return std::atan2(up - down, right - left) * math::Trig::RAD_2_DEG;
+      return std::atan2(up - down, right - left) * math::Trig::kRad2Deg;
     }
 
     double getHeldAmount()  override final {
@@ -51,7 +51,7 @@ namespace fin::input {
         up = upPressableInput->checkState(PRESSABLESTATE_DOWN),
         down = downPressableInput->checkState(PRESSABLESTATE_DOWN);
 
-      return std::atan2(up - down, right - left) * math::Trig::RAD_2_DEG;
+      return std::atan2(up - down, right - left) * math::Trig::kRad2Deg;
     }
 
   private:
