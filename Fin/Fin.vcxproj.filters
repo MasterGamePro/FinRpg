@@ -324,9 +324,6 @@
     <ClInclude Include="src\fin\math\geometry\inormal3d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\graphics\camera\camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\graphics\itextures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -414,6 +411,12 @@
     <ClInclude Include="src\fin\audio\iaudioloader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\fin\graphics\renderfonttext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\graphics\camera\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -449,10 +452,10 @@
     <ClCompile Include="src\fin\math\geometry\point3d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\fin\graphics\camera\camera.cpp">
+    <ClCompile Include="src\fin\io\ifilesystemelement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\fin\io\ifilesystemelement.cpp">
+    <ClCompile Include="src\fin\graphics\camera\camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

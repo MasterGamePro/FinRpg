@@ -1,6 +1,5 @@
 #pragma once
 
-#include "render2d.h"
 #include <string>
 #include <cctype>
 #include "fin/time/time.h"
@@ -18,14 +17,13 @@ namespace fin::graphics {
 
   class IRenderText {
     public:
-    IRenderText(Render2d* r2d) : r2d(r2d) {}
     virtual ~IRenderText() {}
 
     // TODO: Make this private?
-    virtual void draw_char(char c, double x, double y, double w, double h) const = 0;
+    virtual void draw_char(char c, double x, double y, double w, double h) = 0;
 
     // TODO: Switch order of x, y & string, and add format params.
-    void draw_string(const std::string& str, double x, double y) const {
+    virtual void draw_string(const std::string& str, double x, double y) {
       double x0 = x, cW = 8, cH = 12, cPX = cW * .2;
       const auto tf = time::Time::mod_ms(1000);
 
@@ -71,8 +69,9 @@ namespace fin::graphics {
       }
     }
 
+    virtual void init() {}
+
     protected:
     TextAnimationType textAnimationType = TEXTANIMATION_JIGGLE; // TEXTANIMATION_SHAKE;
-    Render2d* r2d;
   };
 }

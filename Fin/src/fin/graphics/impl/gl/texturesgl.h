@@ -5,7 +5,7 @@
 
 namespace fin::graphics {
   class TexturesGl : public ITextures {
-  public:
+    public:
     virtual void bind(ITexture* texture) {
       if (texture != nullptr) {
         glEnable(GL_TEXTURE_2D);
@@ -17,13 +17,11 @@ namespace fin::graphics {
       }
     }
 
-  private:
     ImageTexture * create_texture_from_image(cimg_library::CImg<unsigned char> img) override final {
       int width = img.width(), height = img.height();
       unsigned int id;
 
       glGenTextures(1, &id);
-
       glBindTexture(GL_TEXTURE_2D, id);
       glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
@@ -33,6 +31,7 @@ namespace fin::graphics {
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
       int i = 0, numChannels = img.spectrum();
+      debug::Log::println("Channels: %d", numChannels);
       unsigned char *out = nullptr;
       int imgType = GL_RGB;
 

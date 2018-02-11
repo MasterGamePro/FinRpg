@@ -196,6 +196,7 @@
     <ClInclude Include="src\fin\data\collections\stack\istack.h" />
     <ClInclude Include="src\fin\data\collections\stack\stlstack.h" />
     <ClInclude Include="src\fin\graphics\color.h" />
+    <ClInclude Include="src\fin\graphics\renderfonttext.h" />
     <ClInclude Include="src\fin\math\geometry\face3d.h" />
     <ClInclude Include="src\fin\math\geometry\primitive3d.h" />
     <ClInclude Include="src\fin\debug\exception.h" />

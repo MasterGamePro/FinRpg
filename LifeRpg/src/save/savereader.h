@@ -7,7 +7,7 @@
 
 class SaveReader {
   public:
-  SaveData load( fin::io::File file ) {
+  SaveData load( const fin::io::File& file ) {
     fin::io::FileReader fileReader( file );
     std::string fileText = fileReader.read_all_and_close();
 
@@ -16,7 +16,6 @@ class SaveReader {
 
     SaveData saveData;
     Json::Value::Members members = root.getMemberNames();
-    
   }
 
   private:

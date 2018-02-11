@@ -8,10 +8,11 @@
 
 namespace fin::graphics {
   class GraphicsGl : public IGraphics {
-  public:
+    public:
     GraphicsGl() : IGraphics(new PrimitivesGl(), new TransformGl(), new ScreenGl(), new TexturesGl()) {}
 
     void init() override final {
+      IGraphics::init();
       glEnable(GL_DEPTH_TEST);
       glDepthFunc(GL_LEQUAL);
       glEnable(GL_ALPHA_TEST);

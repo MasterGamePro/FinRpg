@@ -3,10 +3,11 @@
 #include "fin/app/iservice.h"
 #include "render2d.h"
 #include "render3d.h"
-#include "rendervectortext.h"
 #include "itransform.h"
 #include "iscreen.h"
 #include "itextures.h"
+#include "renderfonttext.h"
+#include "rendervectortext.h"
 
 namespace fin::graphics {
   class IGraphics : public app::IService {
@@ -18,9 +19,14 @@ namespace fin::graphics {
       this->_ts = _ts;
       _r2d = new Render2d(_p);
       _r3d = new Render3d(_p);
-      _rt = new RenderVectorText(_r2d);
+      //_rt = new RenderVectorText(_r2d);
+      _rt = new RenderFontText(_p, _ts);
     }
     virtual ~IGraphics() {}
+
+    void init() override {
+      _rt->init();
+    }
 
     IPrimitives* p() const { return _p; }
     ITransform* t() const { return _t; }

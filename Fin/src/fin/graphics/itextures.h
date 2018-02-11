@@ -30,10 +30,9 @@ namespace fin::graphics {
     }
 
     virtual void bind(ITexture* texture) = 0;
-
-    private:
     virtual ImageTexture* create_texture_from_image(cimg_library::CImg<unsigned char> img) = 0;
 
+    private:
     std::map<io::File, ImageTexture*> cached_textures;
   };
 }
