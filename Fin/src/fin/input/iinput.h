@@ -1,6 +1,7 @@
 #pragma once
 #include "ikeyboard.h"
-#include "layout/moderninputlayout.h"
+#include "layout/imoderninputlayout.h"
+#include "layout/keyboardmoderninputlayout.h"
 
 namespace fin::input {
   class IInput {
@@ -9,12 +10,13 @@ namespace fin::input {
     virtual ~IInput() {}
 
     virtual IKeyboard* getKeyboard() = 0;
-    ModernInputLayout* getInputLayout() const { return layout; }
+    //virtual IMouse* getMouse() = 0;
+    IModernInputLayout* getInputLayout() const { return layout; }
 
     static IInput* instance() { return _instance; }
 
     private:
-    ModernInputLayout* layout = new ModernInputLayout();
+    IModernInputLayout * layout = new KeyboardModernInputLayout();
     static IInput* _instance;
   };
 }

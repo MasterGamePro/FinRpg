@@ -13,9 +13,15 @@ class Player : public ICharacter {
     const auto il = i->getInputLayout();
 
     const auto pdi = il->getPrimaryDirectionalInput();
-    const auto amt = pdi->getHeldAmount();
+    const auto moveAmt = pdi->getHeldAmount();
 
-    move(amt, camera->get_normal().xy_dird() - 90 + pdi->getHeldDirection());
+    move(moveAmt, camera->get_normal().xy_dird() - 90 + pdi->getHeldDirection());
+
+    const auto sdi = il->getSecondaryDirectionalInput();
+    lookAmt = sdi->getHeldAmount();
+    if (lookAmt > 0) {
+      lookDir = sdi->getHeldDirection();
+    }
   }
 
   void on_tick_animation() override final {
@@ -24,15 +30,49 @@ class Player : public ICharacter {
     fin::math::Point3d *from = &camera->get_from_point(),
       *to = &camera->get_to_point();
 
-    double zd = 16;
+    double fov = 20;
 
-    to->x(x);
-    to->y(y);
-    to->z(z + zd);
+    camera->set_field_of_view(fov);
 
-    from->x(x);
-    from->y(y + 96);
-    from->z(z + zd + 8);
+    double zd = 16 * .6;
+
+    double percent = .75;
+    double w = 16;
+
+    double camW = w / percent;
+    double camDis = fin::math::Trig::tand(fov) / camW,
+      camDir = 90,
+      xd = camDis * fin::math::Trig::cosd(camDir),
+      yd = camDis * fin::math::Trig::sind(camDir),
+      lookDis = 8 * lookAmt,
+      xp = lookDis * fin::math::Trig::cosd(lookDir) * fin::math::Trig::cosd(camDir + 90),
+      yp = lookDis * fin::math::Trig::cosd(lookDir) * fin::math::Trig::sind(camDir + 90),
+      zp = lookDis * fin::math::Trig::sind(lookDir);
+
+    to->x(x + xp);
+    to->y(y + yp);
+    to->z(z + zd + zp);   ;
+
+    from->x(x + xd + xp);
+    from->y(y + yd + yp);
+    from->z(z + zd + zp);
+  }
+
+  void on_tick_render_perspective(fin::graphics::IGraphics* g) override {
+    ICharacter::on_tick_render_perspective(g);
+
+    if (lookAmt > 0) {
+      auto *t = g->t();
+      t->identity();
+      t->translate(x, y, z + 12);
+      t->rotate_z(camera->get_normal().xy_dird() - 90);
+      t->translate(0, -2, 0);
+      t->rotate_y(-lookDir);
+      t->translate(lookAmt * 8, 0, 0);
+      g->p()->color3d(1, 0, 0);
+      g->r3d()->draw_wall(-1, 0, 2, 1, 0, -2);
+      g->p()->color3d(1, 1, 1);
+    }
   }
 
   void on_tick_render_ortho(fin::graphics::IGraphics* g) override final {
@@ -42,4 +82,5 @@ class Player : public ICharacter {
 
   private:
   fin::graphics::Camera* camera;
+  double lookAmt, lookDir;
 };

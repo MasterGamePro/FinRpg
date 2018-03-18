@@ -6,6 +6,7 @@
 #include "fin/app/iapp.h"
 #include "fin/app/impl/glfw/appglfw.h"
 #include "fin/debug/log.h"
+#include "scenes/debugvillagescene.h"
 #include "scenes/debugmenuscene.h"
 
 int main() {
@@ -15,7 +16,7 @@ int main() {
     fin::debug::Log::println("OK!");
 
     fin::debug::Log::print("Launching app... ");
-    app->launch( new DebugMenuScene() );
+    app->launch(new DebugVillageScene());// new DebugMenuScene() );
     fin::debug::Log::println("OK!");
 
     fin::debug::Log::print("Freeing app data... ");

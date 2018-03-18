@@ -39,11 +39,11 @@ class ICharacter : public fin::app::IActor {
     }
   }
 
-  void on_tick_physics() override final {
+  void on_tick_physics() override {
 
   }
 
-  void on_tick_collision() override final {
+  void on_tick_collision() override {
 
   }
 
@@ -70,13 +70,13 @@ class ICharacter : public fin::app::IActor {
     }
   }
 
-  void on_tick_audio() override final {
+  void on_tick_audio() override {
 
   }
 
   void on_tick_render_ortho(fin::graphics::IGraphics* g) override {}
 
-  void on_tick_render_perspective(fin::graphics::IGraphics* g) override final {
+  void on_tick_render_perspective(fin::graphics::IGraphics* g) override {
     g->r3d()->draw_floor(-500, -500, 500, 500, -1);
 
     fin::graphics::ITransform* t = g->t();

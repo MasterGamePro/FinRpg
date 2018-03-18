@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "fin/image/imagedefs.h"
 
 namespace fin {
   namespace graphics {
@@ -9,12 +10,6 @@ namespace fin {
   }
 
   namespace app {
-    enum ImageType {
-      IMAGE_JPG,
-      IMAGE_BMP,
-      IMAGE_PNG,
-    };
-
     class IApp;
     class View;
 
@@ -38,7 +33,7 @@ namespace fin {
 
       virtual void render(graphics::IGraphics* g, IApp* app);
 
-      virtual void save_screenshot(std::string name, ImageType imageType) = 0;
+      virtual void save_screenshot(std::string name, image::ImageFileType imageType) = 0;
     };
   }
 }

@@ -90,8 +90,8 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)src;</AdditionalIncludeDirectories>
-      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>false</EnablePREfast>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -197,6 +197,17 @@
     <ClInclude Include="src\fin\data\collections\stack\stlstack.h" />
     <ClInclude Include="src\fin\graphics\color.h" />
     <ClInclude Include="src\fin\graphics\renderfonttext.h" />
+    <ClInclude Include="src\fin\image\iimage.h" />
+    <ClInclude Include="src\fin\image\iimageloader.h" />
+    <ClInclude Include="src\fin\image\imagedefs.h" />
+    <ClInclude Include="src\fin\image\impl\cimg\CimgImage.h" />
+    <ClInclude Include="src\fin\input\igamepad.h" />
+    <ClInclude Include="src\fin\input\impl\glfw\mouseglfw.h" />
+    <ClInclude Include="src\fin\input\layout\gamepadmoderninputlayout.h" />
+    <ClInclude Include="src\fin\input\layout\keyboardmoderninputlayout.h" />
+    <ClInclude Include="src\fin\input\metrics\directionalinputrotationmeasurer.h" />
+    <ClInclude Include="src\fin\input\metrics\pressableinputfrequencymeasurer.h" />
+    <ClInclude Include="src\fin\input\mousedefs.h" />
     <ClInclude Include="src\fin\math\geometry\face3d.h" />
     <ClInclude Include="src\fin\math\geometry\primitive3d.h" />
     <ClInclude Include="src\fin\debug\exception.h" />
@@ -228,7 +239,7 @@
     <ClInclude Include="src\fin\input\directionalinputstats.h" />
     <ClInclude Include="src\fin\input\impl\sdl\keyconvertersdl.h" />
     <ClInclude Include="src\fin\input\keypressableinput.h" />
-    <ClInclude Include="src\fin\input\layout\moderninputlayout.h" />
+    <ClInclude Include="src\fin\input\layout\imoderninputlayout.h" />
     <ClInclude Include="src\fin\input\impl\glfw\inputglfw.h" />
     <ClInclude Include="src\fin\input\impl\glfw\keyboardglfw.h" />
     <ClInclude Include="src\fin\input\pressabledefs.h" />
@@ -237,7 +248,7 @@
     <ClInclude Include="src\fin\input\iinput.h" />
     <ClInclude Include="src\fin\input\ikeyboard.h" />
     <ClInclude Include="src\fin\input\keydefs.h" />
-    <ClInclude Include="src\fin\input\mouse.h" />
+    <ClInclude Include="src\fin\input\imouse.h" />
     <ClInclude Include="src\fin\input\ipointingdevice.h" />
     <ClInclude Include="src\fin\input\ipressableinput.h" />
     <ClInclude Include="src\fin\input\pressableinputdirectionalinput.h" />

@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fin", "Fin\Fin.vcxproj", "{380DD5FB-7C48-4940-8E95-339DC8BA1F08}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LifeRpg", "LifeRpg\LifeRpg.vcxproj", "{C57D6F57-B50D-48B1-AD71-3A1EB0ABF123}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FinTests", "FinTests\FinTests.vcxproj", "{FC12249A-40F3-4960-B74A-0154209148C7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{380DD5FB-7C48-4940-8E95-339DC8BA1F08} = {380DD5FB-7C48-4940-8E95-339DC8BA1F08}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Retro", "Retro\Retro.vcxproj", "{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{380DD5FB-7C48-4940-8E95-339DC8BA1F08} = {380DD5FB-7C48-4940-8E95-339DC8BA1F08}
 	EndProjectSection
@@ -58,6 +63,18 @@ Global
 		{FC12249A-40F3-4960-B74A-0154209148C7}.Special|x64.Build.0 = Release|x64
 		{FC12249A-40F3-4960-B74A-0154209148C7}.Special|x86.ActiveCfg = Release|Win32
 		{FC12249A-40F3-4960-B74A-0154209148C7}.Special|x86.Build.0 = Release|Win32
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Debug|x64.ActiveCfg = Debug|Win32
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Debug|x64.Build.0 = Debug|Win32
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Debug|x86.ActiveCfg = Debug|Win32
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Debug|x86.Build.0 = Debug|Win32
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Release|x64.ActiveCfg = Release|x64
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Release|x64.Build.0 = Release|x64
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Release|x86.ActiveCfg = Release|Win32
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Release|x86.Build.0 = Release|Win32
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Special|x64.ActiveCfg = Release|x64
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Special|x64.Build.0 = Release|x64
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Special|x86.ActiveCfg = Release|Win32
+		{E44B7D33-DF58-4D90-A4C5-E080E09F5ADB}.Special|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

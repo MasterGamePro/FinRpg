@@ -45,9 +45,6 @@
     <ClInclude Include="src\fin\graphics\texture\itexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\input\mouse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -142,9 +139,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\input\ipointingdevice.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\input\layout\moderninputlayout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\input\directionalinputstats.h">
@@ -415,6 +409,45 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\graphics\camera\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\layout\imoderninputlayout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\layout\keyboardmoderninputlayout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\layout\gamepadmoderninputlayout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\igamepad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\impl\glfw\mouseglfw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\mousedefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\imouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\metrics\directionalinputrotationmeasurer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\metrics\pressableinputfrequencymeasurer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\image\iimage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\image\iimageloader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\image\impl\cimg\CimgImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\image\imagedefs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

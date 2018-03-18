@@ -9,9 +9,22 @@ namespace fin::math {
     static const double kRad2Deg, kDeg2Rad;
 
     static double cosr(const double rad) { return cos(rad); }
-    static double sinr(const double rad) { return sin(rad); }
     static double cosd(const double deg) { return cosr(deg * kDeg2Rad); }
+
+    static double sinr(const double rad) { return sin(rad); }
     static double sind(const double deg) { return sinr(deg * kDeg2Rad); }
+
+    static double tanr(const double rad) { return tan(rad); }
+    static double tand(const double deg) { return tanr(deg * kDeg2Rad); }
+
+    static double acosr(const double rad) { return acos(rad); }
+    static double acosd(const double deg) { return acosr(deg * kDeg2Rad); }
+
+    static double asinr(const double rad) { return asin(rad); }
+    static double asind(const double deg) { return asinr(deg * kDeg2Rad); }
+
+    static double atanr(const double rad) { return atan(rad); }
+    static double atand(const double deg) { return atanr(deg * kDeg2Rad); }
 
     static double fremd(const double deg) {
       return deg - 360 * floor(deg / 360);
