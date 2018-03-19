@@ -99,9 +99,6 @@
     <ClInclude Include="src\fin\graphics\itransform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\input\keydefs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\input\impl\glfw\keyconverterglfw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -450,6 +447,18 @@
     <ClInclude Include="src\fin\image\imagedefs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\fin\input\impl\glfw\gamepadglfw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\gamepadanalogdirectionalinput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\keyboarddefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\gamepadbuttonpressableinput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -489,6 +498,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\fin\graphics\camera\camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fin\input\pressabledefs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

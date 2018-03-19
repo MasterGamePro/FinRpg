@@ -36,11 +36,9 @@ namespace fin::input {
       return PRESSABLESTATE_UP;
     }
 
-    bool check_key(const Keycode& keycode, const PressableState& expected_state) const {
+    bool check_key_state(const Keycode& keycode, const PressableState& expected_state) const {
       const auto actual_state = get_key_state(keycode);
-      if (actual_state == PRESSABLESTATE_RELEASED && expected_state == PRESSABLESTATE_UP) { return true; }
-      if (actual_state == PRESSABLESTATE_PRESSED && expected_state == PRESSABLESTATE_DOWN) { return true; }
-      return actual_state == expected_state;
+      return check_pressable_state(actual_state, expected_state);
     }
 
     // Copy stored inputs into map.

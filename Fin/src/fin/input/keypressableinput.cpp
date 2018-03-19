@@ -3,7 +3,7 @@
 #include "iinput.h"
 
 namespace fin::input {
-  PressableState KeyPressableInput::getState() const {
-    return input::IInput::instance()->getKeyboard()->get_key_state( watchKey );
+  PressableState KeyPressableInput::get_state() const {
+    return keyboard->get_key_state( watchKey );
   }
 }

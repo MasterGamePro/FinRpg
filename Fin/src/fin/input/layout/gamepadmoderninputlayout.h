@@ -1,15 +1,20 @@
 #pragma once
-
-#pragma once
-
+#include "fin/input/gamepadanalogdirectionalinput.h"
+#include "fin/input/gamepadbuttonpressableinput.h"
+#include "fin/input/igamepad.h"
 #include "fin/input/keypressableinput.h"
-#include "fin/input/pressableinputdirectionalinput.h"
 #include "imoderninputlayout.h"
 
 namespace fin::input {
-
   class GamepadModernInputLayout : public IModernInputLayout {
     public:
+    GamepadModernInputLayout(IGamepad* gamepad) {
+      primaryDirectionalInput = new GamepadAnalogDirectionalInput(gamepad, 0, 1);
+      secondaryDirectionalInput = new GamepadAnalogDirectionalInput(gamepad, 2, 3);
+      actionPressableInput = new GamepadButtonPressableInput(gamepad, 1);
+      cancelPressableInput = new GamepadButtonPressableInput(gamepad, 0);
+    }
+
     const IDirectionalInput* getPrimaryDirectionalInput() override final {
       return primaryDirectionalInput;
     }
@@ -25,11 +30,7 @@ namespace fin::input {
     }
 
     private:
-    IDirectionalInput
-      * primaryDirectionalInput = new AnalogStickDirectionalInput(),
-      *secondaryDirectionalInput = new AnalogStickDirectionalInput();
-    IPressableInput
-      *actionPressableInput, // = new KeyPressableInput(KEYCODE_U),
-      *cancelPressableInput; // = new KeyPressableInput(KEYCODE_H);
+    IDirectionalInput * primaryDirectionalInput, *secondaryDirectionalInput;
+    IPressableInput *actionPressableInput, *cancelPressableInput;
   };
 }

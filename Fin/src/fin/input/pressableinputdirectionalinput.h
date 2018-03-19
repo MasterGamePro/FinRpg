@@ -21,7 +21,7 @@ namespace fin::input {
     double get_pressed_amount() const override final {
       return calc_amount_in_state(PRESSABLESTATE_PRESSED);
     }
-    double getPressedDirection() const override final {
+    double get_pressed_direction() const override final {
       return calc_direction_in_state(PRESSABLESTATE_PRESSED);
     }
 

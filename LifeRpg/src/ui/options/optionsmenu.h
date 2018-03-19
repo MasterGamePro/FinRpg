@@ -16,10 +16,10 @@ class OptionsMenu : public fin::app::IActor {
 
   protected:
   void on_tick_control(fin::input::IInput* i) override final {
-    const auto d = i->getInputLayout()->getPrimaryDirectionalInput();
-    const auto a = i->getInputLayout()->getActionPressableInput();
+    const auto d = i->get_input_layout()->getPrimaryDirectionalInput();
+    const auto a = i->get_input_layout()->getActionPressableInput();
     if (d->get_pressed_amount() > 0) {
-      double dir = d->getPressedDirection();
+      double dir = d->get_pressed_direction();
       double x = fin::math::Trig::cosd(dir), y = fin::math::Trig::sind(dir);
       if (abs(x) > abs(y)) {
         if (option == 0) {
@@ -47,7 +47,7 @@ class OptionsMenu : public fin::app::IActor {
         }
       }
     }
-    else if (a->checkState(PRESSABLESTATE_PRESSED)) {
+    else if (a->checkState(fin::input::PRESSABLESTATE_PRESSED)) {
       if (option == 1) {
         isFullscreen = !isFullscreen;
         window->toggle_fullscreen();

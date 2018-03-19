@@ -135,7 +135,7 @@ namespace fin::app {
       // TODO: Link to keyboard.
       glfwSetWindowUserPointer(window, this);
       glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
-        input::IKeyboard* keyboard = IApp::instance()->get_input()->getKeyboard();
+        input::IKeyboard* keyboard = IApp::instance()->get_input()->get_keyboard();
         IWindow* w = (IWindow*) glfwGetWindowUserPointer(window);
 
         if (action == GLFW_PRESS) {
@@ -145,10 +145,10 @@ namespace fin::app {
           else if (key == GLFW_KEY_F1) {
             w->save_screenshot("img", image::IMAGEFILE_JPG);
           }
-          keyboard->handle(key, PRESSABLESTATE_PRESSED);
+          keyboard->handle(key, input::PRESSABLESTATE_PRESSED);
         }
         else if (action == GLFW_RELEASE) {
-          keyboard->handle(key, PRESSABLESTATE_RELEASED);
+          keyboard->handle(key, input::PRESSABLESTATE_RELEASED);
         }
       });
       //glfwSetCursorPosCallback(window, []();

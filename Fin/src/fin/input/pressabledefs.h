@@ -1,6 +1,10 @@
 #pragma once
 
-enum PressableState {
-  PRESSABLESTATE_UP, PRESSABLESTATE_DOWN,
-  PRESSABLESTATE_PRESSED, PRESSABLESTATE_RELEASED
-};
+namespace fin::input {
+  enum PressableState {
+    PRESSABLESTATE_UP, PRESSABLESTATE_DOWN,
+    PRESSABLESTATE_PRESSED, PRESSABLESTATE_RELEASED
+  };
+
+  bool check_pressable_state(PressableState actualState, PressableState expectedState);
+}

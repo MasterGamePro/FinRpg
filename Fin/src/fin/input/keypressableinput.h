@@ -1,17 +1,20 @@
 #pragma once
 #include "ipressableinput.h"
-#include "keydefs.h"
+#include "keyboarddefs.h"
+#include "ikeyboard.h"
 
 namespace fin::input {
   class KeyPressableInput : public IPressableInput {
     public:
-    KeyPressableInput( Keycode watchKey ) {
+    KeyPressableInput(IKeyboard* keyboard, const Keycode watchKey) {
+      this->keyboard = keyboard;
       this->watchKey = watchKey;
     }
 
-    PressableState getState() const override final;
+    PressableState get_state() const override final;
 
     private:
+    IKeyboard * keyboard;
     Keycode watchKey;
   };
 }

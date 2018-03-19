@@ -46,7 +46,10 @@ namespace fin::app {
     IWindow* get_main_window() override final { return window; }
 
     protected:
-    void poll_inputs() override final { glfwPollEvents(); }
+    void poll_inputs() override final {
+      glfwPollEvents();
+      input->poll();
+    }
 
     private:
     audio::IAudio* audio;

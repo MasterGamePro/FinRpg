@@ -10,7 +10,7 @@ class Player : public ICharacter {
   }
 
   void on_tick_control(fin::input::IInput* i) override final {
-    const auto il = i->getInputLayout();
+    const auto il = i->get_input_layout();
 
     const auto pdi = il->getPrimaryDirectionalInput();
     const auto moveAmt = pdi->getHeldAmount();
@@ -30,17 +30,17 @@ class Player : public ICharacter {
     fin::math::Point3d *from = &camera->get_from_point(),
       *to = &camera->get_to_point();
 
-    double fov = 20;
+    double fov = 45;
 
     camera->set_field_of_view(fov);
 
     double zd = 16 * .6;
 
     double percent = .75;
-    double w = 16;
+    double w = 48;
 
     double camW = w / percent;
-    double camDis = fin::math::Trig::tand(fov) / camW,
+    double camDis = 90, // fin::math::Trig::tand(fov) / camW,
       camDir = 90,
       xd = camDis * fin::math::Trig::cosd(camDir),
       yd = camDis * fin::math::Trig::sind(camDir),
@@ -51,7 +51,7 @@ class Player : public ICharacter {
 
     to->x(x + xp);
     to->y(y + yp);
-    to->z(z + zd + zp);   ;
+    to->z(z + zd + zp);
 
     from->x(x + xd + xp);
     from->y(y + yd + yp);

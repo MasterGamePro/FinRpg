@@ -5,10 +5,30 @@
 #include "imoderninputlayout.h"
 
 namespace fin::input {
-
   class KeyboardModernInputLayout : public IModernInputLayout {
-
     public:
+    KeyboardModernInputLayout(IKeyboard* keyboard) {
+      primaryDirectionalInput = new PressableInputDirectionalInput(
+        new KeyPressableInput(keyboard, KEYCODE_A),
+        new KeyPressableInput(keyboard, KEYCODE_D),
+        new KeyPressableInput(keyboard, KEYCODE_W),
+        new KeyPressableInput(keyboard, KEYCODE_S));
+      secondaryDirectionalInput = new PressableInputDirectionalInput(
+        new KeyPressableInput(keyboard, KEYCODE_K),
+        new KeyPressableInput(keyboard, KEYCODE_SEMICOLON),
+        new KeyPressableInput(keyboard, KEYCODE_O),
+        new KeyPressableInput(keyboard, KEYCODE_L));
+      actionPressableInput = new KeyPressableInput(keyboard, KEYCODE_U);
+      cancelPressableInput = new KeyPressableInput(keyboard, KEYCODE_H);
+    }
+
+    ~KeyboardModernInputLayout() {
+      delete primaryDirectionalInput;
+      delete secondaryDirectionalInput;
+      delete actionPressableInput;
+      delete cancelPressableInput;
+    }
+
     const IDirectionalInput* getPrimaryDirectionalInput() override final {
       return primaryDirectionalInput;
     }
@@ -25,18 +45,10 @@ namespace fin::input {
 
     private:
     IDirectionalInput
-      * primaryDirectionalInput = new PressableInputDirectionalInput(
-        new KeyPressableInput(KEYCODE_A),
-        new KeyPressableInput(KEYCODE_D),
-        new KeyPressableInput(KEYCODE_W),
-        new KeyPressableInput(KEYCODE_S)),
-      *secondaryDirectionalInput = new PressableInputDirectionalInput(
-        new KeyPressableInput(KEYCODE_K),
-        new KeyPressableInput(KEYCODE_SEMICOLON),
-        new KeyPressableInput(KEYCODE_O),
-        new KeyPressableInput(KEYCODE_L));
+      * primaryDirectionalInput,
+      *secondaryDirectionalInput;
     IPressableInput
-      *actionPressableInput = new KeyPressableInput(KEYCODE_U),
-      *cancelPressableInput = new KeyPressableInput(KEYCODE_H);
+      *actionPressableInput,
+      *cancelPressableInput;
   };
 }

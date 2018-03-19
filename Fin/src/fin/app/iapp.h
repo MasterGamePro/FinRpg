@@ -25,14 +25,14 @@ namespace fin::app {
       int frame = 0;
 
       auto stopwatch = new time::Stopwatch();
-      auto* keyboard = get_input()->getKeyboard();
+      auto* input = get_input();
 
       while (!get_main_window()->is_closed()) {
         poll_inputs();
 
-        keyboard->before_tick();
+        input->before_tick();
         tick();
-        keyboard->after_tick();
+        input->after_tick();
 
         render();
 

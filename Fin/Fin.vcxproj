@@ -201,8 +201,11 @@
     <ClInclude Include="src\fin\image\iimageloader.h" />
     <ClInclude Include="src\fin\image\imagedefs.h" />
     <ClInclude Include="src\fin\image\impl\cimg\CimgImage.h" />
+    <ClInclude Include="src\fin\input\gamepadbuttonpressableinput.h" />
     <ClInclude Include="src\fin\input\igamepad.h" />
+    <ClInclude Include="src\fin\input\impl\glfw\gamepadglfw.h" />
     <ClInclude Include="src\fin\input\impl\glfw\mouseglfw.h" />
+    <ClInclude Include="src\fin\input\gamepadanalogdirectionalinput.h" />
     <ClInclude Include="src\fin\input\layout\gamepadmoderninputlayout.h" />
     <ClInclude Include="src\fin\input\layout\keyboardmoderninputlayout.h" />
     <ClInclude Include="src\fin\input\metrics\directionalinputrotationmeasurer.h" />
@@ -247,7 +250,7 @@
     <ClInclude Include="src\fin\input\impl\glfw\keyconverterglfw.h" />
     <ClInclude Include="src\fin\input\iinput.h" />
     <ClInclude Include="src\fin\input\ikeyboard.h" />
-    <ClInclude Include="src\fin\input\keydefs.h" />
+    <ClInclude Include="src\fin\input\keyboarddefs.h" />
     <ClInclude Include="src\fin\input\imouse.h" />
     <ClInclude Include="src\fin\input\ipointingdevice.h" />
     <ClInclude Include="src\fin\input\ipressableinput.h" />
@@ -298,6 +301,7 @@
     <ClCompile Include="src\fin\input\iinput.cpp" />
     <ClCompile Include="src\fin\input\keypressableinput.cpp" />
     <ClCompile Include="src\fin\debug\log.cpp" />
+    <ClCompile Include="src\fin\input\pressabledefs.cpp" />
     <ClCompile Include="src\fin\io\ifilesystemelement.cpp" />
     <ClCompile Include="src\fin\math\geometry\normal3d.cpp" />
     <ClCompile Include="src\fin\math\geometry\point3d.cpp" />

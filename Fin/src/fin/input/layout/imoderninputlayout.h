@@ -4,9 +4,7 @@
 #include "fin/input/ipressableinput.h"
 
 namespace fin::input {
-
   class IModernInputLayout {
-
     public:
     virtual const IDirectionalInput* getPrimaryDirectionalInput() = 0;
     virtual const IDirectionalInput* getSecondaryDirectionalInput() = 0;
