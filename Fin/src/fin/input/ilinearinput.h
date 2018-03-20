@@ -1,9 +1,9 @@
 #pragma once
 
 namespace fin::input {
-  class IDirectionalInput {
+  class ILinearInput {
     public:
-    virtual ~IDirectionalInput() {}
+    virtual ~ILinearInput() {}
 
     virtual double get_pressed_amount() const = 0;
     virtual double get_pressed_direction() const = 0;

@@ -203,6 +203,7 @@
     <ClInclude Include="src\fin\image\impl\cimg\CimgImage.h" />
     <ClInclude Include="src\fin\input\gamepadbuttonpressableinput.h" />
     <ClInclude Include="src\fin\input\igamepad.h" />
+    <ClInclude Include="src\fin\input\ilinearinput.h" />
     <ClInclude Include="src\fin\input\impl\glfw\gamepadglfw.h" />
     <ClInclude Include="src\fin\input\impl\glfw\mouseglfw.h" />
     <ClInclude Include="src\fin\input\gamepadanalogdirectionalinput.h" />

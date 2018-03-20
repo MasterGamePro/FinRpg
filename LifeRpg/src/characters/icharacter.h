@@ -28,6 +28,7 @@ class ICharacter : public fin::app::IActor {
 
   protected:
   void move(double amount, double dir) {
+    moveAmt = amount;
     if (amount > 0) {
       this->dir = dir;
       isMoving = true;
@@ -92,7 +93,7 @@ class ICharacter : public fin::app::IActor {
     fin::graphics::ImageTexture* img;
 
     if (isMoving) {
-      index += .15;
+      index += moveAmt * .15;
       img = walkingTextures[(int) index % 4];
     }
     else {
@@ -108,6 +109,7 @@ class ICharacter : public fin::app::IActor {
 
   protected:
   bool isMoving = false;
+  double moveAmt = 0;
   double x = 0, y = 0, z = 0, s = 16;
   double vX = 0, vY = 0;
   double dir = 0;

@@ -2,7 +2,6 @@
 #include "fin/input/gamepadanalogdirectionalinput.h"
 #include "fin/input/gamepadbuttonpressableinput.h"
 #include "fin/input/igamepad.h"
-#include "fin/input/keypressableinput.h"
 #include "imoderninputlayout.h"
 
 namespace fin::input {

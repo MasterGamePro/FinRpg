@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "keypressableinput.h"
 #include "iinput.h"
+#include "keypressableinput.h"
 
 namespace fin::input {
   PressableState KeyPressableInput::get_state() const {

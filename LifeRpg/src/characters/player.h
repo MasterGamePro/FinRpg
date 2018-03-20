@@ -13,14 +13,14 @@ class Player : public ICharacter {
     const auto il = i->get_input_layout();
 
     const auto pdi = il->getPrimaryDirectionalInput();
-    const auto moveAmt = pdi->getHeldAmount();
+    const auto moveAmt = fix_stick_range(pdi->get_held_amount());
 
-    move(moveAmt, camera->get_normal().xy_dird() - 90 + pdi->getHeldDirection());
+    move(moveAmt, camera->get_normal().xy_dird() - 90 + pdi->get_held_direction());
 
     const auto sdi = il->getSecondaryDirectionalInput();
-    lookAmt = sdi->getHeldAmount();
+    lookAmt = fix_stick_range(sdi->get_held_amount());
     if (lookAmt > 0) {
-      lookDir = sdi->getHeldDirection();
+      lookDir = sdi->get_held_direction();
     }
   }
 
@@ -70,7 +70,9 @@ class Player : public ICharacter {
       t->rotate_y(-lookDir);
       t->translate(lookAmt * 8, 0, 0);
       g->p()->color3d(1, 0, 0);
-      g->r3d()->draw_wall(-1, 0, 2, 1, 0, -2);
+      const double s = .5;
+      t->scale(s, s, s + 2 * lookAmt);
+      g->r3d()->draw_wall(-1, 0, 1, 1, 0, -1);
       g->p()->color3d(1, 1, 1);
     }
   }
@@ -81,6 +83,11 @@ class Player : public ICharacter {
   }
 
   private:
+  double fix_stick_range(double amt) {
+    const double error = .05, min = error, max = 1 - error;
+    return (amt - min) / (max - min);
+  }
+
   fin::graphics::Camera* camera;
   double lookAmt, lookDir;
 };

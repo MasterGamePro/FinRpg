@@ -25,10 +25,10 @@ namespace fin::input {
       return calc_direction_in_state(PRESSABLESTATE_PRESSED);
     }
 
-    double getHeldAmount() const override final {
+    double get_held_amount() const override final {
       return calc_amount_in_state(PRESSABLESTATE_DOWN);
     }
-    double getHeldDirection() const override final {
+    double get_held_direction() const override final {
       return calc_direction_in_state(PRESSABLESTATE_DOWN);
     }
 

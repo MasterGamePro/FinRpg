@@ -177,9 +177,6 @@
     <ClInclude Include="src\fin\math\binary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\input\keypressableinput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\code\compile\iregister.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -450,13 +447,19 @@
     <ClInclude Include="src\fin\input\impl\glfw\gamepadglfw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\input\gamepadanalogdirectionalinput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\input\keyboarddefs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\fin\input\ilinearinput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\fin\input\gamepadbuttonpressableinput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\gamepadanalogdirectionalinput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\keypressableinput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -471,9 +474,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\fin\input\iinput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\fin\input\keypressableinput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\fin\graphics\view.cpp">
@@ -501,6 +501,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\fin\input\pressabledefs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fin\input\keypressableinput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
