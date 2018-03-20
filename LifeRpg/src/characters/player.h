@@ -34,20 +34,21 @@ class Player : public ICharacter {
 
     camera->set_field_of_view(fov);
 
-    double zd = 16 * .6;
-
-    double percent = .75;
-    double w = 48;
+    double percent = .9; // .75 // Percent of screen to take up.
+    double w = 16; // Size of character, do not modify.
 
     double camW = w / percent;
-    double camDis = 90, // fin::math::Trig::tand(fov) / camW,
+    double camDis = camW / 2 / fin::math::Trig::tand(fov / 2),
       camDir = 90,
+      lookUnit = camW * .35,
+      xLookDis = 1.5 * lookUnit * lookAmt,
+      yLookDis = lookUnit * lookAmt,
       xd = camDis * fin::math::Trig::cosd(camDir),
       yd = camDis * fin::math::Trig::sind(camDir),
-      lookDis = 8 * lookAmt,
-      xp = lookDis * fin::math::Trig::cosd(lookDir) * fin::math::Trig::cosd(camDir + 90),
-      yp = lookDis * fin::math::Trig::cosd(lookDir) * fin::math::Trig::sind(camDir + 90),
-      zp = lookDis * fin::math::Trig::sind(lookDir);
+      zd = 2 * .6 * lookUnit,
+      xp = xLookDis * fin::math::Trig::cosd(lookDir) * fin::math::Trig::cosd(camDir + 90),
+      yp = xLookDis * fin::math::Trig::cosd(lookDir) * fin::math::Trig::sind(camDir + 90),
+      zp = yLookDis * fin::math::Trig::sind(lookDir);
 
     to->x(x + xp);
     to->y(y + yp);
@@ -62,9 +63,10 @@ class Player : public ICharacter {
     ICharacter::on_tick_render_perspective(g);
 
     if (lookAmt > 0) {
+      double w = 16;
       auto *t = g->t();
       t->identity();
-      t->translate(x, y, z + 12);
+      t->translate(x, y, z + w * .6);
       t->rotate_z(camera->get_normal().xy_dird() - 90);
       t->translate(0, -2, 0);
       t->rotate_y(-lookDir);
