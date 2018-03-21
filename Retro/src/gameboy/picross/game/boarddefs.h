@@ -6,4 +6,8 @@ namespace retro::gameboy::picross {
     CELL_FILLED,
     CELL_BLANKED
   };
+
+  typedef struct Cursor {
+    int x, y;
+  } Cursor;
 }

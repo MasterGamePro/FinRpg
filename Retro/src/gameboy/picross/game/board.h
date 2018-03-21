@@ -1,7 +1,10 @@
 #pragma once
-#include "fin/debug/exception.h"
-#include "boarddefs.h"
+
 #include <boost/mpl/assert.hpp>
+
+#include "fin/debug/exception.h"
+
+#include "boarddefs.h"
 
 namespace retro::gameboy::picross {
   class Board {
@@ -22,6 +25,9 @@ namespace retro::gameboy::picross {
     ~Board() {
       delete cellArray;
     }
+
+    int get_width() const { return kWidth; }
+    int get_height() const { return kHeight; }
 
     void set_cell(const int x, const int y, const CellType cellType) {
       assert_index(x, y);

@@ -26,7 +26,7 @@ namespace fin::graphics {
       p->end();
     }
 
-    virtual void drawRectangle(const double x, const double y, const double w, const double h, const bool isFilled) {
+    virtual void draw_rectangle(const double x, const double y, const double w, const double h, const bool isFilled) {
       p->begin(isFilled ? PRIMITIVE_QUADS : PRIMITIVE_LINE_LOOP);
       p->uv2d(0, 0);
       p->vertex2d(x, y);
@@ -38,8 +38,8 @@ namespace fin::graphics {
       p->vertex2d(x, y + h);
       p->end();
     }
-    virtual void strokeRectangle(const double x, const double y, const double w, const double h) { drawRectangle(x, y, w, h, false); }
-    virtual void fillRectangle(const double x, const double y, const double w, const double h) { drawRectangle(x, y, w, h, true); }
+    virtual void stroke_rectangle(const double x, const double y, const double w, const double h) { draw_rectangle(x, y, w, h, false); }
+    virtual void fill_rectangle(const double x, const double y, const double w, const double h) { draw_rectangle(x, y, w, h, true); }
 
     virtual void drawPolygon(const double x, const double y, const double r, 
                              const int numPts, const bool isFilled) {

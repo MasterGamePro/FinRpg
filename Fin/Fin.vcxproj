@@ -155,11 +155,11 @@
     <ClInclude Include="src\fin\app\iapp.h" />
     <ClInclude Include="src\fin\app\appfactory.h" />
     <ClInclude Include="src\fin\app\components\audio\iaudiocomponent.h" />
-    <ClInclude Include="src\fin\app\components\collision\collisioncomponent.h" />
-    <ClInclude Include="src\fin\app\components\control\controlcomponent.h" />
+    <ClInclude Include="src\fin\app\components\collision\icollisioncomponent.h" />
+    <ClInclude Include="src\fin\app\components\control\icontrolcomponent.h" />
     <ClInclude Include="src\fin\app\components\data\positiondata3d.h" />
     <ClInclude Include="src\fin\app\components\icomponent.h" />
-    <ClInclude Include="src\fin\app\components\physics\physicscomponent.h" />
+    <ClInclude Include="src\fin\app\components\physics\iphysicscomponent.h" />
     <ClInclude Include="src\fin\app\components\render\irendercomponent.h" />
     <ClInclude Include="src\fin\app\impl\glfw\appglfw.h" />
     <ClInclude Include="src\fin\app\impl\sdl\appsdl.h" />

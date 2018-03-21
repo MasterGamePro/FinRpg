@@ -10,7 +10,5 @@ namespace fin::app {
     };
 
     virtual void tick_animation() = 0;
-
-  private:
   };
 }

@@ -1,12 +1,14 @@
 #pragma once
+
+#include "fin/io/file.h"
+
 #include "board.h"
-#include "io/file.h"
 #include "solution.h"
 
 namespace retro::gameboy::picross {
   class ImageSolutionLoader {
     public:
-    Solution load(const fin::io::File& file) {
+    void load(const fin::io::File& file, Solution& solution) {
 
     }
   };

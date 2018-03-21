@@ -30,14 +30,6 @@ namespace fin::app {
       });
     }
 
-    void tickComponents(const ComponentType type) {
-      componentListMap[type]->iterate([](IComponent* component, int i) {
-        component->tick();
-      });
-    }
-
     private:
-    std::map<ComponentType, data::IList<IComponent*>*> componentListMap;
-    data::StlVector<IRenderComponent*> renderComponents;
   };
 }

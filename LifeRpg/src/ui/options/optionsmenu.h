@@ -74,13 +74,13 @@ class OptionsMenu : public fin::app::IActor {
     auto r2d = g->r2d();
 
     g->p()->color3d(0, 0, .2);
-    g->r2d()->fillRectangle(0, 0, 320, 240);
+    g->r2d()->fill_rectangle(0, 0, 320, 240);
     g->p()->color3d(0, .2, 0);
-    g->r2d()->fillRectangle(0, 240, 320, 240);
+    g->r2d()->fill_rectangle(0, 240, 320, 240);
     g->p()->color3d(.2, 0, 0);
-    g->r2d()->fillRectangle(320, 240, 320, 240);
+    g->r2d()->fill_rectangle(320, 240, 320, 240);
     g->p()->color3d(.2, 0, .2);
-    g->r2d()->fillRectangle(320, 0, 320, 240);
+    g->r2d()->fill_rectangle(320, 0, 320, 240);
 
     double padding = 30;
     double lineHeight = 20;
@@ -110,7 +110,7 @@ class OptionsMenu : public fin::app::IActor {
         }
       }
       else if (i == 1) {
-        r2d->drawRectangle(rx, y, lineHeight, lineHeight, isFullscreen);
+        r2d->draw_rectangle(rx, y, lineHeight, lineHeight, isFullscreen);
         g->rt()->draw_string("Fullscreen", rx + lineHeight, y);
       }
       else if (i == 2) {

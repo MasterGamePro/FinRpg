@@ -9,8 +9,6 @@ namespace fin::app {
       return COMPONENT_AUDIO;
     };
 
-    virtual void tickAudio() = 0;
-
-    private:
+    virtual void tick_audio() = 0;
   };
 }
