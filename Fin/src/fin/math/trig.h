@@ -1,6 +1,6 @@
 #pragma once
 
-#include <math.h> 
+#include <math.h>
 
 namespace fin::math {
   class Trig {
@@ -42,7 +42,8 @@ namespace fin::math {
         distance = phi > 180 ? 360 - phi : phi;
       const auto
         sign = (a - b >= 0 && a - b <= 180) || (a - b <= -180 && a - b >= -360)
-        ? 1 : -1;
+                 ? 1
+                 : -1;
       return sign * distance;
     }
   };

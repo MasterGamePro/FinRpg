@@ -15,19 +15,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\gameboy\picross\game\board.h">
+    <ClInclude Include="src\gameboy\graphics\colordefs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameboy\picross\game\boardcontroller.h">
+    <ClInclude Include="src\gameboy\graphics\sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameboy\picross\game\boarddefs.h">
+    <ClInclude Include="src\gameboy\graphics\spritesheet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameboy\picross\game\solution.h">
+    <ClInclude Include="src\gameboy\graphics\tileset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameboy\picross\game\imagesolutionloader.h">
+    <ClInclude Include="src\gameboy\games\picross\puzzle\board.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameboy\games\picross\puzzle\boardcontrolcomponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameboy\games\picross\puzzle\boarddefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameboy\games\picross\puzzle\boardmanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameboy\games\picross\puzzle\boardrendercomponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameboy\games\picross\puzzle\imagesolutionloader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameboy\games\picross\puzzle\solution.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

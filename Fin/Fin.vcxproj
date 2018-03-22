@@ -212,6 +212,7 @@
     <ClInclude Include="src\fin\input\metrics\directionalinputrotationmeasurer.h" />
     <ClInclude Include="src\fin\input\metrics\pressableinputfrequencymeasurer.h" />
     <ClInclude Include="src\fin\input\mousedefs.h" />
+    <ClInclude Include="src\fin\math\common.h" />
     <ClInclude Include="src\fin\math\geometry\face3d.h" />
     <ClInclude Include="src\fin\math\geometry\primitive3d.h" />
     <ClInclude Include="src\fin\debug\exception.h" />

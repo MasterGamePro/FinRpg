@@ -26,10 +26,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fin\data\collections\list\vector_test.cpp">
+    <ClCompile Include="tst\fin\algorithm\string\parser_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fin\algorithm\string\parser_test.cpp">
+    <ClCompile Include="tst\fin\data\collections\list\vector_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

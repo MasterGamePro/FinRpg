@@ -2,9 +2,9 @@
 
 #include "fin/app/components/control/icontrolcomponent.h"
 #include "fin/input/iinput.h"
+#include "fin/math/common.h"
 
 #include "board.h"
-#include "math/common.h"
 
 namespace retro::gameboy::picross {
   class BoardControlComponent : public fin::app::IControlComponent {
@@ -18,7 +18,8 @@ namespace retro::gameboy::picross {
 
       // TODO: Write buffer class to delay hold movement for a couple seconds.
       if (pdi->get_pressed_amount() > .9) {
-        const auto pressDir = abs(45 * round(pdi->get_pressed_direction() / 45)),
+        const auto pressDir = fin::math::
+            round_to_nearest(pdi->get_pressed_direction(), 45.),
           xAmt = fin::math::Trig::cosd(pressDir),
           yAmt = -fin::math::Trig::sind(pressDir);
         auto x = cursor->x,
@@ -30,17 +31,17 @@ namespace retro::gameboy::picross {
       }
 
       if (inputLayout->getActionPressableInput()->
-          checkState(fin::input::PRESSABLESTATE_PRESSED)) {
+                       checkState(fin::input::PRESSABLESTATE_PRESSED)) {
         board->set_cell(cursor->x, cursor->y, CELL_FILLED);
       }
       else if (inputLayout->getCancelPressableInput()->
-               checkState(fin::input::PRESSABLESTATE_PRESSED)) {
+                            checkState(fin::input::PRESSABLESTATE_PRESSED)) {
         board->set_cell(cursor->x, cursor->y, CELL_FILLED);
       }
     }
 
     private:
-    Board * board;
+    Board* board;
     Cursor* cursor;
   };
 }

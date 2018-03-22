@@ -84,7 +84,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)src;$(SolutionDir)Fin;$(SolutionDir)Fin\src;$(SolutionDir)Fin\src\fin;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)src;$(SolutionDir)Fin;$(SolutionDir)Fin\src;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -117,11 +117,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\gameboy\picross\game\board.h" />
-    <ClInclude Include="src\gameboy\picross\game\boardcontroller.h" />
-    <ClInclude Include="src\gameboy\picross\game\boarddefs.h" />
-    <ClInclude Include="src\gameboy\picross\game\imagesolutionloader.h" />
-    <ClInclude Include="src\gameboy\picross\game\solution.h" />
+    <ClInclude Include="src\gameboy\graphics\colordefs.h" />
+    <ClInclude Include="src\gameboy\graphics\sprite.h" />
+    <ClInclude Include="src\gameboy\graphics\spritesheet.h" />
+    <ClInclude Include="src\gameboy\graphics\tileset.h" />
+    <ClInclude Include="src\gameboy\games\picross\puzzle\board.h" />
+    <ClInclude Include="src\gameboy\games\picross\puzzle\boardcontrolcomponent.h" />
+    <ClInclude Include="src\gameboy\games\picross\puzzle\boardmanager.h" />
+    <ClInclude Include="src\gameboy\games\picross\puzzle\boarddefs.h" />
+    <ClInclude Include="src\gameboy\games\picross\puzzle\boardrendercomponent.h" />
+    <ClInclude Include="src\gameboy\games\picross\puzzle\imagesolutionloader.h" />
+    <ClInclude Include="src\gameboy\games\picross\puzzle\solution.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />

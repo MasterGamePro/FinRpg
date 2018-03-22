@@ -160,8 +160,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fin\algorithm\string\parser_test.cpp" />
-    <ClCompile Include="fin\data\collections\list\vector_test.cpp" />
+    <ClCompile Include="tst\fin\algorithm\string\parser_test.cpp" />
+    <ClCompile Include="tst\fin\data\collections\list\vector_test.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
