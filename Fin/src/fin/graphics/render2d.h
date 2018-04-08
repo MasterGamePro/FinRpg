@@ -41,7 +41,7 @@ namespace fin::graphics {
     virtual void stroke_rectangle(const double x, const double y, const double w, const double h) { draw_rectangle(x, y, w, h, false); }
     virtual void fill_rectangle(const double x, const double y, const double w, const double h) { draw_rectangle(x, y, w, h, true); }
 
-    virtual void drawPolygon(const double x, const double y, const double r, 
+    virtual void drawPolygon(const double x, const double y, const double r,
                              const int numPts, const bool isFilled) {
       p->begin(isFilled ? PRIMITIVE_TRIANGLE_FAN : PRIMITIVE_LINE_LOOP);
       if (isFilled) {
@@ -69,7 +69,7 @@ namespace fin::graphics {
 
     virtual void drawCircle(const double x, const double y, const double r,
                             const bool isFilled) {
-      drawPolygon(x, y, r, static_cast<int>(ceil(math::Trig::kTau * r / 5)),
+      drawPolygon(x, y, r, static_cast<int>(ceil(math::kTau * r / 5)),
                   isFilled);
     }
     virtual void strokeCircle(const double x, const double y, const double r) {

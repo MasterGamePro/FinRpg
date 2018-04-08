@@ -273,12 +273,13 @@
     <ClInclude Include="src\fin\math\geometry\point2d.h" />
     <ClInclude Include="src\fin\math\geometry\point3d.h" />
     <ClInclude Include="src\fin\math\geometry\vertex3d.h" />
-    <ClInclude Include="src\fin\math\interpolate.h" />
+    <ClInclude Include="src\fin\math\interpolation.h" />
     <ClInclude Include="src\fin\math\random.h" />
     <ClInclude Include="src\fin\math\shapes\irectangle.h" />
     <ClInclude Include="src\fin\math\shapes\treerectangle.h" />
     <ClInclude Include="src\fin\math\trig.h" />
     <ClInclude Include="src\fin\stream\iinputstream.h" />
+    <ClInclude Include="src\fin\stream\istringstream.h" />
     <ClInclude Include="src\fin\stream\ioutputstream.h" />
     <ClInclude Include="src\fin\time\deltatime.h" />
     <ClInclude Include="src\fin\time\stopwatch.h" />
@@ -305,8 +306,11 @@
     <ClCompile Include="src\fin\debug\log.cpp" />
     <ClCompile Include="src\fin\input\pressabledefs.cpp" />
     <ClCompile Include="src\fin\io\ifilesystemelement.cpp" />
+    <ClCompile Include="src\fin\math\binary.cpp" />
     <ClCompile Include="src\fin\math\geometry\normal3d.cpp" />
     <ClCompile Include="src\fin\math\geometry\point3d.cpp" />
+    <ClCompile Include="src\fin\math\interpolation.cpp" />
+    <ClCompile Include="src\fin\math\random.cpp" />
     <ClCompile Include="src\fin\math\trig.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

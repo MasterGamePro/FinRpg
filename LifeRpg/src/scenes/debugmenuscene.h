@@ -16,4 +16,8 @@ class DebugMenuScene : public fin::app::IScene {
 
     stage->add_child( new OptionsMenu(app, window) );
   }
+
+  void on_end() override final {
+    // TODO: Delete the stage.
+  }
 };

@@ -159,9 +159,6 @@
     <ClInclude Include="src\fin\time\stopwatch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\math\interpolate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\input\pressableinputdirectionalinput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -330,9 +327,6 @@
     <ClInclude Include="src\fin\math\geometry\matrix3d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\stream\iinputstream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\stream\ioutputstream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -465,6 +459,15 @@
     <ClInclude Include="src\fin\math\common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\fin\math\interpolation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\stream\istringstream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\stream\iinputstream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -507,6 +510,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\fin\input\keypressableinput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fin\math\random.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fin\math\interpolation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fin\math\binary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

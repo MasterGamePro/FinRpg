@@ -84,6 +84,7 @@ namespace fin::app {
     void render();
     void go_to_scene_immediately(IScene* scene) {
       if (this->scene_ != nullptr) {
+        this->scene_->on_end();
         delete this->scene_;
       }
       this->scene_ = scene;

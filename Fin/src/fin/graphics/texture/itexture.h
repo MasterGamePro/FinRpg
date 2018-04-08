@@ -11,8 +11,8 @@ namespace fin::graphics {
     }
 
     unsigned int get_id() { return id; }
-    int get_width() { return width; }
-    int get_height() { return height; }
+    int get_width() const { return width; }
+    int get_height() const { return height; }
 
   private:
     unsigned int id;

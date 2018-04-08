@@ -1,5 +1,6 @@
 #pragma once
 #include "fin/input/layout/gamepadmoderninputlayout.h"
+#include "fin/input/layout/keyboardmoderninputlayout.h"
 #include "fin/input/iinput.h"
 #include "gamepadglfw.h"
 #include "keyboardglfw.h"
@@ -11,7 +12,8 @@ namespace fin::input {
       keyboard = new KeyboardGlfw();
       gamepads = new data::StlVector<IGamepad*>();
       gamepads->push_back(new GamepadGlfw(0));
-      layout = new GamepadModernInputLayout(gamepads->at(0)); //new KeyboardModernInputLayout(keyboard);
+      //layout = new GamepadModernInputLayout(gamepads->at(0));
+      layout = new KeyboardModernInputLayout(keyboard);
     }
 
     ~InputGlfw() {

@@ -38,7 +38,7 @@ namespace fin::input {
     double get_held_direction() const override final {
       const auto xAxisState = gamepad->get_axis_state(xAxisIndex),
         yAxisState = gamepad->get_axis_state(yAxisIndex);
-      return std::atan2(-yAxisState, xAxisState) * math::Trig::kRad2Deg;
+      return std::atan2(-yAxisState, xAxisState) * math::kRad2Deg;
     }
 
     private:

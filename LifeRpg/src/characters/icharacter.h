@@ -32,8 +32,8 @@ class ICharacter : public fin::app::IActor {
     if (amount > 0) {
       this->dir = dir;
       isMoving = true;
-      x += fin::math::Trig::cosd(dir) * amount;
-      y += fin::math::Trig::sind(dir) * amount;
+      x += fin::math::cosd(dir) * amount;
+      y += fin::math::sind(dir) * amount;
     }
     else {
       isMoving = false;
@@ -53,7 +53,7 @@ class ICharacter : public fin::app::IActor {
     double camDirection = -90;
 
     double angleError = 20;
-    double angleDiff = fin::math::Trig::angle_diffd(camDirection, dir);
+    double angleDiff = fin::math::angle_diffd(camDirection, dir);
 
     double absAngleDiff = fabs(angleDiff);
     if (absAngleDiff > angleError && absAngleDiff < 180 - angleError) {
@@ -61,7 +61,7 @@ class ICharacter : public fin::app::IActor {
     }
 
     double flipSpeed = fin::time::DeltaTime::adjust_velocity(20);
-    double angleDist = fin::math::Trig::angle_distd(flipDirection, targetFlipDirection);
+    double angleDist = fin::math::angle_distd(flipDirection, targetFlipDirection);
 
     if (fabs(angleDist) <= flipSpeed) {
       flipDirection = targetFlipDirection;

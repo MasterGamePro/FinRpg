@@ -4,7 +4,7 @@
 #include "fin/stream/iinputstream.h"
 
 namespace fin::web {
-  class DownloadStream : stream::IInputStream {
+  class DownloadStream : stream::IInputStream<uint8_t> {
     public:
     DownloadStream(std::string uri) {
       

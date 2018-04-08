@@ -159,6 +159,7 @@
     <ClInclude Include="src\characters\icharacter.h" />
     <ClInclude Include="src\characters\npc.h" />
     <ClInclude Include="src\characters\player.h" />
+    <ClInclude Include="src\characters\sprite3d.h" />
     <ClInclude Include="src\save\savedata.h" />
     <ClInclude Include="src\save\savereader.h" />
     <ClInclude Include="src\save\savewriter.h" />

@@ -130,8 +130,6 @@ namespace fin::app {
       window = glfwCreateWindow(this->width, this->height, title.c_str(), (isFullscreen) ? glfwGetPrimaryMonitor() : nullptr, nullptr);
       view->get_rectangle()->set_size(this->width, this->height);
 
-      const WindowGlfw* me = this;
-
       // TODO: Link to keyboard.
       glfwSetWindowUserPointer(window, this);
       glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {

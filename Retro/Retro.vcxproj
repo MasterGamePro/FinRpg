@@ -117,6 +117,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\gameboy\games\picross\puzzle\boardscene.h" />
     <ClInclude Include="src\gameboy\graphics\colordefs.h" />
     <ClInclude Include="src\gameboy\graphics\sprite.h" />
     <ClInclude Include="src\gameboy\graphics\spritesheet.h" />

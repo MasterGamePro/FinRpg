@@ -32,6 +32,9 @@
     <ClCompile Include="tst\fin\data\collections\list\vector_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tst\fin\math\binary_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

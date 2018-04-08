@@ -16,7 +16,8 @@ int main() {
     fin::debug::Log::println("OK!");
 
     fin::debug::Log::print("Launching app... ");
-    app->launch(new DebugVillageScene());// new DebugMenuScene() );
+    //app->launch(new DebugVillageScene());// new DebugMenuScene() );
+    app->launch(new DebugMenuScene() );
     fin::debug::Log::println("OK!");
 
     fin::debug::Log::print("Freeing app data... ");

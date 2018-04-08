@@ -7,7 +7,6 @@
 #include "fin/math/trig.h"
 
 namespace fin::graphics {
-
   enum TextAnimationType {
     TEXTANIMATION_NONE,
     TEXTANIMATION_WAVE,
@@ -43,18 +42,18 @@ namespace fin::graphics {
         double dx, dy;
         switch (textAnimationType) {
           case TEXTANIMATION_WAVE:
-            dx = x + cW / 4 * cos(math::Trig::kTau*tf + i * .5);
-            dy = y + cH / 4 * sin(math::Trig::kTau*tf + i * .5);
+            dx = x + cW / 4 * cos(math::kTau*tf + i * .5);
+            dy = y + cH / 4 * sin(math::kTau*tf + i * .5);
             break;
 
           case TEXTANIMATION_SHAKE:
-            dx = x + cW / 8 * math::Random::randomd(-1, 1);
-            dy = y + cH / 8 * math::Random::randomd(-1, 1);
+            dx = x + cW / 8 * math::randomd(-1, 1);
+            dy = y + cH / 8 * math::randomd(-1, 1);
             break;
 
           case TEXTANIMATION_JIGGLE:
             dx = x;
-            dy = y + cH / 16 * sin(math::Trig::kTau*tf + i * .5);
+            dy = y + cH / 16 * sin(math::kTau*tf + i * .5);
             break;
 
           case TEXTANIMATION_NONE:

@@ -20,7 +20,7 @@ class OptionsMenu : public fin::app::IActor {
     const auto a = i->get_input_layout()->getActionPressableInput();
     if (d->get_pressed_amount() > 0) {
       double dir = d->get_pressed_direction();
-      double x = fin::math::Trig::cosd(dir), y = fin::math::Trig::sind(dir);
+      const auto x = fin::math::cosd(dir), y = fin::math::sind(dir);
       if (abs(x) > abs(y)) {
         if (option == 0) {
           bool changed = false;
@@ -33,7 +33,7 @@ class OptionsMenu : public fin::app::IActor {
             selectedResolution--;
           }
           if (changed) {
-            int* resolution = resolutions[selectedResolution];
+            const int* resolution = resolutions[selectedResolution];
             window->set_size(resolution[0], resolution[1]);
           }
         }
@@ -101,7 +101,7 @@ class OptionsMenu : public fin::app::IActor {
       double rx = x + lineHeight;
       if (i == 0) {
         for (int r = 0; r < 2; r++) {
-          int* resolution = resolutions[r];
+          const int* resolution = resolutions[r];
           double vv = v * (r == selectedResolution ? 1 : .8);
           std::string s = fin::algorithm::string_format("%dx%d", resolution[0], resolution[1]);
           g->p()->color3d(vv, vv, vv);
@@ -126,5 +126,5 @@ class OptionsMenu : public fin::app::IActor {
   int option = 0, optionCount = 5;
   int selectedResolution = 1;
   bool isFullscreen = false;
-  int resolutions[2][2] = {{320, 240}, {640, 480}};
+  const int resolutions[3][2] = {{320, 240}, {640, 480}, {1920, 1080}};
 };

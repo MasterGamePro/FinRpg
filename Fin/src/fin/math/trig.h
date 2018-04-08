@@ -1,50 +1,30 @@
 #pragma once
 
-#include <math.h>
-
 namespace fin::math {
-  class Trig {
-    public:
-    static const double kPi, kTau;
-    static const double kRad2Deg, kDeg2Rad;
+  const double kPi = 3.14159265, kTau = 2 * kPi;
+  const double kRad2Deg = 180 / kPi, kDeg2Rad = 1 / kRad2Deg;
 
-    static double cosr(const double rad) { return cos(rad); }
-    static double cosd(const double deg) { return cosr(deg * kDeg2Rad); }
+  double cosr(const double rad);
+  double cosd(const double deg);
 
-    static double sinr(const double rad) { return sin(rad); }
-    static double sind(const double deg) { return sinr(deg * kDeg2Rad); }
+  double sinr(const double rad);
+  double sind(const double deg);
 
-    static double tanr(const double rad) { return tan(rad); }
-    static double tand(const double deg) { return tanr(deg * kDeg2Rad); }
+  double tanr(const double rad);
+  double tand(const double deg);
 
-    static double acosr(const double rad) { return acos(rad); }
-    static double acosd(const double deg) { return acosr(deg * kDeg2Rad); }
+  double acosr(const double rad);
+  double acosd(const double deg);
 
-    static double asinr(const double rad) { return asin(rad); }
-    static double asind(const double deg) { return asinr(deg * kDeg2Rad); }
+  double asinr(const double rad);
+  double asind(const double deg);
 
-    static double atanr(const double rad) { return atan(rad); }
-    static double atand(const double deg) { return atanr(deg * kDeg2Rad); }
+  double atanr(const double rad);
+  double atand(const double deg);
 
-    static double fremd(const double deg) {
-      return deg - 360 * floor(deg / 360);
-    }
+  double fremd(const double deg);
 
-    static double angle_distd(const double a, const double b) {
-      double phi = fmod(fabs(b - a), 360);
-      double distance = phi > 180 ? 360 - phi : phi;
-      return distance;
-    }
+  double angle_distd(const double a, const double b);
 
-    static double angle_diffd(const double a, const double b) {
-      const auto
-        phi = fmod(fabs(b - a), 360),
-        distance = phi > 180 ? 360 - phi : phi;
-      const auto
-        sign = (a - b >= 0 && a - b <= 180) || (a - b <= -180 && a - b >= -360)
-                 ? 1
-                 : -1;
-      return sign * distance;
-    }
-  };
+  double angle_diffd(const double a, const double b);
 }

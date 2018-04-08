@@ -38,17 +38,17 @@ class Player : public ICharacter {
     double w = 16; // Size of character, do not modify.
 
     double camW = w / percent;
-    double camDis = camW / 2 / fin::math::Trig::tand(fov / 2),
+    double camDis = camW / 2 / fin::math::tand(fov / 2),
       camDir = 90,
       lookUnit = camW * .35,
       xLookDis = 1.5 * lookUnit * lookAmt,
       yLookDis = lookUnit * lookAmt,
-      xd = camDis * fin::math::Trig::cosd(camDir),
-      yd = camDis * fin::math::Trig::sind(camDir),
+      xd = camDis * fin::math::cosd(camDir),
+      yd = camDis * fin::math::sind(camDir),
       zd = 2 * .6 * lookUnit,
-      xp = xLookDis * fin::math::Trig::cosd(lookDir) * fin::math::Trig::cosd(camDir + 90),
-      yp = xLookDis * fin::math::Trig::cosd(lookDir) * fin::math::Trig::sind(camDir + 90),
-      zp = yLookDis * fin::math::Trig::sind(lookDir);
+      xp = xLookDis * fin::math::cosd(lookDir) * fin::math::cosd(camDir + 90),
+      yp = xLookDis * fin::math::cosd(lookDir) * fin::math::sind(camDir + 90),
+      zp = yLookDis * fin::math::sind(lookDir);
 
     to->x(x + xp);
     to->y(y + yp);

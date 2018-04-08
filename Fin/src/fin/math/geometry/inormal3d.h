@@ -18,7 +18,7 @@ namespace fin::math {
     }
 
     double xy_dirr() const { return atan2(y(), x()); }
-    double xy_dird() const { return xy_dirr() * Trig::kRad2Deg; }
+    double xy_dird() const { return xy_dirr() * kRad2Deg; }
 
     void get_data(double dst[]) const {
       dst[0] = x();

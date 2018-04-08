@@ -1,9 +1,9 @@
 #pragma once
-#include "KeyPressableInput.h"
-#include "idirectionalinput.h"
-#include <valarray>
+
 #include "fin/math/binary.h"
 #include "fin/math/trig.h"
+ 
+#include "idirectionalinput.h"
 
 namespace fin::input {
   class PressableInputDirectionalInput : public IDirectionalInput {
@@ -34,10 +34,12 @@ namespace fin::input {
 
     private:
     double calc_amount_in_state(const PressableState& state) const {
-      return math::Binary:: xor (leftPressableInput->checkState(state),
-                                 rightPressableInput->checkState(state)) ||
-        math::Binary:: xor (upPressableInput->checkState(state),
-                            downPressableInput->checkState(state)) ? 1 : 0;
+      return math::xor(leftPressableInput->checkState(state),
+                       rightPressableInput->checkState(state)) ||
+             math::xor(upPressableInput->checkState(state),
+                       downPressableInput->checkState(state))
+               ? 1
+               : 0;
     }
 
     double calc_direction_in_state(const PressableState& state) const {
@@ -45,11 +47,11 @@ namespace fin::input {
         right = rightPressableInput->checkState(state),
         up = upPressableInput->checkState(state),
         down = downPressableInput->checkState(state);
-      return std::atan2(up - down, right - left) * math::Trig::kRad2Deg;
+      return std::atan2(up - down, right - left) * math::kRad2Deg;
     }
 
     IPressableInput
-      * leftPressableInput,
+      *leftPressableInput,
       *rightPressableInput,
       *upPressableInput,
       *downPressableInput;

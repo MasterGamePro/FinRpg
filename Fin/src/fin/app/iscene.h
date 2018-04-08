@@ -9,5 +9,6 @@ namespace fin::app {
     virtual ~IScene() {}
 
     virtual void on_start(IApp* app) = 0;
+    virtual void on_end() = 0;
   };
 }

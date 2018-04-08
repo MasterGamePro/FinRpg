@@ -20,4 +20,8 @@ class DebugVillageScene : public fin::app::IScene {
     stage->add_child( new Player( camera, app->get_graphics()->ts() ) );
     stage->add_child( new Npc( "player", app->get_graphics()->ts() ) );
   }
+
+  void on_end() override final {
+    // TODO: Delete the stage.
+  }
 };
