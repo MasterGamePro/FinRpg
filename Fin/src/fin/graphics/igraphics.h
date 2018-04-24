@@ -20,12 +20,14 @@ namespace fin::graphics {
       _r2d = new Render2d(_p);
       _r3d = new Render3d(_p);
       //_rt = new RenderVectorText(_r2d);
-      _rt = new RenderFontText(_p, _ts);
+      _rt = new RenderFontText(_r2d, _p, _ts);
     }
+
     virtual ~IGraphics() {}
 
     void init() override {
       _rt->init();
+      on_init();
     }
 
     IPrimitives* p() const { return _p; }
@@ -38,9 +40,11 @@ namespace fin::graphics {
     IRenderText* rt() const { return _rt; }
 
     private:
-    IPrimitives * _p;
+    virtual void on_init() = 0;
+
+    IPrimitives* _p;
     ITransform* _t;
-    IScreen * _s;
+    IScreen* _s;
     ITextures* _ts;
     Render2d* _r2d;
     Render3d* _r3d;

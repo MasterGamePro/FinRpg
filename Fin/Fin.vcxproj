@@ -196,7 +196,11 @@
     <ClInclude Include="src\fin\data\collections\stack\istack.h" />
     <ClInclude Include="src\fin\data\collections\stack\stlstack.h" />
     <ClInclude Include="src\fin\graphics\color.h" />
+    <ClInclude Include="src\fin\graphics\impl\gl\fonttexturegl.h" />
+    <ClInclude Include="src\fin\graphics\impl\gl\imagetexturegl.h" />
+    <ClInclude Include="src\fin\graphics\impl\gl\itexturegl.h" />
     <ClInclude Include="src\fin\graphics\renderfonttext.h" />
+    <ClInclude Include="src\fin\graphics\texture\fonttexture.h" />
     <ClInclude Include="src\fin\image\iimage.h" />
     <ClInclude Include="src\fin\image\iimageloader.h" />
     <ClInclude Include="src\fin\image\imagedefs.h" />
@@ -298,6 +302,7 @@
   <ItemGroup>
     <ClCompile Include="src\fin\app\actor\iactor.cpp" />
     <ClCompile Include="src\fin\app\iapp.cpp" />
+    <ClCompile Include="src\fin\app\impl\glfw\windowglfw.cpp" />
     <ClCompile Include="src\fin\app\iwindow.cpp" />
     <ClCompile Include="src\fin\graphics\camera\camera.cpp" />
     <ClCompile Include="src\fin\graphics\view.cpp" />

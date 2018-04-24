@@ -468,6 +468,18 @@
     <ClInclude Include="src\fin\stream\iinputstream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\fin\graphics\texture\fonttexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\graphics\impl\gl\imagetexturegl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\graphics\impl\gl\fonttexturegl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\graphics\impl\gl\itexturegl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -519,6 +531,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\fin\math\binary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fin\app\impl\glfw\windowglfw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

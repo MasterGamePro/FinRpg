@@ -9,7 +9,6 @@ namespace fin::graphics {
     }
 
     int get_width() const override final {}
-    int get_height() const override final {     
-    }
+    int get_height() const override final {}
   };
 }

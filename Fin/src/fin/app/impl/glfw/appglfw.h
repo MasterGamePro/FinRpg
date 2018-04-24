@@ -11,37 +11,31 @@
 
 namespace fin::app {
   class AppGlfw : public IApp {
-
     public:
     AppGlfw() {
       input = new input::InputGlfw();
       graphics = new graphics::GraphicsGl();
     }
 
-    input::IInput* get_input() const  override final { return input; }
-    audio::IAudio* get_audio() const  override final { return audio; }
-    graphics::IGraphics* get_graphics() const override final { return graphics; };
+    input::IInput* get_input() const override final { return input; }
+    audio::IAudio* get_audio() const override final { return audio; }
+    graphics::IGraphics* get_graphics() const override final {
+      return graphics;
+    };
 
     void init() override final {
-      if ( !glfwInit() ) {
-        throw std::exception( "Failed to init glfw.\n" );
-      }
+      if (!glfwInit()) { throw std::exception("Failed to init glfw.\n"); }
 
-      window = new WindowGlfw();
+      window = new WindowGlfw(graphics);
 
       glewExperimental = GL_FALSE;
-      glfwMakeContextCurrent( window->getGlfwWindow() );
-      if ( glewInit() != GLEW_OK ) {
-        throw std::exception( "AppGlfw.init: glewInit failed" );
+      glfwMakeContextCurrent(window->getGlfwWindow());
+      if (glewInit() != GLEW_OK) {
+        throw std::exception("AppGlfw.init: glewInit failed");
       }
-
-      glEnable( GL_DEPTH_TEST );
-      glDepthFunc( GL_LEQUAL );
     }
 
-    void deinit() override final {
-      glfwTerminate();
-    }
+    void deinit() override final { glfwTerminate(); }
 
     IWindow* get_main_window() override final { return window; }
 
@@ -49,14 +43,6 @@ namespace fin::app {
     void poll_inputs() override final {
       glfwPollEvents();
       input->poll();
-      // TODO: Run this code whenever the fullscreen is toggled.
-      glEnable(GL_DEPTH_TEST);
-      glDepthFunc(GL_LEQUAL);
-      glEnable(GL_ALPHA_TEST);
-      glAlphaFunc(GL_GREATER, 0);
-      glEnable(GL_BLEND);
-      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-      glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     }
 
     private:

@@ -19,10 +19,12 @@ namespace fin::graphics {
 
   class RenderFontText : public IRenderText {
     public:
-    RenderFontText(IPrimitives* p, ITextures* ts) : p(p), ts(ts) {}
+    RenderFontText(Render2d* r2d, IPrimitives* p, ITextures* ts) : r2d(r2d),
+                                                                    p(p),
+                                                                    ts(ts) {}
 
     void draw_char(char c, double x, double y, double w, double h)
-      override final {
+    override final {
       if (!isDrawingString) {
         ts->bind(texture);
         p->begin(PRIMITIVE_QUADS);
@@ -40,11 +42,12 @@ namespace fin::graphics {
       p->vertex2d(x, y + h);
       if (!isDrawingString) {
         p->end();
+        ts->bind(nullptr);
       }
     }
 
     void draw_string(const std::string& str, double x, double y) override
-      final {
+    final {
       isDrawingString = true;
       ts->bind(texture);
       p->begin(PRIMITIVE_QUADS);
@@ -55,16 +58,15 @@ namespace fin::graphics {
         const auto ci = map[c];
         const auto w = s * ci.bitmapWidth,
           h = s * ci.bitmapHeight;
-        if (c == ' ') {
-          x += fontHeight/2;
-        }
-        else if (w == 0 || h == 0) {
-          continue;
-        }
-        draw_char(c, x + ci.bitmapLeft * s, y + fontHeight - ci.bitmapTop * s, w, h);
+        if (c == ' ') { x += fontHeight / 2; }
+        else if (w == 0 || h == 0) { continue; }
+        draw_char(c, x + ci.bitmapLeft * s, y + fontHeight - ci.bitmapTop * s,
+                  w, h);
         x += ci.advanceX * s;
       }
       p->end();
+      double ss = 100;
+      r2d->draw_rectangle(0, 240 - ss, ss, ss, true);
       ts->bind(nullptr);
       isDrawingString = false;
     }
@@ -91,10 +93,12 @@ namespace fin::graphics {
       for (auto i = 32; i < 128; i++) {
         if (FT_Load_Char(face, i, FT_LOAD_RENDER)) {
           throw debug::Exception("RenderFreetypeText", "RenderFreetypeText",
-                                 algorithm::string_format("Failed to load character: \'%c\'.", i));
+                                 algorithm::
+                                 string_format("Failed to load character: \'%c\'.",
+                                               i));
         }
         w += g->bitmap.width;
-        h = std::max(h, (int) g->bitmap.rows);
+        h = std::max(h, (int)g->bitmap.rows);
       }
       atlas_width = w = pow(2, ceil(log(w) / log(2)));
       atlas_height = h = pow(2, ceil(log(h) / log(2)));
@@ -104,15 +108,15 @@ namespace fin::graphics {
       cimg_library::CImg<unsigned char> img(w, h, 1, depth);
       for (auto r = 0; r < h; r++) {
         for (auto c = 0; c < w; c++) {
-          for (int d = 0; d < depth; d++) {
-            img.atXYZC(c, r, 0, d) = 0;
-          }
+          for (int d = 0; d < depth; d++) { img.atXYZC(c, r, 0, d) = 0; }
         }
       }
       for (int i = 32; i < 128; i++) {
         if (FT_Load_Char(face, i, FT_LOAD_RENDER)) {
           throw debug::Exception("RenderFreetypeText", "RenderFreetypeText",
-                                 algorithm::string_format("Failed to load character: \'%c\'.", i));
+                                 algorithm::
+                                 string_format("Failed to load character: \'%c\'.",
+                                               i));
         }
         CharacterInfo ci;
         ci.advanceX = g->advance.x >> 6;
@@ -128,9 +132,7 @@ namespace fin::graphics {
           for (auto c = 0; c < ci.bitmapWidth; c++) {
             const int ii = r * ci.bitmapWidth + c;
             unsigned char v = buffer[ii];
-            for (int d = 0; d < depth; d++) {
-              img.atXYZC(x + c, r, 0, d) = v;
-            }
+            for (int d = 0; d < depth; d++) { img.atXYZC(x + c, r, 0, d) = v; }
           }
         }
         x += g->bitmap.width;
@@ -141,9 +143,10 @@ namespace fin::graphics {
     int fontSize = 32;
     int atlas_width, atlas_height;
     bool isDrawingString = false;
-    IPrimitives * p;
+    Render2d *r2d;
+    IPrimitives* p;
     ITextures* ts;
-    ImageTexture *texture;
+    ImageTexture* texture;
     std::map<char, CharacterInfo> map;
   };
 }
