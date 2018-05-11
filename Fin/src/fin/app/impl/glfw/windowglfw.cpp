@@ -3,7 +3,7 @@
 #include "windowglfw.h"
 
 namespace fin::app {
-  WindowGlfw::WindowGlfw(const graphics::GraphicsGl* g) : g_(g) {
+  WindowGlfw::WindowGlfw() {
     view = new graphics::View();
     create_glfw_window(false);
   }
@@ -55,6 +55,6 @@ namespace fin::app {
 
     // When fullscreen is toggled, GL context is lost. Must manually reset 
     // default settings and reload textures.
-    g->reloadContext();
+    //g->reloadContext();
   }
 }

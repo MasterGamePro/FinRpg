@@ -315,12 +315,6 @@
     <ClInclude Include="src\fin\app\components\animation\ianimationcomponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\io\filereader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\io\filewriter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\app\components\data\positiondata3d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -478,6 +472,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\graphics\impl\gl\itexturegl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\graphics\texture\rendertexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\io\file_reader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\io\file_writer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -26,7 +26,7 @@ namespace fin::app {
     void init() override final {
       if (!glfwInit()) { throw std::exception("Failed to init glfw.\n"); }
 
-      window = new WindowGlfw(graphics);
+      window = new WindowGlfw();
 
       glewExperimental = GL_FALSE;
       glfwMakeContextCurrent(window->getGlfwWindow());

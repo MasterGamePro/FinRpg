@@ -3,9 +3,19 @@
 namespace fin::graphics {
   class ITexture {
     public:
-    ITexture() {}
+    ITexture(unsigned int id, int width, int height) {
+      this->id = id;
+      this->width = width;
+      this->height = height;
+    }
 
-    virtual int get_width() const = 0;
-    virtual int get_height() const = 0;
+    unsigned int get_id() { return id; }
+    int get_width() { return width; }
+    int get_height() { return height; }
+
+    private:
+    unsigned int id;
+    int width;
+    int height;
   };
 }

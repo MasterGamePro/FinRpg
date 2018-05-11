@@ -15,13 +15,11 @@
 #include "fin/graphics/impl/gl/graphicsgl.h"
 
 namespace fin::app {
-  std::function<void()> tickCallback;
-
   class AppGlfw;
 
   class WindowGlfw : public IWindow {
     public:
-    WindowGlfw(const graphics::GraphicsGl* g);
+    WindowGlfw();
     ~WindowGlfw();
 
     void set_title(std::string title) override final {

@@ -1,15 +1,15 @@
 #pragma once
+
 #include "itexture.h"
 
+/**
+ * A texture that is loaded from an external file.
+ */
 namespace fin::graphics {
-  class IImageTexture : public ITexture {
+  class ImageTexture : public ITexture {
     public:
-    explicit IImageTexture(const io::File& file) {
-      file_ = file;
-    }
-
-    int get_width() const override final {}
-    int get_height() const override final {     
-    }
+    ImageTexture(const unsigned int id, const int width, const int height) :
+      ITexture(id, width, height) {}
   };
+
 }
