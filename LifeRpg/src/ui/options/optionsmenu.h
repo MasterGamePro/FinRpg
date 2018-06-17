@@ -47,7 +47,7 @@ class OptionsMenu : public fin::app::IActor {
         }
       }
     }
-    else if (a->checkState(fin::input::PRESSABLESTATE_PRESSED)) {
+    else if (a->checkState(fin::input::PressableState::PRESSED)) {
       if (option == 1) {
         isFullscreen = !isFullscreen;
         window->toggle_fullscreen();

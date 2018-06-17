@@ -27,6 +27,8 @@ namespace fin::math {
     double y( double y_ ) { return this->y_ = y_; }
     double z( double z_ ) { return this->z_ = z_; }
 
+    Normal3d& Normal3d::operator+=(const Normal3d& other);
+
     private:
     double x_, y_, z_;;
   };

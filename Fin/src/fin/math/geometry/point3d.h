@@ -22,7 +22,6 @@ namespace fin::math {
       z( other.z() );
       return *this;
     }
-    Point3d& add( const Normal3d& other ) {}
 
     double x() const { return x_; }
     double y() const { return y_; }
@@ -36,10 +35,7 @@ namespace fin::math {
 
     Normal3d operator-( const Point3d& other ) const;
     Point3d operator+( const Normal3d& other ) const;
-    /*Point3d& operator+= ( const Normal3d& other ) const {
-      Point3d point = this + other;
-      return *this;
-    }*/
+    Point3d& operator+= (const Normal3d& other);
 
     private:
     double x_, y_, z_;

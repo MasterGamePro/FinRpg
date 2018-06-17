@@ -6,26 +6,26 @@
 namespace fin::graphics {
   class PrimitivesGl : public IPrimitives {
     public:
-    void begin(PrimitiveType type) override final {
+    void begin(const PrimitiveType type) override final {
       auto glType = -1;
 
       switch (type) {
-        case PRIMITIVE_POINTS: glType = GL_POINTS;
+        case PrimitiveType::POINTS: glType = GL_POINTS;
           break;
 
-        case PRIMITIVE_LINES: glType = GL_LINES;
+        case PrimitiveType::LINES: glType = GL_LINES;
           break;
-        case PRIMITIVE_LINE_LOOP: glType = GL_LINE_LOOP;
-          break;
-
-        case PRIMITIVE_TRIANGLES: glType = GL_TRIANGLES;
-          break;
-        case PRIMITIVE_TRIANGLE_FAN: glType = GL_TRIANGLE_FAN;
-          break;
-        case PRIMITIVE_TRIANGLE_STRIP: glType = GL_TRIANGLE_STRIP;
+        case PrimitiveType::LINE_LOOP: glType = GL_LINE_LOOP;
           break;
 
-        case PRIMITIVE_QUADS: glType = GL_QUADS;
+        case PrimitiveType::TRIANGLES: glType = GL_TRIANGLES;
+          break;
+        case PrimitiveType::TRIANGLE_FAN: glType = GL_TRIANGLE_FAN;
+          break;
+        case PrimitiveType::TRIANGLE_STRIP: glType = GL_TRIANGLE_STRIP;
+          break;
+
+        case PrimitiveType::QUADS: glType = GL_QUADS;
           break;
       }
 

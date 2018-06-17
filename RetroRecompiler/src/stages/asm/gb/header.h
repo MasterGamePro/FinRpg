@@ -75,7 +75,7 @@ namespace recom::bin::gb {
 
   class RomHeader {
     public:
-    RomHeader(std::vector<uint8_t> romBytes) : romBytes(romBytes) {}
+    RomHeader(const std::vector<uint8_t> romBytes) : romBytes(romBytes) {}
 
     // TODO: Convert to an instruction class.
     const uint8_t* getEntryPoint() const { return romBytes.data() + 0x0100; }

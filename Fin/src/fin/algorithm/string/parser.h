@@ -1,9 +1,13 @@
 #pragma once
+
+#include <stack>
 #include <string>
+
 #define BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE
 #include <boost/regex.hpp>
+#include <boost/utility/string_view.hpp>
+
 #include "fin/debug/exception.h"
-#include <stack>
 
 namespace fin::algorithm {
   struct Position {
@@ -18,6 +22,7 @@ namespace fin::algorithm {
       current_position_.rowIndex =
         current_position_.columnIndex = current_position_.position = 0;
       length = str.length();
+      end = this->str.end();
     }
 
     /**
@@ -41,7 +46,7 @@ namespace fin::algorithm {
     bool nibble_whitespace() {
       if (nibble_char(' ') || nibble_char('\t')) { return true; }
       if (nibble_char('\n')) {
-        current_position_.rowIndex++;
+        ++current_position_.rowIndex;
         current_position_.columnIndex = 0;
         return true;
       }
@@ -52,8 +57,8 @@ namespace fin::algorithm {
       if (all_done()) { return false; }
 
       if (str[current_position_.position] == c) {
-        current_position_.position++;
-        current_position_.columnIndex++;
+        ++current_position_.position;
+        ++current_position_.columnIndex;
         return true;
       }
       return false;
@@ -63,7 +68,7 @@ namespace fin::algorithm {
       const int otherLen = other.length();
       if (otherLen > amount_left()) { return false; }
 
-      for (int i = 0; i < otherLen; i++) {
+      for (int i = 0; i < otherLen; ++i) {
         if (str[current_position_.position + i] != other[i]) { return false; }
       }
 
@@ -71,14 +76,19 @@ namespace fin::algorithm {
       return true;
     }
 
-    std::string nibble_between() {
-      
+    std::string nibble_between(const char start, const char end) {
+      const auto startIndex = current_position_.position + 1;
+      int endIndex = str.find(end, startIndex);
+      if (str[current_position_.position] == start && endIndex != -1) {
+        current_position_.position += endIndex;
+        return str.substr(startIndex, endIndex - 1);
+      }
+      return nullptr;
     }
 
     std::string nibble_regex(const std::string& regex) {
       const std::string::const_iterator start =
-        str.begin() + current_position_.position, end =
-        str.end();
+        str.begin() + current_position_.position;
       boost::match_results<std::string::const_iterator> matches;
       boost::match_flag_type flags =
         boost::match_default | boost::match_continuous;
@@ -137,7 +147,7 @@ namespace fin::algorithm {
       }
 
       for (int i = 0; i < otherLen; i++) {
-        char c = str[current_position_.position + i];
+        const auto c = str[current_position_.position + i];
         if (c != other[i]) {
           std::string error = "Reached unexpected character '";
           error += c;
@@ -151,8 +161,7 @@ namespace fin::algorithm {
 
     std::string chomp_regex(const std::string& regex) {
       const std::string::const_iterator start =
-        str.begin() + current_position_.position, end =
-        str.end();
+        str.begin() + current_position_.position;
       boost::match_results<std::string::const_iterator> matches;
       boost::match_flag_type flags =
         boost::match_default | boost::match_continuous;
@@ -177,26 +186,13 @@ namespace fin::algorithm {
     */
     std::string pick_word() {
       munch_whitespace();
-
       std::string word = "";
-
-      char c;
-      while (true) {
-        bool shouldBreak = true;
-
-        if (!all_done()) {
-          c = str[current_position_.position];
-
-          if (c != ' ' && c != '\t' && c != '\n') {
-            word += c;
-            current_position_.position++;
-            shouldBreak = false;
-          }
-        }
-
-        if (shouldBreak) { break; }
+      while (!all_done()) {
+        const auto c = str[current_position_.position];
+        if (c == ' ' || c == '\t' || c == '\n') { break; }
+        word += c;
+        ++current_position_.position;
       }
-
       return word;
     }
 
@@ -208,17 +204,17 @@ namespace fin::algorithm {
     void vomit(std::string methodName, std::string errorMessageFormatString,
                Args&& ... args) const {
       throw debug::Exception("Parser", methodName,
-                             "At (" + std::to_string(rowIndex) + ", " + std::
-                             to_string(columnIndex) + "): \n" +
+                             "At (" + std::to_string(current_position_.rowIndex)
+                             + ", " + std::
+                             to_string(current_position_.columnIndex) + "): \n"
+                             +
                              errorMessageFormatString,
                              std::forward<Args>(args) ...);
     }
 
     void push() { position_stack_.push(current_position_); }
 
-    void pop_ignore() {
-      position_stack_.pop();
-    }
+    void pop_ignore() { position_stack_.pop(); }
 
     void pop() {
       current_position_ = position_stack_.top();
@@ -231,6 +227,7 @@ namespace fin::algorithm {
     std::string str;
     Position current_position_;
     std::stack<Position> position_stack_;
+    std::string::const_iterator end;
     int length;
   };
 }

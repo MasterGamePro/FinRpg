@@ -19,17 +19,17 @@ namespace fin::input {
     }
 
     double get_pressed_amount() const override final {
-      return calc_amount_in_state(PRESSABLESTATE_PRESSED);
+      return calc_amount_in_state(PressableState::PRESSED);
     }
     double get_pressed_direction() const override final {
-      return calc_direction_in_state(PRESSABLESTATE_PRESSED);
+      return calc_direction_in_state(PressableState::PRESSED);
     }
 
     double get_held_amount() const override final {
-      return calc_amount_in_state(PRESSABLESTATE_DOWN);
+      return calc_amount_in_state(PressableState::DOWN);
     }
     double get_held_direction() const override final {
-      return calc_direction_in_state(PRESSABLESTATE_DOWN);
+      return calc_direction_in_state(PressableState::DOWN);
     }
 
     private:

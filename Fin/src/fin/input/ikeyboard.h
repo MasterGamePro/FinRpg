@@ -33,7 +33,7 @@ namespace fin::input {
       if (pressableStateMap.find(keycode) != pressableStateMap.end()) {
         return pressableStateMap.at(keycode);
       }
-      return PRESSABLESTATE_UP;
+      return PressableState::UP;
     }
 
     bool check_key_state(const Keycode& keycode, const PressableState& expected_state) const {
@@ -49,12 +49,12 @@ namespace fin::input {
 
         pressableStateMap[update.keycode] = update.pressableState;
 
-        if (update.pressableState == PRESSABLESTATE_RELEASED) {
-          update.pressableState = PRESSABLESTATE_UP;
+        if (update.pressableState == PressableState::RELEASED) {
+          update.pressableState = PressableState::UP;
           afterKeyUpdates.push_front(update);
         }
-        else if (update.pressableState == PRESSABLESTATE_PRESSED) {
-          update.pressableState = PRESSABLESTATE_DOWN;
+        else if (update.pressableState == PressableState::PRESSED) {
+          update.pressableState = PressableState::DOWN;
           afterKeyUpdates.push_front(update);
         }
       }

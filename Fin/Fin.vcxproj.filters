@@ -30,12 +30,6 @@
     <ClInclude Include="src\fin\data\collections\icollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\graphics\texture\imagetexture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\graphics\texture\itexture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -88,9 +82,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\graphics\itransform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\input\impl\glfw\keyconverterglfw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\input\pressabledefs.h">
@@ -243,9 +234,6 @@
     <ClInclude Include="src\fin\app\impl\sdl\appsdl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\input\impl\sdl\keyconvertersdl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\app\actor\hud\impl\statusratio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -378,9 +366,6 @@
     <ClInclude Include="src\fin\audio\iaudioloader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\graphics\renderfonttext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\graphics\camera\camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -426,9 +411,6 @@
     <ClInclude Include="src\fin\input\impl\glfw\gamepadglfw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\input\keyboarddefs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\input\ilinearinput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -462,18 +444,6 @@
     <ClInclude Include="src\fin\stream\iinputstream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\graphics\texture\fonttexture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\graphics\impl\gl\imagetexturegl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\graphics\impl\gl\fonttexturegl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\graphics\impl\gl\itexturegl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\graphics\texture\rendertexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -481,6 +451,57 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\io\file_writer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\any_iterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\keyboard_defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\impl\sdl\key_converter_sdl.cpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\impl\sdl\key_converter_sdl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\input\impl\glfw\key_converter_glfw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\algorithm\string\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\web\url.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\audio\impl\openal\buffer_al.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\audio\isinglesource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\cache\cachemap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\cache\cacheptr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\graphics\texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\map\missmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\graphics\impl\gl\texture\imagetextureutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\graphics\impl\gl\texture\fonttextureutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\graphics\impl\gl\renderfonttextgl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\graphics\impl\gl\irendertextgl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -537,6 +558,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\fin\app\impl\glfw\windowglfw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fin\input\impl\glfw\key_converter_glfw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fin\graphics\impl\gl\texturesgl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fin\graphics\impl\gl\renderfonttextgl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fin\graphics\impl\gl\texture\imagetextureutil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,7 +12,7 @@ namespace fin::graphics {
     void drawPoint(const double x, const double y) { drawPoint(x, y, 1); }
     void drawPoint(const double x, const double y, const double radius) {
       p->set_point_radius(radius);
-      p->begin(PRIMITIVE_POINTS);
+      p->begin(PrimitiveType::POINTS);
       p->vertex2d(x, y);
       p->end();
     }
@@ -20,14 +20,14 @@ namespace fin::graphics {
     void drawLine(const double x1, const double y1, const double x2, const double y2) { drawLine(x1, y1, x2, y2, 1); }
     void drawLine(const double x1, const double y1, const double x2, const double y2, const double width) {
       p->set_line_width(width);
-      p->begin(PRIMITIVE_LINES);
+      p->begin(PrimitiveType::LINES);
       p->vertex2d(x1, y1);
       p->vertex2d(x2, y2);
       p->end();
     }
 
     virtual void draw_rectangle(const double x, const double y, const double w, const double h, const bool isFilled) {
-      p->begin(isFilled ? PRIMITIVE_QUADS : PRIMITIVE_LINE_LOOP);
+      p->begin(isFilled ? PrimitiveType::QUADS : PrimitiveType::LINE_LOOP);
       p->uv2d(0, 0);
       p->vertex2d(x, y);
       p->uv2d(1, 0);
@@ -43,7 +43,7 @@ namespace fin::graphics {
 
     virtual void drawPolygon(const double x, const double y, const double r,
                              const int numPts, const bool isFilled) {
-      p->begin(isFilled ? PRIMITIVE_TRIANGLE_FAN : PRIMITIVE_LINE_LOOP);
+      p->begin(isFilled ? PrimitiveType::TRIANGLE_FAN : PrimitiveType::LINE_LOOP);
       if (isFilled) {
         p->uv2d(.5, .5);
         p->vertex2d(x, y);

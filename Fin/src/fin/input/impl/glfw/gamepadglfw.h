@@ -13,7 +13,7 @@ namespace fin::input {
       const unsigned char* buttons = glfwGetJoystickButtons(gamepadIndex, &buttonCount);
       for (auto buttonIndex = 0; buttonIndex < buttonCount; ++buttonIndex) {
         PressableState buttonState = buttons[buttonIndex] == GLFW_PRESS ?
-          PRESSABLESTATE_PRESSED : PRESSABLESTATE_RELEASED;
+          PressableState::PRESSED : PressableState::RELEASED;
         handle_button(buttonIndex, buttonState);
       }
 

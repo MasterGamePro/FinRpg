@@ -89,7 +89,7 @@ namespace fin::app {
     void tick_render_ortho(graphics::IGraphics* g) {
       graphics::ITransform* t = g->t();
 
-      t->set_target_matrix(graphics::MATRIX_MODELVIEW);
+      t->set_target_matrix(graphics::MatrixType::MODELVIEW);
       t->push_matrix();
 
       on_tick_render_ortho(g);
@@ -104,7 +104,7 @@ namespace fin::app {
     void tick_render_perspective(graphics::IGraphics* g) {
       graphics::ITransform* t = g->t();
 
-      t->set_target_matrix(graphics::MATRIX_MODELVIEW);
+      t->set_target_matrix(graphics::MatrixType::MODELVIEW);
       t->push_matrix();
 
       on_tick_render_perspective(g);

@@ -4,9 +4,9 @@
 #include "fin/math/geometry/point3d.h"
 
 namespace fin::graphics {
-  enum MatrixType {
-    MATRIX_PROJECTION,
-    MATRIX_MODELVIEW
+  enum class MatrixType {
+    PROJECTION,
+    MODELVIEW
   };
 
   class ITransform {
@@ -20,18 +20,23 @@ namespace fin::graphics {
 
     virtual void identity() = 0;
 
-    virtual void translate(double x, double y) = 0;
-    virtual void translate(double x, double y, double z) = 0;
+    virtual void translate(const double x, const double y) = 0;
+    virtual void translate(const double x, const double y, const double z) = 0;
 
-    virtual void scale(double x, double y) = 0;
-    virtual void scale(double x, double y, double z) = 0;
+    virtual void scale(const double x, const double y) = 0;
+    virtual void scale(const double x, const double y, const double z) = 0;
 
-    virtual void rotate_x(double deg) = 0;
-    virtual void rotate_y(double deg) = 0;
-    virtual void rotate_z(double deg) = 0;
+    virtual void rotate_x(const double deg) = 0;
+    virtual void rotate_y(const double deg) = 0;
+    virtual void rotate_z(const double deg) = 0;
+    virtual void rotate_around_axis(const math::INormal3d& axis,
+                                    const double deg) = 0;
 
-    virtual void perspective(double fov, double aspect, double nearValue, double farValue) = 0;
-    virtual void ortho(double left, double right, double bottom, double top, double near, double far) = 0;
-    virtual void look_at(const math::Point3d& from, const math::Point3d& to, const math::INormal3d& up) = 0;
+    virtual void perspective(double fov, double aspect, double nearValue,
+                             double farValue) = 0;
+    virtual void ortho(double left, double right, double bottom, double top,
+                       double near, double far) = 0;
+    virtual void look_at(const math::Point3d& from, const math::Point3d& to,
+                         const math::INormal3d& up) = 0;
   };
 }

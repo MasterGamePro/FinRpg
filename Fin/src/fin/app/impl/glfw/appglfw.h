@@ -26,7 +26,7 @@ namespace fin::app {
     void init() override final {
       if (!glfwInit()) { throw std::exception("Failed to init glfw.\n"); }
 
-      window = new WindowGlfw();
+      window = new WindowGlfw(graphics);
 
       glewExperimental = GL_FALSE;
       glfwMakeContextCurrent(window->getGlfwWindow());
@@ -47,7 +47,7 @@ namespace fin::app {
 
     private:
     audio::IAudio* audio;
-    graphics::IGraphics* graphics;
+    graphics::GraphicsGl* graphics;
     input::IInput* input;
     WindowGlfw* window;
   };

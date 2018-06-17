@@ -19,7 +19,7 @@ namespace recom::src::java {
       Statement* statement;
       do {
         
-      } while()
+      } while ();
     }
 
     private:

@@ -13,13 +13,14 @@
 #include "fin/app/iwindow.h"
 #include "fin/graphics/view.h"
 #include "fin/graphics/impl/gl/graphicsgl.h"
+#include <boost/asio/detail/bind_handler.hpp>
 
 namespace fin::app {
   class AppGlfw;
 
   class WindowGlfw : public IWindow {
     public:
-    WindowGlfw();
+    WindowGlfw(graphics::GraphicsGl* g);
     ~WindowGlfw();
 
     void set_title(std::string title) override final {
@@ -44,14 +45,31 @@ namespace fin::app {
 
     bool is_closed() override final { return glfwWindowShouldClose(window); }
     void close() override final { glfwSetWindowShouldClose(window, true); }
+
     void toggle_fullscreen() override final {
       create_glfw_window(!isFullscreen);
+      checkReloadContext = true;
     }
 
     void render(graphics::IGraphics* g, IApp* app) override final {
       glfwMakeContextCurrent(window);
 
+      const auto newContext = wglGetCurrentContext();
+      if (checkReloadContext) {
+        g_->reload_context();
+        checkReloadContext = false;
+      }
+      context = newContext;
+
       IWindow::render(g, app);
+
+      const auto t = g->t();
+      t->set_target_matrix(graphics::MatrixType::PROJECTION);
+      t->identity();
+      t->ortho(0, 0 + width, 0 + height, 0, -1, 1000);
+      g->rt()->draw_string(algorithm::string_format("%d (%d)", app->get_fps(),
+                                                    app->get_frame()),
+                           320, 0);
 
       glfwSwapBuffers(window);
     }
@@ -119,11 +137,14 @@ namespace fin::app {
     private:
     void create_glfw_window(bool isFullscreen);
 
-    const graphics::GraphicsGl* g_;
+    graphics::GraphicsGl* g_;
     std::string title = "";
     GLFWwindow* window = nullptr;
     int width = 640, height = 480;
     bool isFullscreen;
     graphics::View* view;
+
+    bool checkReloadContext = false;
+    HGLRC context;
   };
 }

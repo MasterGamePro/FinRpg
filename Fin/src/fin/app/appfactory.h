@@ -2,21 +2,21 @@
 
 namespace fin::app {
 
-  enum WindowLibrary {
-    WINDOWLIBRARY_GLFW
+  enum class WindowLibrary {
+    GLFW
   };
 
-  enum InputLibrary {
-    INPUTLIBRARY_SDL
+  enum class InputLibrary {
+    SDL
   };
 
-  enum GraphicsLibrary {
-    GRAPHICSLIBRARY_OPENGL,
-    GRAPHICSLIBRARY_DIRECTX
+  enum class GraphicsLibrary {
+    OPENGL,
+    DIRECTX
   };
 
-  enum AudioLibrary {
-    AUDIOLIBRARY_SDL,
-    AUDIOLIBRARY_OPENAL
+  enum class AudioLibrary {
+    SDL,
+    OPENAL
   };
 }

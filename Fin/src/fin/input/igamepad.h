@@ -34,7 +34,7 @@ namespace fin::input {
       if (buttonStateMap.find(buttonIndex) != buttonStateMap.end()) {
         return buttonStateMap.at(buttonIndex);
       }
-      return PRESSABLESTATE_UP;
+      return PressableState::UP;
     }
     virtual bool check_button(const int buttonIndex, const PressableState expectedState) {
       return check_pressable_state(get_button_state(buttonIndex), expectedState);
@@ -51,7 +51,7 @@ namespace fin::input {
       if (axisButtonStateMap.find(axisIndex) != axisButtonStateMap.end()) {
         return axisButtonStateMap.at(axisIndex);
       }
-      return PRESSABLESTATE_UP;
+      return PressableState::UP;
     }
 
     virtual bool check_axis(const int axisIndex, const PressableState expectedState) {
@@ -74,7 +74,7 @@ namespace fin::input {
       beforeAxisUpdates.push_back(axisUpdate);
       const auto threshold = .75;
       const auto pressableState = axisState >= threshold ?
-        PRESSABLESTATE_PRESSED : PRESSABLESTATE_RELEASED;
+        PressableState::PRESSED : PressableState::RELEASED;
       if (!check_pressable_state(pressableState, get_axis_button_state(axisIndex))) {
         gamepadButtonUpdate axisButtonUpdate;
         axisButtonUpdate.buttonIndex = axisIndex;
@@ -89,12 +89,12 @@ namespace fin::input {
         auto update = beforeButtonUpdates.front();
         beforeButtonUpdates.pop_front();
         buttonStateMap[update.buttonIndex] = update.pressableState;
-        if (update.pressableState == PRESSABLESTATE_RELEASED) {
-          update.pressableState = PRESSABLESTATE_UP;
+        if (update.pressableState == PressableState::RELEASED) {
+          update.pressableState = PressableState::UP;
           afterButtonUpdates.push_front(update);
         }
-        else if (update.pressableState == PRESSABLESTATE_PRESSED) {
-          update.pressableState = PRESSABLESTATE_DOWN;
+        else if (update.pressableState == PressableState::PRESSED) {
+          update.pressableState = PressableState::DOWN;
           afterButtonUpdates.push_front(update);
         }
       }
@@ -107,12 +107,12 @@ namespace fin::input {
         gamepadButtonUpdate update = beforeAxisButtonUpdates.front();
         beforeAxisButtonUpdates.pop_front();
         axisButtonStateMap[update.buttonIndex] = update.pressableState;
-        if (update.pressableState == PRESSABLESTATE_RELEASED) {
-          update.pressableState = PRESSABLESTATE_UP;
+        if (update.pressableState == PressableState::RELEASED) {
+          update.pressableState = PressableState::UP;
           afterAxisButtonUpdates.push_front(update);
         }
-        else if (update.pressableState == PRESSABLESTATE_PRESSED) {
-          update.pressableState = PRESSABLESTATE_DOWN;
+        else if (update.pressableState == PressableState::PRESSED) {
+          update.pressableState = PressableState::DOWN;
           afterAxisButtonUpdates.push_front(update);
         }
       }

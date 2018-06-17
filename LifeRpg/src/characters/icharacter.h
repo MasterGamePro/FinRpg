@@ -3,7 +3,7 @@
 #include <direct.h>
 #include "fin/algorithm/string/format.h"
 #include "fin/app/actor/iactor.h"
-#include "fin/graphics/texture/imagetexture.h"
+#include "fin/graphics/texture.h"
 #include "fin/input/iinput.h"
 #include "fin/math/trig.h"
 #include "fin/time/deltatime.h"
@@ -90,7 +90,7 @@ class ICharacter : public fin::app::IActor {
     g->ts()->bind(shadowTexture);
     g->r3d()->draw_floor(-5, -5, 5, 5, 0);
 
-    fin::graphics::ImageTexture* img;
+    fin::graphics::Texture img;
 
     if (isMoving) {
       index += moveAmt * .15;
@@ -104,7 +104,7 @@ class ICharacter : public fin::app::IActor {
 
     g->ts()->bind(img);
     g->r3d()->draw_wall(xd - 8, 0, 16, xd + 8, 0, 0);
-    g->ts()->bind(nullptr);
+    g->ts()->unbind();
   }
 
   protected:
@@ -117,7 +117,7 @@ class ICharacter : public fin::app::IActor {
 
   private:
   double flipDirection = 0, targetFlipDirection = 0;
-  fin::data::StlVector<fin::graphics::ImageTexture*> standingTextures;
-  fin::data::StlVector<fin::graphics::ImageTexture*> walkingTextures;
-  fin::graphics::ImageTexture* shadowTexture;
+  fin::data::StlVector<fin::graphics::Texture> standingTextures;
+  fin::data::StlVector<fin::graphics::Texture> walkingTextures;
+  fin::graphics::Texture shadowTexture;
 };

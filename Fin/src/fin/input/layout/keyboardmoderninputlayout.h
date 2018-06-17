@@ -9,17 +9,17 @@ namespace fin::input {
     public:
     KeyboardModernInputLayout(IKeyboard* keyboard) {
       primaryDirectionalInput = new PressableInputDirectionalInput(
-        new KeyPressableInput(keyboard, KEYCODE_A),
-        new KeyPressableInput(keyboard, KEYCODE_D),
-        new KeyPressableInput(keyboard, KEYCODE_W),
-        new KeyPressableInput(keyboard, KEYCODE_S));
+        new KeyPressableInput(keyboard, Keycode::A),
+        new KeyPressableInput(keyboard, Keycode::D),
+        new KeyPressableInput(keyboard, Keycode::W),
+        new KeyPressableInput(keyboard, Keycode::S));
       secondaryDirectionalInput = new PressableInputDirectionalInput(
-        new KeyPressableInput(keyboard, KEYCODE_K),
-        new KeyPressableInput(keyboard, KEYCODE_SEMICOLON),
-        new KeyPressableInput(keyboard, KEYCODE_O),
-        new KeyPressableInput(keyboard, KEYCODE_L));
-      actionPressableInput = new KeyPressableInput(keyboard, KEYCODE_U);
-      cancelPressableInput = new KeyPressableInput(keyboard, KEYCODE_H);
+        new KeyPressableInput(keyboard, Keycode::K),
+        new KeyPressableInput(keyboard, Keycode::SEMICOLON),
+        new KeyPressableInput(keyboard, Keycode::O),
+        new KeyPressableInput(keyboard, Keycode::L));
+      actionPressableInput = new KeyPressableInput(keyboard, Keycode::U);
+      cancelPressableInput = new KeyPressableInput(keyboard, Keycode::H);
     }
 
     ~KeyboardModernInputLayout() {

@@ -1,6 +1,8 @@
-  #include "stdafx.h"
-#include "view.h"
+#include "stdafx.h"
+
 #include "fin/debug/exception.h"
+
+#include "view.h"
 
 namespace fin::graphics {
   void View::render( IGraphics* g ) {

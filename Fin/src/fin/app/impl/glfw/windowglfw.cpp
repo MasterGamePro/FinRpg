@@ -3,7 +3,7 @@
 #include "windowglfw.h"
 
 namespace fin::app {
-  WindowGlfw::WindowGlfw() {
+  WindowGlfw::WindowGlfw(graphics::GraphicsGl* g) : g_(g) {
     view = new graphics::View();
     create_glfw_window(false);
   }
@@ -37,15 +37,18 @@ namespace fin::app {
 
                          if (action == GLFW_PRESS) {
                            if (key == GLFW_KEY_ESCAPE) { w->close(); }
+                           else if (key == GLFW_KEY_T) {
+                             w->toggle_fullscreen();
+                           }
                            else if (key == GLFW_KEY_F1) {
                              w->save_screenshot("img", image::IMAGEFILE_JPG);
                            }
                            keyboard->
-                             handle(key, input::PRESSABLESTATE_PRESSED);
+                             handle(key, input::PressableState::PRESSED);
                          }
                          else if (action == GLFW_RELEASE) {
                            keyboard->
-                             handle(key, input::PRESSABLESTATE_RELEASED);
+                             handle(key, input::PressableState::RELEASED);
                          }
                        });
     //glfwSetCursorPosCallback(window, []();

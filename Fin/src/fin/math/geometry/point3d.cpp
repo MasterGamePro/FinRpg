@@ -13,4 +13,11 @@ namespace fin::math {
     Point3d point(x() + other.x(), y() + other.y(), z() + other.z());
     return point;
   }
+
+  Point3d& Point3d::operator+=(const Normal3d& other) {
+    x_ += other.x();
+    y_ += other.y();
+    z_ += other.z();
+    return *this;
+  }
 }

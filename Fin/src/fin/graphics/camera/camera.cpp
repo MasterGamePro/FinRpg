@@ -6,10 +6,10 @@
 
 namespace fin::graphics {
   void Camera::render( IGraphics* g ) const {
-    ITransform* t = g->t();
-    IScreen* s = g->s();
+    const auto t = g->t();
+    const auto s = g->s();
 
-    t->set_target_matrix( MATRIX_PROJECTION );
+    t->set_target_matrix( MatrixType::PROJECTION );
     t->push_matrix();
 
     math::TreeRectangle* rectangle = s->get_clip_rectangle();
@@ -24,12 +24,12 @@ namespace fin::graphics {
     t->look_at( fromPoint, toPoint, math::Normal3d::UP );
     stage->tick_render_perspective( g );
 
-    t->set_target_matrix( MATRIX_PROJECTION );
+    t->set_target_matrix( MatrixType::PROJECTION );
     t->identity();
     t->ortho( x, x + width, y + height, y, -1, 1000 );
     stage->tick_render_ortho( g );
 
-    t->set_target_matrix( MATRIX_PROJECTION );
+    t->set_target_matrix( MatrixType::PROJECTION );
     t->pop_matrix();
   }
 }

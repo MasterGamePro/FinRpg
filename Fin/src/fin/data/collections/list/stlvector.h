@@ -60,6 +60,31 @@ namespace fin::data {
     void clear() override final { list_.clear(); }
     int size() const override final { return list_.size(); }
 
+    // TODO: Add begin/end.
+    /*
+    template <
+      class Value,
+      class CategoryOrTraversal,
+      class Reference = Value &,
+      class Difference = std::ptrdiff_t
+    >
+    class any_iterator;
+
+    typedef any_iterator<
+      T,
+      boost::bidirectional_traversal_tag
+    > t_iterator;
+
+    typedef any_iterator<
+      T const,
+      boost::bidirectional_traversal_tag
+    > const_t_iterator;
+
+    t_iterator begin() { return list_.begin(); }
+    t_iterator end() { return list_.end(); }
+    const_t_iterator begin() const { return list_.cbegin(); }
+    const_t_iterator end() const { return list_.cend(); }*/
+
     void iterate(const std::function<void(T& t, int i)>& lambda) override
     final {
       auto i = 0;

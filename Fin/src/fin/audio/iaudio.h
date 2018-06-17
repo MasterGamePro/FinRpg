@@ -8,6 +8,6 @@ namespace fin::audio {
     public:
     virtual ~IAudio() {}
 
-    IListener* get_listener();
+    virtual IListener* get_listener() = 0;
   };
 }

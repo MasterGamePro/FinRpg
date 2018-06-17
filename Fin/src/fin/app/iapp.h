@@ -22,7 +22,7 @@ namespace fin::app {
       get_graphics()->init();
       go_to_scene_immediately(initialScene);
 
-      int frame = 0;
+      frame = 0;
 
       auto stopwatch = new time::Stopwatch();
       auto* input = get_input();
@@ -46,12 +46,12 @@ namespace fin::app {
           stopwatch->reset();
         }
 
-        const auto do_frame_cap = false;
+        const auto do_frame_cap = true;
         if (do_frame_cap && frame >= 60) {
           fps_ = frame;
           frame = 0;
           time::Time::sleep_ms(1000 - diff);
-          get_main_window()->set_title(algorithm::string_format("%d", fps_));
+          get_main_window()->set_title(algorithm::string_format("%d - %d", fps_, diff));
         }
 
         if (next_scene_ != nullptr) {
@@ -62,17 +62,16 @@ namespace fin::app {
     }
 
     void go_to_scene(IScene* scene) {
-      if (this->scene_ == nullptr) {
-        go_to_scene_immediately(scene);
-      }
-      else {
-        next_scene_ = scene;
-      }
+      if (this->scene_ == nullptr) { go_to_scene_immediately(scene); }
+      else { next_scene_ = scene; }
     }
 
     static IApp* instance() { return instance_; }
 
     virtual IWindow* get_main_window() = 0;
+
+    int get_fps() const { return fps_; }
+    int get_frame() const { return frame; }
 
     protected:
     virtual void init() = 0;
@@ -82,6 +81,7 @@ namespace fin::app {
     private:
     void tick();
     void render();
+
     void go_to_scene_immediately(IScene* scene) {
       if (this->scene_ != nullptr) {
         this->scene_->on_end();
@@ -91,7 +91,7 @@ namespace fin::app {
       this->scene_->on_start(this);
     }
 
-    int fps_;
+    int fps_, frame;
 
     IScene *scene_, *next_scene_;
     static IApp* instance_;

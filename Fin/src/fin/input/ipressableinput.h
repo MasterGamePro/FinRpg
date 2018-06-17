@@ -8,8 +8,8 @@ namespace fin::input {
     bool checkState( PressableState expected_state ) const {
       const PressableState actual_state = get_state();
 
-      if ( actual_state == PRESSABLESTATE_RELEASED && expected_state == PRESSABLESTATE_UP ) { return true; }
-      if ( actual_state == PRESSABLESTATE_PRESSED && expected_state == PRESSABLESTATE_DOWN ) { return true; }
+      if ( actual_state == PressableState::RELEASED && expected_state == PressableState::UP ) { return true; }
+      if ( actual_state == PressableState::PRESSED && expected_state == PressableState::DOWN ) { return true; }
       return actual_state == expected_state;
     }
   };
