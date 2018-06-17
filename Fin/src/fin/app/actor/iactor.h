@@ -18,15 +18,6 @@
 namespace fin::app {
   class IActor {
     public:
-    static void tick_all(IApp* a) {
-      input::IInput* input = a->get_input();
-      toplevelInstances.iterate([input](IActor* actor, int i) { actor->tick_control(input); });
-      toplevelInstances.iterate([input](IActor* actor, int i) { actor->tick_physics(); });
-      toplevelInstances.iterate([input](IActor* actor, int i) { actor->tick_collision(); });
-      toplevelInstances.iterate([input](IActor* actor, int i) { actor->tick_animation(); });
-      toplevelInstances.iterate([input](IActor* actor, int i) { actor->tick_audio(); });
-    }
-
     IActor();
     virtual ~IActor() {}
 
@@ -36,9 +27,7 @@ namespace fin::app {
     void remove_component(IRenderComponent* component) { renderComponents.remove(component); }
 
     void add_child(IActor* child) {
-      if (toplevelInstances.remove(child)) {
-        children.add(child);
-      }
+      children.add(child);
     }
 
     void tick_control(input::IInput* input) {
@@ -127,7 +116,6 @@ namespace fin::app {
     virtual void on_tick_render_perspective(graphics::IGraphics* graphics) {}
 
     private:
-    static data::HashSet<IActor*> toplevelInstances;
     data::HashSet<IActor*> children;
     data::StlVector<IControlComponent*> controlComponents;
     data::StlVector<IPhysicsComponent*> physicsComponents;

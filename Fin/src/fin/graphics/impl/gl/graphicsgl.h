@@ -41,6 +41,6 @@ namespace fin::graphics {
     }
 
     TexturesGl* _ts;
-    RenderFontTextGl* _rt;
+    IRenderTextGl* _rt;
   };
 }

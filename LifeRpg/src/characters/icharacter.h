@@ -7,6 +7,7 @@
 #include "fin/input/iinput.h"
 #include "fin/math/trig.h"
 #include "fin/time/deltatime.h"
+#include "fin/math/geometry/common.h"
 
 class ICharacter : public fin::app::IActor {
   public:
@@ -18,7 +19,7 @@ class ICharacter : public fin::app::IActor {
     standingTextures.push_back(ts->load_texture(fin::io::File(folderPath + "standing-0.png")));
 
     for (int i = 0; i < 4; i++) {
-      std::string path = fin::algorithm::string_format("%swalking-%d.png", folderPath.c_str(), i);
+      std::string path = fin::algorithm::format_string("%swalking-%d.png", folderPath.c_str(), i);
       fin::debug::Log::println(path);
       walkingTextures.push_back(ts->load_texture(fin::io::File(path)));
     }
@@ -30,14 +31,35 @@ class ICharacter : public fin::app::IActor {
   void move(double amount, double dir) {
     moveAmt = amount;
     if (amount > 0) {
-      this->dir = dir;
+      this->dir_ = dir;
       isMoving = true;
-      x += fin::math::cosd(dir) * amount;
-      y += fin::math::sind(dir) * amount;
+      x_ += fin::math::cosd(dir) * amount;
+      y_ += fin::math::sind(dir) * amount;
     }
     else {
       isMoving = false;
     }
+  }
+
+  bool move_towards(const double x, const double y, const double amount) {
+    const auto dis = fin::math::calc_pt_dis(x_, y_, x, y);
+    const auto dir = fin::math::calc_pt_dir_d(x_, y_, x, y);
+    
+    if (dis > 0) {
+      dir_ = dir;
+      if (dis <= amount) {
+        moveAmt = 0;
+        x_ = x;
+        y_ = y;
+        isMoving = false;
+        return true;
+      }
+      moveAmt = amount;
+      x_ += amount * fin::math::cosd(dir);
+      y_ += amount * fin::math::sind(dir);
+      isMoving = true;
+    }
+    return false;
   }
 
   void on_tick_physics() override {
@@ -53,7 +75,7 @@ class ICharacter : public fin::app::IActor {
     double camDirection = -90;
 
     double angleError = 20;
-    double angleDiff = fin::math::angle_diffd(camDirection, dir);
+    double angleDiff = fin::math::angle_diffd(camDirection, dir_);
 
     double absAngleDiff = fabs(angleDiff);
     if (absAngleDiff > angleError && absAngleDiff < 180 - angleError) {
@@ -82,7 +104,7 @@ class ICharacter : public fin::app::IActor {
 
     fin::graphics::ITransform* t = g->t();
     t->identity();
-    t->translate(x, y, z);
+    t->translate(x_, y_, z);
     t->rotate_z(flipDirection);
 
     g->p()->color3d(1, 1, 1);
@@ -110,9 +132,9 @@ class ICharacter : public fin::app::IActor {
   protected:
   bool isMoving = false;
   double moveAmt = 0;
-  double x = 0, y = 0, z = 0, s = 16;
+  double x_ = 0, y_ = 0, z = 0, s = 16;
   double vX = 0, vY = 0;
-  double dir = 0;
+  double dir_ = 0;
   double index = 0;
 
   private:

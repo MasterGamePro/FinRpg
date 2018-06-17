@@ -33,7 +33,7 @@ namespace fin::graphics {
                               "Failed to initialize freetype.");
     }
     FT_Face face;
-    std::string path = algorithm::string_format("resources/fonts/%s.ttf",
+    std::string path = algorithm::format_string("resources/fonts/%s.ttf",
                                                 fontName);
     if (FT_New_Face(ft, path.c_str(), 0, &face)) {
       throw debug::Exception("RenderFreetypeText", "RenderFreetypeText",
@@ -46,7 +46,7 @@ namespace fin::graphics {
       if (FT_Load_Char(face, i, FT_LOAD_RENDER)) {
         throw debug::Exception("RenderFreetypeText", "RenderFreetypeText",
                                 algorithm::
-                                string_format("Failed to load character: \'%c\'.",
+                                format_string("Failed to load character: \'%c\'.",
                                               i));
       }
       w += g->bitmap.width;
@@ -67,7 +67,7 @@ namespace fin::graphics {
       if (FT_Load_Char(face, i, FT_LOAD_RENDER)) {
         throw debug::Exception("RenderFreetypeText", "RenderFreetypeText",
                                 algorithm::
-                                string_format("Failed to load character: \'%c\'.",
+                                format_string("Failed to load character: \'%c\'.",
                                               i));
       }
       CharacterInfo ci;

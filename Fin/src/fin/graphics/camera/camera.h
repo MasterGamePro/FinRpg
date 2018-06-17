@@ -14,6 +14,8 @@ namespace fin::graphics {
   };
 
   class Camera {
+    friend app::IApp;
+
   public:
     Camera() {}
     void render(IGraphics* g) const;

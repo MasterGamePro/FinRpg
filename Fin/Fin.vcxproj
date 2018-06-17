@@ -283,6 +283,7 @@
     <ClInclude Include="src\fin\math\geometry\normal3d.h" />
     <ClInclude Include="src\fin\math\geometry\point2d.h" />
     <ClInclude Include="src\fin\math\geometry\point3d.h" />
+    <ClInclude Include="src\fin\math\geometry\common.h" />
     <ClInclude Include="src\fin\math\geometry\vertex3d.h" />
     <ClInclude Include="src\fin\math\interpolation.h" />
     <ClInclude Include="src\fin\math\random.h" />
@@ -295,6 +296,7 @@
     <ClInclude Include="src\fin\time\deltatime.h" />
     <ClInclude Include="src\fin\time\stopwatch.h" />
     <ClInclude Include="src\fin\time\time.h" />
+    <ClInclude Include="src\fin\time\countdowntimer.h" />
     <ClInclude Include="src\fin\ui\iactionbutton.h" />
     <ClInclude Include="src\fin\ui\idropdown.h" />
     <ClInclude Include="src\fin\ui\ilist.h" />

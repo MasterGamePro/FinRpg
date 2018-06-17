@@ -17,7 +17,7 @@ namespace fin::graphics {
     double textureXOffset;
   } CharacterInfo;
 
-  class RenderFontTextGl : public IRenderText {
+  class RenderFontTextGl : public IRenderTextGl {
     public:
     RenderFontTextGl(Render2d* r2d, IPrimitives* p, TexturesGl* ts) : r2d(r2d),
                                                                       p(p),
@@ -71,7 +71,7 @@ namespace fin::graphics {
 
     void init() override final;
 
-    void reload_context() { reload_font_(); }
+    void reload_context() override final { reload_font_(); }
 
     private:
     void reload_font_();

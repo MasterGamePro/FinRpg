@@ -24,8 +24,10 @@ namespace fin::app {
 
       frame = 0;
 
-      auto stopwatch = new time::Stopwatch();
+      time::Stopwatch stopwatch;
       auto* input = get_input();
+      
+      stopwatch.start();
 
       while (!get_main_window()->is_closed()) {
         poll_inputs();
@@ -38,12 +40,13 @@ namespace fin::app {
 
         frame++;
 
-        const uint64_t diff = stopwatch->get_current_ms();
+        const uint64_t diff = stopwatch.get_current_ms();
         if (diff >= 1000) {
           fps_ = frame;
-          get_main_window()->set_title(algorithm::string_format("%d", fps_));
+          get_main_window()->set_title(algorithm::format_string("%d", fps_));
           frame = 0;
-          stopwatch->reset();
+          stopwatch.reset();
+          stopwatch.start();
         }
 
         const auto do_frame_cap = true;
@@ -51,7 +54,7 @@ namespace fin::app {
           fps_ = frame;
           frame = 0;
           time::Time::sleep_ms(1000 - diff);
-          get_main_window()->set_title(algorithm::string_format("%d - %d", fps_, diff));
+          get_main_window()->set_title(algorithm::format_string("%d - %d", fps_, diff));
         }
 
         if (next_scene_ != nullptr) {

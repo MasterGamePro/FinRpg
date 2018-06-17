@@ -50,12 +50,12 @@ class Player : public ICharacter {
       yp = xLookDis * fin::math::cosd(lookDir) * fin::math::sind(camDir + 90),
       zp = yLookDis * fin::math::sind(lookDir);
 
-    to->x(x + xp);
-    to->y(y + yp);
+    to->x(x_ + xp);
+    to->y(y_ + yp);
     to->z(z + zd + zp);
 
-    from->x(x + xd + xp);
-    from->y(y + yd + yp);
+    from->x(x_ + xd + xp);
+    from->y(y_ + yd + yp);
     from->z(z + zd + zp);
   }
 
@@ -66,7 +66,7 @@ class Player : public ICharacter {
       double w = 16;
       auto *t = g->t();
       t->identity();
-      t->translate(x, y, z + w * .6);
+      t->translate(x_, y_, z + w * .6);
       t->rotate_z(camera->get_normal().xy_dird() - 90);
       t->translate(0, -2, 0);
       t->rotate_y(-lookDir);

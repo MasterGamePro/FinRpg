@@ -103,7 +103,7 @@ class OptionsMenu : public fin::app::IActor {
         for (int r = 0; r < 2; r++) {
           const int* resolution = resolutions[r];
           double vv = v * (r == selectedResolution ? 1 : .8);
-          std::string s = fin::algorithm::string_format("%dx%d", resolution[0], resolution[1]);
+          std::string s = fin::algorithm::format_string("%dx%d", resolution[0], resolution[1]);
           g->p()->color3d(vv, vv, vv);
           g->rt()->draw_string(s, rx, y);
           rx += s.length() * 8;

@@ -67,7 +67,7 @@ namespace fin::app {
       t->set_target_matrix(graphics::MatrixType::PROJECTION);
       t->identity();
       t->ortho(0, 0 + width, 0 + height, 0, -1, 1000);
-      g->rt()->draw_string(algorithm::string_format("%d (%d)", app->get_fps(),
+      g->rt()->draw_string(algorithm::format_string("%d (%d)", app->get_fps(),
                                                     app->get_frame()),
                            320, 0);
 

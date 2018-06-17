@@ -4,5 +4,7 @@
 
 namespace fin::graphics {
   class IRenderTextGl : public IRenderText {
+    public:
+    virtual void reload_context() = 0;
   };
 }
