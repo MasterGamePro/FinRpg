@@ -22,6 +22,9 @@ namespace fin::graphics {
 
     virtual void translate(const double x, const double y) = 0;
     virtual void translate(const double x, const double y, const double z) = 0;
+    void translate(const math::Point3d& point) {
+      translate(point.x(), point.y(), point.z());
+    }
 
     virtual void scale(const double x, const double y) = 0;
     virtual void scale(const double x, const double y, const double z) = 0;

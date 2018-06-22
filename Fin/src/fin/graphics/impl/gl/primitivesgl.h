@@ -48,6 +48,10 @@ namespace fin::graphics {
       glTexCoord2d(u, v);
     }
 
+    void normal3d(const double nx, const double ny, const double nz) override final {
+      glNormal3f(nx, ny, nz);
+    }
+
     void vertex2d(const double x, const double y) override final {
       glVertex2d(x, y);
     }

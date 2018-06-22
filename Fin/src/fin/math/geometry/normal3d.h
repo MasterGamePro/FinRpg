@@ -23,9 +23,9 @@ namespace fin::math {
     double y() const override final { return y_; }
     double z() const override final { return z_; }
 
-    double x( double x_ ) { return this->x_ = x_; }
-    double y( double y_ ) { return this->y_ = y_; }
-    double z( double z_ ) { return this->z_ = z_; }
+    double x( double _x ) { return x_ = _x; }
+    double y( double _y ) { return y_ = _y; }
+    double z( double _z ) { return z_ = _z; }
 
     Normal3d& Normal3d::operator+=(const Normal3d& other);
 

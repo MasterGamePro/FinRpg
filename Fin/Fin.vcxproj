@@ -153,6 +153,7 @@
     <ClInclude Include="src\fin\app\actor\iactor.h" />
     <ClInclude Include="src\fin\app\actor\hud\ifractionalstatus.h" />
     <ClInclude Include="src\fin\app\components\animation\ianimationcomponent.h" />
+    <ClInclude Include="src\fin\app\components\control\imoderninputlayoutcontrolcomponent.h" />
     <ClInclude Include="src\fin\app\iapp.h" />
     <ClInclude Include="src\fin\app\appfactory.h" />
     <ClInclude Include="src\fin\app\components\audio\iaudiocomponent.h" />
@@ -225,6 +226,9 @@
     <ClInclude Include="src\fin\input\metrics\pressableinputfrequencymeasurer.h" />
     <ClInclude Include="src\fin\input\mousedefs.h" />
     <ClInclude Include="src\fin\math\common.h" />
+    <ClInclude Include="src\fin\math\geometry\boundaries\iboundary.h" />
+    <ClInclude Include="src\fin\math\geometry\boundaries\unionboundary.h" />
+    <ClInclude Include="src\fin\math\geometry\circle.h" />
     <ClInclude Include="src\fin\math\geometry\face3d.h" />
     <ClInclude Include="src\fin\math\geometry\primitive3d.h" />
     <ClInclude Include="src\fin\debug\exception.h" />
@@ -290,6 +294,16 @@
     <ClInclude Include="src\fin\math\shapes\irectangle.h" />
     <ClInclude Include="src\fin\math\shapes\treerectangle.h" />
     <ClInclude Include="src\fin\math\trig.h" />
+    <ClInclude Include="src\fin\model\loader\obj\mtlloader.h" />
+    <ClInclude Include="src\fin\model\material.h" />
+    <ClInclude Include="src\fin\model\unit\iunit.h" />
+    <ClInclude Include="src\fin\model\unit\line.h" />
+    <ClInclude Include="src\fin\model\simplemodel.h" />
+    <ClInclude Include="src\fin\model\loader\obj\objloader.h" />
+    <ClInclude Include="src\fin\model\unit\quad.h" />
+    <ClInclude Include="src\fin\model\unit\triangle.h" />
+    <ClInclude Include="src\fin\model\unit\trianglelist.h" />
+    <ClInclude Include="src\fin\model\unit\vertex.h" />
     <ClInclude Include="src\fin\stream\iinputstream.h" />
     <ClInclude Include="src\fin\stream\istringstream.h" />
     <ClInclude Include="src\fin\stream\ioutputstream.h" />

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "fin/debug/log.h"
 #include "stopwatch.h"
 
 namespace fin::time {
@@ -8,7 +7,6 @@ namespace fin::time {
     public:
     bool is_done() const {
       const auto currentMs = stopwatch_.get_current_ms();
-      debug::Log::println("%lf", 1. * currentMs / durationMs_);
       return currentMs >= durationMs_;
     }
 

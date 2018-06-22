@@ -50,13 +50,17 @@ class Player : public ICharacter {
       yp = xLookDis * fin::math::cosd(lookDir) * fin::math::sind(camDir + 90),
       zp = yLookDis * fin::math::sind(lookDir);
 
+    const auto x_ = positionData_->p_x();
+    const auto y_ = positionData_->p_y();
+    const auto z_ = positionData_->p_z();
+
     to->x(x_ + xp);
     to->y(y_ + yp);
-    to->z(z + zd + zp);
+    to->z(z_ + zd + zp);
 
     from->x(x_ + xd + xp);
     from->y(y_ + yd + yp);
-    from->z(z + zd + zp);
+    from->z(z_ + zd + zp);
   }
 
   void on_tick_render_perspective(fin::graphics::IGraphics* g) override {
@@ -66,7 +70,8 @@ class Player : public ICharacter {
       double w = 16;
       auto *t = g->t();
       t->identity();
-      t->translate(x_, y_, z + w * .6);
+      t->translate(positionData_->p_xyz());
+      t->translate(0, 0, w * .6);
       t->rotate_z(camera->get_normal().xy_dird() - 90);
       t->translate(0, -2, 0);
       t->rotate_y(-lookDir);

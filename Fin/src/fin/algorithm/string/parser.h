@@ -196,6 +196,14 @@ namespace fin::algorithm {
       return word;
     }
 
+    int pick_int() {
+      return stoi(pick_word());
+    }
+
+    float pick_float() {
+      return stof(pick_word());
+    }
+
     /**
      * Vomit
      * Throw (up) an error at the given position.

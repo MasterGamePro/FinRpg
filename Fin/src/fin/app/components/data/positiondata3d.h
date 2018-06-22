@@ -5,32 +5,34 @@
 namespace fin::app {
   class PositionData3d {
     public:
-    double x() const { return position_.x(); }
-    double y() const { return position_.y(); }
-    double z() const { return position_.z(); }
-    double x(double x) { return position_.x(x); }
-    double y(double y) { return position_.y(y); }
-    double z(double z) { return position_.z(z); }
+    double p_x() const { return position_.x(); }
+    double p_y() const { return position_.y(); }
+    double p_z() const { return position_.z(); }
+    double p_x(double x) { return position_.x(x); }
+    double p_y(double y) { return position_.y(y); }
+    double p_z(double z) { return position_.z(z); }
+    const math::Point3d& p_xyz() const { return position_; }
 
-    double vX() const { return velocity_.x(); }
-    double vY() const { return velocity_.y(); }
-    double vZ() const { return velocity_.z(); }
-    double vX(const double _vX) { return velocity_.x(_vX); }
-    double vY(const double _vY) { return velocity_.y(_vY); }
-    double vZ(const double _vZ) { return velocity_.z(_vZ); }
+    double v_x() const { return velocity_.x(); }
+    double v_y() const { return velocity_.y(); }
+    double v_z() const { return velocity_.z(); }
+    double v_x(const double _vX) { return velocity_.x(_vX); }
+    double v_y(const double _vY) { return velocity_.y(_vY); }
+    double v_z(const double _vZ) { return velocity_.z(_vZ); }
+    const math::Normal3d& v_xyz() const { return velocity_; }
 
-    double aX() const { return acceleration_.x(); }
-    double aY() const { return acceleration_.y(); }
-    double aZ() const { return acceleration_.z(); }
-    double aX(double _aX) { return acceleration_.x(_aX); }
-    double aY(double _aY) { return acceleration_.y(_aY); }
-    double aZ(double _aZ) { return acceleration_.z(_aZ); }
+    double a_x() const { return acceleration_.x(); }
+    double a_y() const { return acceleration_.y(); }
+    double a_z() const { return acceleration_.z(); }
+    double a_x(double _aX) { return acceleration_.x(_aX); }
+    double a_y(double _aY) { return acceleration_.y(_aY); }
+    double a_z(double _aZ) { return acceleration_.z(_aZ); }
+    const math::Normal3d& a_xyz() const { return acceleration_; }
 
     void tick() {
-      // Increment position using Euler method.
-      position_ += .5 * velocity_;
+      // TODO: Increment position using Euler method.
+      position_ += velocity_;
       velocity_ += acceleration_;
-      position_ += .5 * velocity_;
     }
 
     private:
