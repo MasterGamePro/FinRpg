@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-
 #include "fin/data/collections/list/stlvector.h"
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace fin::data {

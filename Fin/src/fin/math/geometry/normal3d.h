@@ -5,7 +5,7 @@
 namespace fin::math {
   class Normal3d : public INormal3d {
     public:
-    static Normal3d UP;
+    static Normal3d kUp;
 
     Normal3d() {
       x( 0 );

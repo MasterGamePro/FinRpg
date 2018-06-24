@@ -1,9 +1,9 @@
 #pragma once
-
 #include "fin/app/iscene.h"
-#include "ui/options/optionsmenu.h"
+#include "fin/graphics/view.h"
+#include "rpg/ui/options/optionsmenu.h"
 
-class DebugMenuScene : public fin::app::IScene {
+class OptionsMenuScene : public fin::app::IScene {
   void on_start( fin::app::IApp* app ) override final {
     auto window = app->get_main_window();
     auto view = window->get_view();

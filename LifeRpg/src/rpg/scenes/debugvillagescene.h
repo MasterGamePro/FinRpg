@@ -1,10 +1,10 @@
 #pragma once
-
 #include "fin/app/iscene.h"
 #include "fin/graphics/camera/camera.h"
-#include "characters/icharacter.h"
-#include "characters/npc.h"
-#include "characters/player.h"
+#include "fin/graphics/view.h"
+#include "rpg/characters/icharacter.h"
+#include "rpg/characters/npc.h"
+#include "rpg/characters/player.h"
 
 class DebugVillageScene : public fin::app::IScene {
   void on_start( fin::app::IApp* app ) override final {

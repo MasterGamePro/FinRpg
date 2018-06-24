@@ -2,12 +2,10 @@
 //
 
 #include "stdafx.h"
-
 #include "fin/app/iapp.h"
 #include "fin/app/impl/glfw/appglfw.h"
 #include "fin/debug/log.h"
-#include "scenes/debugvillagescene.h"
-#include "scenes/debugmenuscene.h"
+#include "rpg/scenes/mainmenu/mainmenuscene.h"
 
 int main() {
   try {
@@ -16,8 +14,7 @@ int main() {
     fin::debug::Log::println("OK!");
 
     fin::debug::Log::print("Launching app... ");
-    //app->launch(new DebugVillageScene());// new DebugMenuScene() );
-    app->launch(new DebugMenuScene() );
+    app->launch(new MainMenuScene() );
     fin::debug::Log::println("OK!");
 
     fin::debug::Log::print("Freeing app data... ");

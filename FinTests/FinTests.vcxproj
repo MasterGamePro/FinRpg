@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tst\fin\algorithm\string\parser_test.cpp" />
+    <ClCompile Include="tst\fin\algorithm\string\util_test.cpp" />
     <ClCompile Include="tst\fin\data\collections\list\vector_test.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

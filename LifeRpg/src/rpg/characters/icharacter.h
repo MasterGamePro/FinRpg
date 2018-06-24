@@ -1,31 +1,36 @@
 #pragma once
-#include <stdio.h>
 #include <direct.h>
+#include <stdio.h>
 #include "fin/algorithm/string/format.h"
 #include "fin/app/actor/iactor.h"
+#include "fin/app/components/data/positiondata3d.h"
 #include "fin/graphics/texture.h"
 #include "fin/input/iinput.h"
+#include "fin/math/geometry/common.h"
 #include "fin/math/trig.h"
 #include "fin/time/deltatime.h"
-#include "fin/math/geometry/common.h"
-#include "fin/app/components/data/positiondata3d.h"
 
 class ICharacter : public fin::app::IActor {
   public:
   ICharacter(std::string name, fin::graphics::ITextures* ts) {
+    positionData_ = std::make_shared<fin::app::PositionData3d>();
+
     char buffer[FILENAME_MAX];
     _getcwd(buffer, FILENAME_MAX);
 
     std::string folderPath = "resources/characters/" + name + "/";
-    standingTextures.push_back(ts->load_texture(fin::io::File(folderPath + "standing-0.png")));
+    standingTextures.
+      push_back(ts->load_texture(fin::io::File(folderPath + "standing-0.png")));
 
     for (int i = 0; i < 4; i++) {
-      std::string path = fin::algorithm::format_string("%swalking-%d.png", folderPath.c_str(), i);
+      std::string path = fin::algorithm::format_string("%swalking-%d.png",
+                                                       folderPath.c_str(), i);
       fin::debug::Log::println(path);
       walkingTextures.push_back(ts->load_texture(fin::io::File(path)));
     }
 
-    shadowTexture = ts->load_texture(fin::io::File("resources/images/shadow.png"));
+    shadowTexture = ts->
+      load_texture(fin::io::File("resources/images/shadow.png"));
   }
 
   protected:
@@ -36,8 +41,7 @@ class ICharacter : public fin::app::IActor {
       isMoving = true;
       positionData_->v_x(amount * fin::math::cosd(dir));
       positionData_->v_y(amount * fin::math::sind(dir));
-    }
-    else {
+    } else {
       isMoving = false;
       positionData_->v_x(0);
       positionData_->v_y(0);
@@ -49,7 +53,7 @@ class ICharacter : public fin::app::IActor {
     const auto y_ = positionData_->p_y();
     const auto dis = fin::math::calc_pt_dis(x_, y_, x, y);
     const auto dir = fin::math::calc_pt_dir_d(x_, y_, x, y);
-    
+
     if (dis > 0) {
       dir_ = dir;
       if (dis <= amount) {
@@ -70,13 +74,9 @@ class ICharacter : public fin::app::IActor {
     return false;
   }
 
-  void on_tick_physics() override {
+  void on_tick_physics() override { positionData_->tick(); }
 
-  }
-
-  void on_tick_collision() override {
-
-  }
+  void on_tick_collision() override { }
 
   void on_tick_animation() override {
     // TODO: Rotate based on the trajectory of the angular velocity.
@@ -91,19 +91,16 @@ class ICharacter : public fin::app::IActor {
     }
 
     double flipSpeed = fin::time::DeltaTime::adjust_velocity(20);
-    double angleDist = fin::math::angle_distd(flipDirection, targetFlipDirection);
+    double angleDist = fin::math::angle_distd(flipDirection,
+                                              targetFlipDirection);
 
-    if (fabs(angleDist) <= flipSpeed) {
-      flipDirection = targetFlipDirection;
-    }
-    else {
+    if (fabs(angleDist) <= flipSpeed
+    ) { flipDirection = targetFlipDirection; } else {
       flipDirection += (angleDist > 0 ? 1 : -1) * flipSpeed;
     }
   }
 
-  void on_tick_audio() override {
-
-  }
+  void on_tick_audio() override { }
 
   void on_tick_render_ortho(fin::graphics::IGraphics* g) override {}
 
@@ -124,11 +121,8 @@ class ICharacter : public fin::app::IActor {
 
     if (isMoving) {
       index += moveAmt * .15;
-      img = walkingTextures[(int) index % 4];
-    }
-    else {
-      img = standingTextures[0];
-    }
+      img = walkingTextures[(int)index % 4];
+    } else { img = standingTextures[0]; }
 
     int xd = -2;
 
@@ -141,6 +135,8 @@ class ICharacter : public fin::app::IActor {
   bool isMoving = false;
   double moveAmt = 0;
   double s = 16;
+
+  // TODO: Make PositionActor.
   std::shared_ptr<fin::app::PositionData3d> positionData_;
   double dir_ = 0;
   double index = 0;

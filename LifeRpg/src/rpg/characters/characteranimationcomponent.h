@@ -1,5 +1,4 @@
 #pragma once
-
 #include "fin/app/components/animation/ianimationcomponent.h"
 
 enum CharacterAnimationType {

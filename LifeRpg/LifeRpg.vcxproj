@@ -155,22 +155,26 @@
     <Text Include="resources\scenes\test1\level.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\characters\characteranimationcomponent.h" />
-    <ClInclude Include="src\characters\icharacter.h" />
-    <ClInclude Include="src\characters\npc.h" />
-    <ClInclude Include="src\characters\player.h" />
-    <ClInclude Include="src\characters\sprite3d.h" />
-    <ClInclude Include="src\save\savedata.h" />
-    <ClInclude Include="src\save\savereader.h" />
-    <ClInclude Include="src\save\savewriter.h" />
-    <ClInclude Include="src\scenes\debugmenuscene.h" />
-    <ClInclude Include="src\scenes\debugvillagescene.h" />
-    <ClInclude Include="src\ui\options\optionsmenu.h" />
+    <ClInclude Include="src\rpg\characters\characteranimationcomponent.h" />
+    <ClInclude Include="src\rpg\characters\icharacter.h" />
+    <ClInclude Include="src\rpg\characters\npc.h" />
+    <ClInclude Include="src\rpg\characters\player.h" />
+    <ClInclude Include="src\rpg\characters\sprite3d.h" />
+    <ClInclude Include="src\rpg\save\savedata.h" />
+    <ClInclude Include="src\rpg\save\savereader.h" />
+    <ClInclude Include="src\rpg\save\savewriter.h" />
+    <ClInclude Include="src\rpg\scenes\optionsmenu\optionsmenuscene.h" />
+    <ClInclude Include="src\rpg\scenes\debugvillagescene.h" />
+    <ClInclude Include="src\rpg\scenes\mainmenu\mainmenu.h" />
+    <ClInclude Include="src\rpg\scenes\mainmenu\mainmenuscene.h" />
+    <ClInclude Include="src\rpg\ui\options\optionsmenu.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\LifeRpg.cpp" />
+    <ClCompile Include="src\rpg\scenes\mainmenu\mainmenu.cpp" />
+    <ClCompile Include="src\rpg\ui\options\optionsmenu.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>

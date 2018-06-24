@@ -204,6 +204,19 @@ namespace fin::algorithm {
       return stof(pick_word());
     }
 
+    // TODO: Create nibble_to or something similar?
+    // TODO: Handle carriage returns.
+    std::string pick_line() {
+      std::string line = "";
+      while (!all_done()) {
+        const auto c = str[current_position_.position];
+        ++current_position_.position;
+        if (c == '\n') { break; }
+        line += c;
+      }
+      return line;
+    }
+
     /**
      * Vomit
      * Throw (up) an error at the given position.

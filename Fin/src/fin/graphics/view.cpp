@@ -1,7 +1,5 @@
 #include "stdafx.h"
-
 #include "fin/debug/exception.h"
-
 #include "view.h"
 
 namespace fin::graphics {

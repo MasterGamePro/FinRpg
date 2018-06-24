@@ -21,7 +21,7 @@ namespace fin::graphics {
 
     t->identity();
     t->perspective( fieldOfView, width / height, 1, 1000 );
-    t->look_at( fromPoint, toPoint, math::Normal3d::UP );
+    t->look_at( fromPoint, toPoint, math::Normal3d::kUp );
     stage->tick_render_perspective( g );
 
     t->set_target_matrix( MatrixType::PROJECTION );

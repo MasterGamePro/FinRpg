@@ -25,37 +25,43 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\characters\player.h">
+    <ClInclude Include="src\rpg\characters\characteranimationcomponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\characters\icharacter.h">
+    <ClInclude Include="src\rpg\characters\icharacter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\characters\npc.h">
+    <ClInclude Include="src\rpg\characters\npc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\characters\characteranimationcomponent.h">
+    <ClInclude Include="src\rpg\characters\player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\save\savereader.h">
+    <ClInclude Include="src\rpg\characters\sprite3d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\save\savewriter.h">
+    <ClInclude Include="src\rpg\save\savedata.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\save\savedata.h">
+    <ClInclude Include="src\rpg\save\savereader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\scenes\debugvillagescene.h">
+    <ClInclude Include="src\rpg\save\savewriter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\scenes\debugmenuscene.h">
+    <ClInclude Include="src\rpg\scenes\mainmenu\mainmenuscene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ui\options\optionsmenu.h">
+    <ClInclude Include="src\rpg\scenes\debugvillagescene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\characters\sprite3d.h">
+    <ClInclude Include="src\rpg\ui\options\optionsmenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rpg\scenes\mainmenu\mainmenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rpg\scenes\optionsmenu\optionsmenuscene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -64,6 +70,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\LifeRpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rpg\scenes\mainmenu\mainmenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rpg\ui\options\optionsmenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

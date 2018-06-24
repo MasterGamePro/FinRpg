@@ -3,8 +3,6 @@
 #include "fin/app/iapp.h"
 #include "fin/app/actor/iactor.h"
 #include "fin/input/iinput.h"
-#include "fin/math/trig.h"
-#include "scenes/debugvillagescene.h"
 
 // TODO: Create a common interface for options.
 class OptionsMenu : public fin::app::IActor {
@@ -15,48 +13,7 @@ class OptionsMenu : public fin::app::IActor {
   }
 
   protected:
-  void on_tick_control(fin::input::IInput* i) override final {
-    const auto d = i->get_input_layout()->getPrimaryDirectionalInput();
-    const auto a = i->get_input_layout()->getActionPressableInput();
-    if (d->get_pressed_amount() > 0) {
-      double dir = d->get_pressed_direction();
-      const auto x = fin::math::cosd(dir), y = fin::math::sind(dir);
-      if (abs(x) > abs(y)) {
-        if (option == 0) {
-          bool changed = false;
-          if (x > 0 && selectedResolution < 2 - 1) {
-            changed = true;
-            selectedResolution++;
-          }
-          else if (x < 0 && selectedResolution > 0) {
-            changed = true;
-            selectedResolution--;
-          }
-          if (changed) {
-            const int* resolution = resolutions[selectedResolution];
-            window->set_size(resolution[0], resolution[1]);
-          }
-        }
-      }
-      else {
-        if (y < 0 && option < optionCount - 1) {
-          option++;
-        }
-        else if (y > 0 && option > 0) {
-          option--;
-        }
-      }
-    }
-    else if (a->checkState(fin::input::PressableState::PRESSED)) {
-      if (option == 1) {
-        isFullscreen = !isFullscreen;
-        window->toggle_fullscreen();
-      }
-      else if(option == 2) {
-        this->app->go_to_scene(new DebugVillageScene());
-      }
-    }
-  }
+  void on_tick_control(fin::input::IInput* i) override final;
 
   void on_tick_physics() override final {
 
@@ -114,7 +71,7 @@ class OptionsMenu : public fin::app::IActor {
         g->rt()->draw_string("Fullscreen", rx + lineHeight, y);
       }
       else if (i == 2) {
-        g->rt()->draw_string("Go to test scene.", rx, y);
+        g->rt()->draw_string("Back", rx, y);
       }
       y += lineHeight;
     }

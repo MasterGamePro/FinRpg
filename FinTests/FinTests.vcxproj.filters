@@ -35,6 +35,9 @@
     <ClCompile Include="tst\fin\math\binary_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tst\fin\algorithm\string\util_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

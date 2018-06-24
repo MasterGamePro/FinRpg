@@ -1,10 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-
 #include "fin/algorithm/string/parser.h"
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
 
 namespace fin::algorithm {
   TEST_CLASS( ParserTest ) {

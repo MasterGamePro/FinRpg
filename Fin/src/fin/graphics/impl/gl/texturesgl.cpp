@@ -1,12 +1,6 @@
 #include "stdafx.h"
-
-#include <GL/glew.h>
-
-#include "fin/debug/log.h"
 #include "fin/graphics/texture.h"
-
 #include "texture/imagetextureutil.h"
-
 #include "texturesgl.h"
 
 namespace fin::graphics {

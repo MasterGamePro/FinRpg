@@ -1,7 +1,6 @@
 #pragma once
-
+#include <GL/glew.h>
 #include "fin/data/map/missmap.h"
-
 #include "fin/graphics/itextures.h"
 
 namespace fin::graphics {
