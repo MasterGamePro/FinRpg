@@ -31,6 +31,9 @@ namespace fin {
       void toggle_fullscreen() { toggle_fullscreen(!is_fullscreen()); }
       virtual void toggle_fullscreen(const bool isFullscreen) = 0;
 
+      virtual void set_size_and_fullscreen(const int width, const int height,
+                                           const bool isFullscreen) = 0;
+
       virtual graphics::View* get_view() = 0;
 
       virtual void render(graphics::IGraphics* g, IApp* app);

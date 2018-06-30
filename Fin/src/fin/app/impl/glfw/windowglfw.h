@@ -30,16 +30,7 @@ namespace fin::app {
 
     // TODO: Apply size/fullscreen change in a single method?
     void set_size(int width, int height) override final {
-      if (this->width != width || this->height != height) {
-        this->width = width;
-        this->height = height;
-        view->get_rectangle()->set_size(width, height);
-        if (!isFullscreen_) { glfwSetWindowSize(window, width, height); }
-        else {
-          create_glfw_window(isFullscreen_);
-          checkReloadContext = true;
-        }
-      }
+      set_size_and_fullscreen(width, height, isFullscreen_);
     }
 
     void set_position(int x, int y) override final {
@@ -60,6 +51,30 @@ namespace fin::app {
         checkReloadContext = true;
       }
     }
+
+    void set_size_and_fullscreen(const int width, const int height,
+                                         const bool isFullscreen) override final {
+      // TODO: Three newSize ifs in a row. Is this as simple as it could be?
+      const auto newSize = (width != this->width || height != this->height);
+      // If changed size, change size values before updating the OpenGL stuff.
+      if (newSize) {
+        this->width = width;
+        this->height = height;
+        view->get_rectangle()->set_size(width, height);
+      }
+      const auto newFullscreen = isFullscreen != isFullscreen_;
+      // If changed fullscreen mode or changed size and is fullscreen, make new
+      // OpenGL context.
+      if (newFullscreen || (isFullscreen_ && newSize)) {
+        create_glfw_window(isFullscreen);
+        checkReloadContext = true;
+      }
+      // Otherwise, just changed size and in windowed mode. Just set size.
+      else if (newSize) {
+        glfwSetWindowSize(window, width, height);
+      }
+    }
+
 
     void render(graphics::IGraphics* g, IApp* app) override final {
       glfwMakeContextCurrent(window);

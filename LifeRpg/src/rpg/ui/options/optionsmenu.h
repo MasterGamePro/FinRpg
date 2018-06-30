@@ -97,12 +97,15 @@ class OptionsMenu : public fin::app::IActor {
           break;
         }
       }
-      options_.apply(window);
+      apply_settings();
     }
   }
 
-  void save_settings() {
-    rpg::save::write_options_to_file(options_, file_);
+  void save_settings() { rpg::save::write_options_to_file(options_, file_); }
+
+  void apply_settings() {
+    window->set_size_and_fullscreen(options_.get_width(), options_.get_height(),
+                                    options_.is_fullscreen());
   }
 
   fin::io::File file_ = fin::io::File("saves/options.dat");

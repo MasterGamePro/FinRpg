@@ -1,6 +1,5 @@
 #pragma once
 #include <array>
-#include "fin/app/iwindow.h"
 
 namespace rpg::save {
   class Options {
@@ -19,11 +18,6 @@ namespace rpg::save {
 
     void toggle_fullscreen(const bool isFullscreen) {
       isFullscreen_ = isFullscreen;
-    }
-
-    void apply(fin::app::IWindow* window) const {
-      window->set_size(resolution_[0], resolution_[1]);
-      window->toggle_fullscreen(isFullscreen_);
     }
 
     private:
