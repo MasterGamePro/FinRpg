@@ -58,6 +58,7 @@ namespace fin::app {
         }
 
         if (next_scene_ != nullptr) {
+          debug::Log::println("IApp.launch() - next_scene if");
           go_to_scene_immediately(next_scene_);
           next_scene_ = nullptr;
         }
@@ -65,8 +66,10 @@ namespace fin::app {
     }
 
     void go_to_scene(IScene* scene) {
+      debug::Log::println("IApp.go_to_scene() {");
       if (this->scene_ == nullptr) { go_to_scene_immediately(scene); }
       else { next_scene_ = scene; }
+      debug::Log::println("IApp.go_to_scene() }");
     }
 
     static IApp* instance() { return instance_; }
@@ -86,12 +89,14 @@ namespace fin::app {
     void render();
 
     void go_to_scene_immediately(IScene* scene) {
+      debug::Log::println("IApp.go_to_scene_immediately() {");
       if (this->scene_ != nullptr) {
         this->scene_->on_end();
         delete this->scene_;
       }
       this->scene_ = scene;
       this->scene_->on_start(this);
+      debug::Log::println("IApp.go_to_scene_immediately() }");
     }
 
     int fps_, frame;

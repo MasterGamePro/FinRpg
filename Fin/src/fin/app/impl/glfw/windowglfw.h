@@ -28,12 +28,18 @@ namespace fin::app {
       glfwSetWindowTitle(window, title.c_str());
     };
 
+    // TODO: Apply size/fullscreen change in a single method?
     void set_size(int width, int height) override final {
-      this->width = width;
-      this->height = height;
-      view->get_rectangle()->set_size(width, height);
-      if (!isFullscreen) { glfwSetWindowSize(window, width, height); }
-      else { create_glfw_window(isFullscreen); }
+      if (this->width != width || this->height != height) {
+        this->width = width;
+        this->height = height;
+        view->get_rectangle()->set_size(width, height);
+        if (!isFullscreen_) { glfwSetWindowSize(window, width, height); }
+        else {
+          create_glfw_window(isFullscreen_);
+          checkReloadContext = true;
+        }
+      }
     }
 
     void set_position(int x, int y) override final {
@@ -46,9 +52,13 @@ namespace fin::app {
     bool is_closed() override final { return glfwWindowShouldClose(window); }
     void close() override final { glfwSetWindowShouldClose(window, true); }
 
-    void toggle_fullscreen() override final {
-      create_glfw_window(!isFullscreen);
-      checkReloadContext = true;
+    bool is_fullscreen() override final { return isFullscreen_; }
+
+    void toggle_fullscreen(const bool isFullscreen) override final {
+      if (isFullscreen != isFullscreen_) {
+        create_glfw_window(isFullscreen);
+        checkReloadContext = true;
+      }
     }
 
     void render(graphics::IGraphics* g, IApp* app) override final {
@@ -141,7 +151,7 @@ namespace fin::app {
     std::string title = "";
     GLFWwindow* window = nullptr;
     int width = 640, height = 480;
-    bool isFullscreen;
+    bool isFullscreen_;
     graphics::View* view;
 
     bool checkReloadContext = false;

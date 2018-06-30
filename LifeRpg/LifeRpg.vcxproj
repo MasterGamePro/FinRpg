@@ -160,9 +160,12 @@
     <ClInclude Include="src\rpg\characters\npc.h" />
     <ClInclude Include="src\rpg\characters\player.h" />
     <ClInclude Include="src\rpg\characters\sprite3d.h" />
+    <ClInclude Include="src\rpg\save\options\options.h" />
+    <ClInclude Include="src\rpg\save\options\util.h" />
     <ClInclude Include="src\rpg\save\savedata.h" />
     <ClInclude Include="src\rpg\save\savereader.h" />
     <ClInclude Include="src\rpg\save\savewriter.h" />
+    <ClInclude Include="src\rpg\scenes\init\initscene.h" />
     <ClInclude Include="src\rpg\scenes\optionsmenu\optionsmenuscene.h" />
     <ClInclude Include="src\rpg\scenes\debugvillagescene.h" />
     <ClInclude Include="src\rpg\scenes\mainmenu\mainmenu.h" />
@@ -173,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\LifeRpg.cpp" />
+    <ClCompile Include="src\rpg\save\options\util.cpp" />
     <ClCompile Include="src\rpg\scenes\mainmenu\mainmenu.cpp" />
     <ClCompile Include="src\rpg\ui\options\optionsmenu.cpp" />
     <ClCompile Include="stdafx.cpp" />

@@ -5,7 +5,7 @@
 #include "fin/app/iapp.h"
 #include "fin/app/impl/glfw/appglfw.h"
 #include "fin/debug/log.h"
-#include "rpg/scenes/mainmenu/mainmenuscene.h"
+#include "rpg/scenes/init/initscene.h"
 
 int main() {
   try {
@@ -14,7 +14,7 @@ int main() {
     fin::debug::Log::println("OK!");
 
     fin::debug::Log::print("Launching app... ");
-    app->launch(new MainMenuScene() );
+    app->launch(new InitScene() );
     fin::debug::Log::println("OK!");
 
     fin::debug::Log::print("Freeing app data... ");

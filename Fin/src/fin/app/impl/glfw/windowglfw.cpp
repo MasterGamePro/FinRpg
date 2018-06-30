@@ -14,7 +14,7 @@ namespace fin::app {
   }
 
   void WindowGlfw::create_glfw_window(bool isFullscreen) {
-    this->isFullscreen = isFullscreen;
+    this->isFullscreen_ = isFullscreen;
 
     if (window != nullptr) { glfwDestroyWindow(window); }
 

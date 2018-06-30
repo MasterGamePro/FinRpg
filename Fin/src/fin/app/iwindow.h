@@ -27,13 +27,16 @@ namespace fin {
       virtual bool is_closed() = 0;
       virtual void close() = 0;
 
-      virtual void toggle_fullscreen() = 0;
+      virtual bool is_fullscreen() = 0;
+      void toggle_fullscreen() { toggle_fullscreen(!is_fullscreen()); }
+      virtual void toggle_fullscreen(const bool isFullscreen) = 0;
 
       virtual graphics::View* get_view() = 0;
 
       virtual void render(graphics::IGraphics* g, IApp* app);
 
-      virtual void save_screenshot(std::string name, image::ImageFileType imageType) = 0;
+      virtual void save_screenshot(std::string name,
+                                   image::ImageFileType imageType) = 0;
     };
   }
 }

@@ -64,6 +64,15 @@
     <ClInclude Include="src\rpg\scenes\optionsmenu\optionsmenuscene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\rpg\scenes\init\initscene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rpg\save\options\options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rpg\save\options\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -76,6 +85,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\rpg\ui\options\optionsmenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rpg\save\options\util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

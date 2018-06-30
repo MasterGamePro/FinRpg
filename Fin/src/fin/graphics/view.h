@@ -11,7 +11,7 @@ namespace fin {
       View() { rectangle = new math::TreeRectangle(); }
 
       void set_camera(Camera* camera) { this->camera = camera; }
-      Camera* get_camera() { return camera; }
+      Camera* get_camera() const { return camera; }
 
       math::TreeRectangle* get_rectangle() const { return rectangle; }
 
@@ -19,7 +19,7 @@ namespace fin {
 
       private:
       math::TreeRectangle* rectangle;
-      Camera* camera;
+      Camera* camera = nullptr;
     };
   }
 }

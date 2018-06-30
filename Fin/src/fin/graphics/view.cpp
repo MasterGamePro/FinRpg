@@ -4,6 +4,10 @@
 
 namespace fin::graphics {
   void View::render( IGraphics* g ) {
+    if(camera == nullptr) {
+      return;
+    }
+
     IScreen* s = g->s();
 
     if ( s == nullptr ) {

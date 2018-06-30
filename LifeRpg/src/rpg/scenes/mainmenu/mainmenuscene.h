@@ -7,6 +7,8 @@
 
 class MainMenuScene : public fin::app::IScene {
   void on_start(fin::app::IApp* app) override final {
+    fin::debug::Log::println("MainMenuScene.start() {");
+
     auto window = app->get_main_window();
     auto view = window->get_view();
 
@@ -17,9 +19,12 @@ class MainMenuScene : public fin::app::IScene {
     camera->set_stage(stage);
 
     stage->add_child(new MainMenu(app, window));
+
+    fin::debug::Log::println("MainMenuScene.start() }");
   }
 
   void on_end() override final {
     // TODO: Delete the stage.
+    fin::debug::Log::println("MainMenuScene.end()");
   }
 };

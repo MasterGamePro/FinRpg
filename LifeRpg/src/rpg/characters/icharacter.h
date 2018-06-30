@@ -10,6 +10,7 @@
 #include "fin/math/trig.h"
 #include "fin/time/deltatime.h"
 
+// TODO: Depth-sort in DepthManager LifeRpg class.
 class ICharacter : public fin::app::IActor {
   public:
   ICharacter(std::string name, fin::graphics::ITextures* ts) {
@@ -41,7 +42,8 @@ class ICharacter : public fin::app::IActor {
       isMoving = true;
       positionData_->v_x(amount * fin::math::cosd(dir));
       positionData_->v_y(amount * fin::math::sind(dir));
-    } else {
+    }
+    else {
       isMoving = false;
       positionData_->v_x(0);
       positionData_->v_y(0);
@@ -94,10 +96,8 @@ class ICharacter : public fin::app::IActor {
     double angleDist = fin::math::angle_distd(flipDirection,
                                               targetFlipDirection);
 
-    if (fabs(angleDist) <= flipSpeed
-    ) { flipDirection = targetFlipDirection; } else {
-      flipDirection += (angleDist > 0 ? 1 : -1) * flipSpeed;
-    }
+    if (fabs(angleDist) <= flipSpeed) { flipDirection = targetFlipDirection; }
+    else { flipDirection += (angleDist > 0 ? 1 : -1) * flipSpeed; }
   }
 
   void on_tick_audio() override { }
@@ -115,14 +115,15 @@ class ICharacter : public fin::app::IActor {
     g->p()->color3d(1, 1, 1);
 
     g->ts()->bind(shadowTexture);
-    g->r3d()->draw_floor(-5, -5, 5, 5, 0);
+    g->r3d()->draw_floor(-5, -1, 5, 1, 0);
 
     fin::graphics::Texture img;
 
     if (isMoving) {
       index += moveAmt * .15;
       img = walkingTextures[(int)index % 4];
-    } else { img = standingTextures[0]; }
+    }
+    else { img = standingTextures[0]; }
 
     int xd = -2;
 

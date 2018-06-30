@@ -1,8 +1,11 @@
 #pragma once
+#include <array>
+#include <json/json.h>
 #include "fin/algorithm/string/format.h"
 #include "fin/app/iapp.h"
 #include "fin/app/actor/iactor.h"
 #include "fin/input/iinput.h"
+#include "rpg/save/options/util.h"
 
 // TODO: Create a common interface for options.
 class OptionsMenu : public fin::app::IActor {
@@ -10,23 +13,28 @@ class OptionsMenu : public fin::app::IActor {
   OptionsMenu(fin::app::IApp* app, fin::app::IWindow* window) {
     this->app = app;
     this->window = window;
+    load_settings();
+  }
+
+  // TODO: Move to external Options class.
+  static void load_settings_static(fin::app::IApp* app,
+                                   fin::app::IWindow* window) {
+    OptionsMenu menu(app, window);
+    menu.load_settings();
   }
 
   protected:
   void on_tick_control(fin::input::IInput* i) override final;
 
-  void on_tick_physics() override final {
+  void on_tick_physics() override final { }
 
-  }
-
-  void on_tick_collision() override final {
-
-  }
+  void on_tick_collision() override final { }
 
   void on_tick_animation() override {}
   void on_tick_audio() override final {}
 
   void on_tick_render_perspective(fin::graphics::IGraphics* g) override final {}
+
   void on_tick_render_ortho(fin::graphics::IGraphics* g) override {
     auto r2d = g->r2d();
 
@@ -57,31 +65,53 @@ class OptionsMenu : public fin::app::IActor {
       r2d->drawCircle(x + lineHeight / 2, y + lineHeight / 2, pointRad, true);
       double rx = x + lineHeight;
       if (i == 0) {
-        for (int r = 0; r < 2; r++) {
-          const int* resolution = resolutions[r];
+        for (int r = 0; r < resolutions.size(); r++) {
+          const auto resolution = resolutions[r];
           double vv = v * (r == selectedResolution ? 1 : .8);
-          std::string s = fin::algorithm::format_string("%dx%d", resolution[0], resolution[1]);
+          std::string s = fin::algorithm::format_string("%dx%d", resolution[0],
+                                                        resolution[1]);
           g->p()->color3d(vv, vv, vv);
           g->rt()->draw_string(s, rx, y);
           rx += s.length() * 8;
         }
       }
       else if (i == 1) {
-        r2d->draw_rectangle(rx, y, lineHeight, lineHeight, isFullscreen);
+        r2d->draw_rectangle(rx, y, lineHeight, lineHeight,
+                            options_.is_fullscreen());
         g->rt()->draw_string("Fullscreen", rx + lineHeight, y);
       }
-      else if (i == 2) {
-        g->rt()->draw_string("Back", rx, y);
-      }
+      else if (i == 2) { g->rt()->draw_string("Back", rx, y); }
       y += lineHeight;
     }
   }
 
   private:
+  void load_settings() {
+    if (rpg::save::read_options_from_file(options_, file_)) {
+      const auto optionsWidth = options_.get_width();
+      const auto optionsHeight = options_.get_height();
+      for (int r = 0; r < resolutions.size(); r++) {
+        const auto resolution = resolutions[r];
+        if (resolution[0] == optionsWidth && resolution[1] == optionsHeight) {
+          selectedResolution = r;
+          break;
+        }
+      }
+      options_.apply(window);
+    }
+  }
+
+  void save_settings() {
+    rpg::save::write_options_to_file(options_, file_);
+  }
+
+  fin::io::File file_ = fin::io::File("saves/options.dat");
   fin::app::IApp* app;
   fin::app::IWindow* window;
   int option = 0, optionCount = 5;
   int selectedResolution = 1;
-  bool isFullscreen = false;
-  const int resolutions[3][2] = {{320, 240}, {640, 480}, {1920, 1080}};
+  const std::vector<std::array<int, 2>> resolutions{
+    {320, 240}, {640, 480}, {1280, 720}, {1400, 900}, {1600, 900}, {1920, 1080}
+  };
+  rpg::save::Options options_;
 };
