@@ -15,6 +15,8 @@ namespace fin::graphics {
 
     virtual void set_target_matrix(MatrixType matrixType) = 0;
 
+    virtual void print_matrix() = 0;
+
     virtual void push_matrix() = 0;
     virtual void pop_matrix() = 0;
 

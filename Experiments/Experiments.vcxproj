@@ -22,6 +22,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="polymorphism.h" />
     <ClInclude Include="smart_pointers.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -144,6 +144,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\promise-cpp-master\promise.hpp" />
     <ClInclude Include="lib\cimg\CImg.h" />
     <ClInclude Include="src\fin\algorithm\string\format.h" />
     <ClInclude Include="src\fin\algorithm\string\parser.h" />
@@ -193,6 +194,8 @@
     <ClInclude Include="src\fin\code\parse\statement\istatement.h" />
     <ClInclude Include="src\fin\code\parse\value\ivalue.h" />
     <ClInclude Include="src\fin\code\parse\value\ivariable.h" />
+    <ClInclude Include="src\fin\collision\cylindercollider.h" />
+    <ClInclude Include="src\fin\collision\icollider.h" />
     <ClInclude Include="src\fin\common\macros.h" />
     <ClInclude Include="src\fin\data\cache\cachemap.h" />
     <ClInclude Include="src\fin\data\any_iterator.h" />
@@ -318,8 +321,8 @@
     <ClInclude Include="src\fin\ui\itogglebutton.h" />
     <ClInclude Include="src\fin\ui\iui.h" />
     <ClInclude Include="src\fin\ui\iuielement.h" />
-    <ClInclude Include="src\fin\web\downloadstream.h" />
-    <ClInclude Include="src\fin\web\url.h" />
+    <ClInclude Include="src\fin\net\downloadstream.h" />
+    <ClInclude Include="src\fin\net\url.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

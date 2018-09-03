@@ -1,6 +1,7 @@
 #pragma once
 #include <array>
 
+// TODO: Break off some of these as a WindowOptions class.
 namespace rpg::save {
   class Options {
     public:

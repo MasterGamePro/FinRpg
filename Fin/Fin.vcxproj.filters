@@ -312,9 +312,6 @@
     <ClInclude Include="src\fin\stream\ioutputstream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\web\downloadstream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\audio\ibuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -471,9 +468,6 @@
     <ClInclude Include="src\fin\algorithm\string\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\web\url.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\audio\impl\openal\buffer_al.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -550,6 +544,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\app\components\control\imoderninputlayoutcontrolcomponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\collision\cylindercollider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\collision\icollider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\promise-cpp-master\promise.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\net\downloadstream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\net\url.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

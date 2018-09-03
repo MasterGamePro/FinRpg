@@ -73,6 +73,9 @@
     <ClInclude Include="src\rpg\save\options\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\rpg\characters\components\npcwandercontrolcomponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\rpg\characters\characteranimationcomponent.h" />
+    <ClInclude Include="src\rpg\characters\components\npcwandercontrolcomponent.h" />
     <ClInclude Include="src\rpg\characters\icharacter.h" />
     <ClInclude Include="src\rpg\characters\npc.h" />
     <ClInclude Include="src\rpg\characters\player.h" />

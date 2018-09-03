@@ -16,7 +16,7 @@ namespace fin::app {
     double v_x() const { return velocity_.x(); }
     double v_y() const { return velocity_.y(); }
     double v_z() const { return velocity_.z(); }
-    double v_x(const double _vX) { return velocity_.x(_vX); }
+     double v_x(const double _vX) { return velocity_.x(_vX); }
     double v_y(const double _vY) { return velocity_.y(_vY); }
     double v_z(const double _vZ) { return velocity_.z(_vZ); }
     const math::Normal3d& v_xyz() const { return velocity_; }

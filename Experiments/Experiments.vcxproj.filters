@@ -23,5 +23,8 @@
     <ClInclude Include="smart_pointers.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="polymorphism.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -132,6 +132,11 @@ class ICharacter : public fin::app::IActor {
     g->ts()->unbind();
   }
 
+  // TODO: VERY BAD! Pass this in via dependency injection!
+  std::weak_ptr<fin::app::PositionData3d> get_position_data() {
+    return positionData_;
+  }
+
   protected:
   bool isMoving = false;
   double moveAmt = 0;

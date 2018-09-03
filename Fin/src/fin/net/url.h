@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace fin::web {
+namespace fin::net {
   class Url {
     public:
     static Url from_url(std::string) {

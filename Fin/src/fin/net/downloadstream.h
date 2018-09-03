@@ -6,7 +6,7 @@
 #include "fin/stream/iinputstream.h"
 #include "url.h"
 
-namespace fin::web {
+namespace fin::net {
   class DownloadStream : stream::IInputStream<uint8_t> {
     public:
     DownloadStream(const Url& uri) {

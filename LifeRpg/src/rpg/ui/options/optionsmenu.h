@@ -87,7 +87,7 @@ class OptionsMenu : public fin::app::IActor {
 
   private:
   void load_settings() {
-    if (rpg::save::read_options_from_file(options_, file_)) {
+    if (read_options_from_file(options_, file_)) {
       const auto optionsWidth = options_.get_width();
       const auto optionsHeight = options_.get_height();
       for (int r = 0; r < resolutions.size(); r++) {
@@ -101,7 +101,7 @@ class OptionsMenu : public fin::app::IActor {
     }
   }
 
-  void save_settings() { rpg::save::write_options_to_file(options_, file_); }
+  void save_settings() { write_options_to_file(options_, file_); }
 
   void apply_settings() {
     window->set_size_and_fullscreen(options_.get_width(), options_.get_height(),
