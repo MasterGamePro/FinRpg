@@ -24,12 +24,6 @@
     <ClInclude Include="src\fin\app\components\icomponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\data\collections\list\ilist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\data\collections\icollection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -37,9 +31,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\app\components\render\irendercomponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\data\iiterable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\graphics\igraphics.h">
@@ -67,12 +58,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\graphics\impl\gl\primitivesgl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\data\collections\set\iset.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\data\collections\set\hashset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\app\actor\iactor.h">
@@ -264,15 +249,6 @@
     <ClInclude Include="src\fin\time\deltatime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\data\collections\stack\istack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\data\collections\stack\stlstack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\data\collections\list\stlvector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\io\file.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -450,9 +426,6 @@
     <ClInclude Include="src\fin\io\file_writer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\data\any_iterator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\input\keyboard_defs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -474,16 +447,7 @@
     <ClInclude Include="src\fin\audio\isinglesource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\data\cache\cachemap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\data\cache\cacheptr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\fin\graphics\texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\fin\data\map\missmap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\fin\graphics\impl\gl\texture\imagetextureutil.h">
@@ -555,10 +519,58 @@
     <ClInclude Include="..\..\promise-cpp-master\promise.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\net\downloadstream.h">
+    <ClInclude Include="src\fin\event\event.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\fin\net\url.h">
+    <ClInclude Include="src\fin\data\cache\cachemap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\cache\cacheptr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\collections\list\ilist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\collections\list\stlvector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\collections\set\hashset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\collections\set\iset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\collections\stack\istack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\collections\stack\stlstack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\collections\icollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\map\missmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\any_iterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\data\iiterable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\io\async\file_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\async\promise\promise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\function\pipeline_function.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\model\net\downloadstream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fin\model\net\url.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,7 +7,11 @@
 #include "fin/debug/log.h"
 #include "rpg/scenes/init/initscene.h"
 
-int main() {
+int WINAPI WinMain(HINSTANCE hInstance,    // HANDLE TO AN INSTANCE.  This is the "handle" to YOUR PROGRAM ITSELF.
+                   HINSTANCE hPrevInstance,// USELESS on modern windows (totally ignore hPrevInstance)
+                   LPSTR szCmdLine,        // Command line arguments.  similar to argv in standard C programs
+                   int iCmdShow          // Start window maximized, minimized, etc.
+                  ) {
   try {
     fin::debug::Log::print("Creating app... ");
     auto app = new fin::app::AppGlfw();

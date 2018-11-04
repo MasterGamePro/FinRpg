@@ -89,7 +89,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)src;$(ProjectDir)lib</AdditionalIncludeDirectories>
       <EnablePREfast>false</EnablePREfast>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
@@ -169,6 +169,7 @@
     <ClInclude Include="src\fin\app\iservice.h" />
     <ClInclude Include="src\fin\app\iscene.h" />
     <ClInclude Include="src\fin\app\stage.h" />
+    <ClInclude Include="src\fin\async\promise\promise.h" />
     <ClInclude Include="src\fin\audio\iaudio.h" />
     <ClInclude Include="src\fin\audio\iaudioloader.h" />
     <ClInclude Include="src\fin\audio\ibuffer.h" />
@@ -206,6 +207,8 @@
     <ClInclude Include="src\fin\data\collections\stack\istack.h" />
     <ClInclude Include="src\fin\data\collections\stack\stlstack.h" />
     <ClInclude Include="src\fin\data\map\missmap.h" />
+    <ClInclude Include="src\fin\event\event.h" />
+    <ClInclude Include="src\fin\function\pipeline_function.h" />
     <ClInclude Include="src\fin\graphics\color.h" />
     <ClInclude Include="src\fin\graphics\impl\gl\irendertextgl.h" />
     <ClInclude Include="src\fin\graphics\impl\gl\renderfonttextgl.h" />
@@ -228,6 +231,7 @@
     <ClInclude Include="src\fin\input\metrics\directionalinputrotationmeasurer.h" />
     <ClInclude Include="src\fin\input\metrics\pressableinputfrequencymeasurer.h" />
     <ClInclude Include="src\fin\input\mousedefs.h" />
+    <ClInclude Include="src\fin\io\async\file_utils.h" />
     <ClInclude Include="src\fin\math\common.h" />
     <ClInclude Include="src\fin\math\geometry\boundaries\iboundary.h" />
     <ClInclude Include="src\fin\math\geometry\boundaries\unionboundary.h" />
@@ -321,8 +325,8 @@
     <ClInclude Include="src\fin\ui\itogglebutton.h" />
     <ClInclude Include="src\fin\ui\iui.h" />
     <ClInclude Include="src\fin\ui\iuielement.h" />
-    <ClInclude Include="src\fin\net\downloadstream.h" />
-    <ClInclude Include="src\fin\net\url.h" />
+    <ClInclude Include="src\fin\model\net\downloadstream.h" />
+    <ClInclude Include="src\fin\model\net\url.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
